@@ -21,19 +21,19 @@ Written by
   José Antonio Hurtado - joseantonio.hurtado@gmail.com
   Juan Antonio Ortega  - jortegalalmolda@gmail.com
 -->
-<package name="Menu/Toolbar" lib="common" icon="menubar.xpm" desc="wxWidgets Menu and Toolbar Controls">
+<package name="菜单/工具栏" lib="common" icon="menubar.xpm" desc="wxWidgets菜单和工具栏控件">
 
   <objectinfo class="wxStatusBar" icon="statusbar.xpm" type="statusbar">
     <inherits class="wxWindow"/>
     <property name="name" type="text">m_statusBar</property>
-    <property name="fields" type="uint" help="Number of fields in the statusbar.">1</property>
+    <property name="fields" type="uint" help="状态栏中的字段数。">1</property>
     <property name="style" type="bitlist">
-      <option name="wxSTB_SIZEGRIP" help="Displays a gripper at the right-hand side of the status bar which can be used to resize the parent window."/>
-      <option name="wxSTB_SHOW_TIPS" help="Displays tooltips for those panes whose status text has been ellipsized/truncated because the status text doesn't fit the pane width. Note that this style has effect only on wxGTK (with GTK+ >= 2.12) currently."/>
-      <option name="wxSTB_ELLIPSIZE_START" help="Replace the beginning of the status texts with an ellipsis when the status text widths exceed the status bar pane's widths (uses wxControl::Ellipsize)."/>
-      <option name="wxSTB_ELLIPSIZE_MIDDLE" help="Replace the middle of the status texts with an ellipsis when the status text widths exceed the status bar pane's widths (uses wxControl::Ellipsize)."/>
-      <option name="wxSTB_ELLIPSIZE_END" help="Replace the end of the status texts with an ellipsis when the status text widths exceed the status bar pane's widths (uses wxControl::Ellipsize)."/>
-      <option name="wxSTB_DEFAULT_STYLE" help="The default style: includes wxSTB_SIZEGRIP|wxSTB_SHOW_TIPS|wxSTB_ELLIPSIZE_END|wxFULL_REPAINT_ON_RESIZE"/>
+      <option name="wxSTB_SIZEGRIP" help="在状态栏的右侧显示一个夹持器，可用于调整父窗口的大小。"/>
+      <option name="wxSTB_SHOW_TIPS" help="显示状态文本因不适合窗格宽度而被省略号/截断的窗格的工具提示。请注意，此样式目前仅对wxGTK（GTK+>=2.12）有效。"/>
+      <option name="wxSTB_ELLIPSIZE_START" help="当状态文本宽度超过状态栏窗格的宽度时，用省略号替换状态文本的开头（使用wxControl::Ellipseize）。"/>
+      <option name="wxSTB_ELLIPSIZE_MIDDLE" help="当状态文本宽度超过状态栏窗格的宽度时，用省略号替换状态文本的中间（使用wxControl::Ellipseize）。"/>
+      <option name="wxSTB_ELLIPSIZE_END" help="当状态文本宽度超过状态栏窗格的宽度时，将状态文本的末尾替换为省略号（使用wxControl::Ellipseize）。"/>
+      <option name="wxSTB_DEFAULT_STYLE" help="默认样式：包括 wxSTB_SIZEGRIP|wxSTB_SHOW_TIPS|wxSTB_ELLIPSIZE_END|wxFULL_REPAINT_ON_RESIZE"/>
       wxSTB_SIZEGRIP
     </property>
   </objectinfo>
@@ -42,7 +42,7 @@ Written by
     <inherits class="wxWindow"/>
     <property name="name" type="text">m_menubar</property>
     <property name="style" type="bitlist">
-      <option name="wxMB_DOCKABLE" help="Allows the menu bar to be detached (wxGTK only)."/>
+      <option name="wxMB_DOCKABLE" help="允许分离菜单栏(仅限wxGTK)。"/>
     </property>
   </objectinfo>
 
@@ -53,28 +53,28 @@ Written by
 
   <objectinfo class="submenu" icon="submenu.xpm" type="submenu">
     <property name="name" type="text">m_menu</property>
-    <property name="bitmap" type="bitmap" help="Bitmap for the menu item. (Windows, GTK+, and OSX only) This doubles as the checked bitmap is the menu item is wxITEM_CHECK."/>
+    <property name="bitmap" type="bitmap" help="菜单项的位图。（仅限Windows、GTK+和OSX）这兼作选中位图，即菜单项为wxITEM_CHECK。"/>
     <property name="label" type="wxString_i18n">MyMenu</property>
   </objectinfo>
 
   <objectinfo class="wxMenuItem" icon="menuitem.xpm" type="menuitem">
     <property name="name" type="text">m_menuItem</property>
-    <property name="label" type="wxString_i18n" help="Text for the menu item, as shown on the menu. An accelerator key can be specified using the ampersand &quot;&amp;&quot; character.">MyMenuItem</property>
-    <property name="shortcut" type="wxString" help="Optional shortcut keyboard shortcut. Remarks: The general syntax is any combination of &quot;CTRL&quot;, &quot;ALT&quot; and &quot;SHIFT&quot; strings (case doesn't matter) separated by either '-' or '+' characters and followed by the accelerator itself. The accelerator may be any alphanumeric character, any function key (from F1 to F12)"/>
-    <property name="help" type="wxString_i18n" help="Optional help string that will be shown on the status bar."/>
+    <property name="label" type="wxString_i18n" help="菜单项的文本，如菜单上所示。加速器键可以使用 &quot;&amp;&quot; 特征.">MyMenuItem</property>
+    <property name="shortcut" type="wxString" help="可选快捷键键盘快捷键。备注：一般语法为 &quot;CTRL&quot;, &quot;ALT&quot; 和 &quot;SHIFT&quot; 字符串(大小写无关紧要)的任意组合，它们之间用’-’或’+’字符分隔，后跟加速器本身。加速器可以是任何字母数字字符、任何功能键（从F1到F12）"/>
+    <property name="help" type="wxString_i18n" help="将显示在状态栏上的可选帮助字符串。"/>
     <property name="id" type="macro">wxID_ANY</property>
-    <property name="bitmap" type="bitmap" help="Bitmap for the menu item. (Windows, GTK+, and OSX only) This doubles as the checked bitmap is the menu item is wxITEM_CHECK."/>
-    <property name="unchecked_bitmap" type="bitmap" help="Unchecked bitmap for the menu item. This will be shown if the menu item is wxITEM_CHECK and it is currently unchecked. (Windows only)"/>
+    <property name="bitmap" type="bitmap" help="菜单项的位图。（仅限Windows、GTK+和OSX）这兼作选中位图，即菜单项为wxITEM_CHECK。"/>
+    <property name="unchecked_bitmap" type="bitmap" help="菜单项的未选中位图。如果菜单项为wxITEM_CHECK并且当前未选中，则会显示此项。（仅限Windows）"/>
     <property name="checked" type="bool">0</property>
     <property name="enabled" type="bool">1</property>
     <property name="kind" type="option">
-      <option name="wxITEM_NORMAL" help="Creates a normal menu item."/>
-      <option name="wxITEM_CHECK" help="Creates a checkable menu item."/>
-      <option name="wxITEM_RADIO" help="radio item to the end of the menu. All consequent radio items form a group and when an item in the group is checked, all the others are automatically unchecked. (Only on Windows and GTK)"/>
+      <option name="wxITEM_NORMAL" help="创建一个普通菜单项。"/>
+      <option name="wxITEM_CHECK" help="创建可检查的菜单项。"/>
+      <option name="wxITEM_RADIO" help="菜单末尾的单选项。所有后续单选项组成一个组，当选中组中的某个项时，所有其他项都会自动取消选中。（仅适用于Windows和GTK）"/>
       wxITEM_NORMAL
     </property>
-    <event name="OnMenuSelection" class="wxCommandEvent" help="Process a menu selection event."/>
-    <event name="OnUpdateUI" class="wxUpdateUIEvent" help="Process a wxEVT_UPDATE_UI event."/>
+    <event name="OnMenuSelection" class="wxCommandEvent" help="处理一个菜单选择事件。"/>
+    <event name="OnUpdateUI" class="wxUpdateUIEvent" help="处理wxEVT_UPDATE_UI事件。"/>
   </objectinfo>
 
   <objectinfo class="separator" icon="separator.xpm" type="menuitem">
@@ -85,25 +85,25 @@ Written by
     <inherits class="wxWindow"/>
     <inherits class="AUI"/>
     <property name="name" type="text">m_toolBar</property>
-    <property name="bitmapsize" type="wxSize" help="Default size of each tool bitmap. The default bitmap size is 16 by 15 pixels."/>
-    <property name="margins" type="wxSize" help="Values to be used as margins for the toolbar."/>
-    <property name="packing" type="uint" help="Value used for spacing tools. Remarks: The packing is used for spacing in the vertical direction if the toolbar is horizontal, and for spacing in the horizontal direction if the toolbar is vertical.">1</property>
-    <property name="separation" type="uint" help="The default separator size. Remarks: This is the size between each toolbar tool.">5</property>
+    <property name="bitmapsize" type="wxSize" help="每个工具位图的默认大小。默认位图大小为16 × 15像素。"/>
+    <property name="margins" type="wxSize" help="将用作工具栏边距的值。"/>
+    <property name="packing" type="uint" help="间隔工具使用的值。备注: 如果工具栏是水平的，则填充用于垂直方向的间距，如果工具栏是垂直的，则用于水平方向的间距。">1</property>
+    <property name="separation" type="uint" help="默认分隔符大小。备注:这是每个工具栏之间的大小。">5</property>
     <property name="style" type="bitlist">
-      <option name="wxTB_FLAT" help="Gives the toolbar a flat look (Windows and GTK only)."/>
-      <option name="wxTB_DOCKABLE" help="Makes the toolbar floatable and dockable (GTK only)."/>
-      <option name="wxTB_HORIZONTAL" help="Specifies horizontal layout (default)."/>
-      <option name="wxTB_VERTICAL" help="Specifies vertical layout."/>
-      <option name="wxTB_TEXT" help="Shows the text in the toolbar buttons; by default only icons are shown."/>
-      <option name="wxTB_NOICONS" help="Specifies no icons in the toolbar buttons; by default they are shown."/>
-      <option name="wxTB_NODIVIDER" help="Specifies no divider (border) above the toolbar (Windows only)."/>
-      <option name="wxTB_NOALIGN" help="Specifies no alignment with the parent window (Windows only, not very useful)."/>
-      <option name="wxTB_HORZ_LAYOUT" help="Shows the text and the icons alongside, not vertically stacked (Windows and GTK 2 only). This style must be used with wxTB_TEXT."/>
-      <option name="wxTB_HORZ_TEXT" help="Combination of wxTB_HORZ_LAYOUT and wxTB_TEXT."/>
-      <option name="wxTB_NO_TOOLTIPS" help="Don't show the short help tooltips for the tools when the mouse hovers over them."/>
-      <option name="wxTB_BOTTOM" help="Align the toolbar at the bottom of parent window."/>
-      <option name="wxTB_RIGHT" help="Align the toolbar at the right side of parent window."/>
-      <option name="wxTB_DEFAULT_STYLE" help="Combination of wxTB_HORIZONTAL and wxTB_FLAT. This style is new since wxWidgets 2.9.5."/>
+      <option name="wxTB_FLAT" help="使工具栏呈现平面外观(仅限Windows和GTK)。"/>
+      <option name="wxTB_DOCKABLE" help="使工具栏可浮动和停靠(仅限GTK)。"/>
+      <option name="wxTB_HORIZONTAL" help="指定水平布局(默认)。"/>
+      <option name="wxTB_VERTICAL" help="指定垂直布局。"/>
+      <option name="wxTB_TEXT" help="显示工具栏按钮中的文本;默认情况下只显示图标。"/>
+      <option name="wxTB_NOICONS" help="在工具栏按钮中不指定图标；默认情况下会显示它们。"/>
+      <option name="wxTB_NODIVIDER" help="指定工具栏上方没有分隔符(边框)(仅限Windows)。"/>
+      <option name="wxTB_NOALIGN" help="指定不与父窗口对齐(仅限Windows，不是很有用)."/>
+      <option name="wxTB_HORZ_LAYOUT" help="在旁边显示文本和图标，而不是垂直堆叠（仅限Windows和GTK 2）。此样式必须与wxTB_TEXT一起使用。"/>
+      <option name="wxTB_HORZ_TEXT" help="wxTB_HORZ_LAYOUT和wxTB_TEXT的组合。"/>
+      <option name="wxTB_NO_TOOLTIPS" help="当鼠标悬停在工具上时，不要显示工具的简短帮助提示。"/>
+      <option name="wxTB_BOTTOM" help="指定水平布局(默认)。"/>
+      <option name="wxTB_RIGHT" help="在父窗口的右侧对齐工具栏。"/>
+      <option name="wxTB_DEFAULT_STYLE" help="wxTB_HORIZONTAL和wxTB_FLAT的组合。这种样式是wxWidgets 2.9.5以来的新样式。"/>
       wxTB_HORIZONTAL
     </property>
   </objectinfo>
@@ -112,53 +112,53 @@ Written by
     <inherits class="wxWindow"/>
     <inherits class="AUI"/>
     <property name="name" type="text">m_auiToolBar</property>
-    <property name="bitmapsize" type="wxSize" help="Default size of each tool bitmap. The default bitmap size is 16 by 15 pixels."/>
-    <property name="margins" type="wxSize" help="Values to be used as margins for the toolbar."/>
-    <property name="packing" type="uint" help="Value used for spacing tools. Remarks: The packing is used for spacing in the vertical direction if the toolbar is horizontal, and for spacing in the horizontal direction if the toolbar is vertical.">1</property>
-    <property name="separation" type="uint" help="The default separator size. Remarks: This is the size between each toolbar tool.">5</property>
+    <property name="bitmapsize" type="wxSize" help="每个工具位图的默认大小。默认位图大小为16 × 15像素。"/>
+    <property name="margins" type="wxSize" help="将用作工具栏边距的值。"/>
+    <property name="packing" type="uint" help="间隔工具使用的值。备注: 如果工具栏是水平的，则填充用于垂直方向的间距，如果工具栏是垂直的，则用于水平方向的间距。">1</property>
+    <property name="separation" type="uint" help="默认分隔符大小。备注:这是每个工具栏之间的大小。">5</property>
     <property name="style" type="bitlist">
       <option name="wxAUI_TB_TEXT"/>
       <option name="wxAUI_TB_NO_TOOLTIPS"/>
       <option name="wxAUI_TB_NO_AUTORESIZE"/>
       <option name="wxAUI_TB_GRIPPER"/>
       <option name="wxAUI_TB_OVERFLOW"/>
-      <option name="wxAUI_TB_VERTICAL" help="Using this style forces the toolbar to be vertical and be only dockable to the left or right sides of the window whereas by default it can be horizontal or vertical and be docked anywhere."/>
+      <option name="wxAUI_TB_VERTICAL" help="使用此样式会强制工具栏垂直，并且只能停靠在窗口的左侧或右侧，而默认情况下，它可以是水平或垂直的，并且可以停靠在任何位置。"/>
       <option name="wxAUI_TB_HORZ_LAYOUT"/>
-      <option name="wxAUI_TB_HORIZONTAL" help="Analogous to wxAUI_TB_VERTICAL, but forces the toolbar to be horizontal."/>
-      <option name="wxAUI_TB_PLAIN_BACKGROUND" help="Draw a plain background (based on parent) instead of the default gradient background."/>
-      <option name="wxAUI_TB_HORZ_TEXT" help="Equivalent to wxAUI_TB_HORZ_LAYOUT | wxAUI_TB_TEXT"/>
-      <option name="wxAUI_TB_DEFAULT_STYLE" help="The default is to have no styles."/>
+      <option name="wxAUI_TB_HORIZONTAL" help="类似于wxAUI_TB_VERTICAL，但强制工具栏水平。"/>
+      <option name="wxAUI_TB_PLAIN_BACKGROUND" help="绘制一个纯背景(基于父背景)，而不是默认的渐变背景。"/>
+      <option name="wxAUI_TB_HORZ_TEXT" help="等效于wxAUI_TB_HORZ_LAYOUT | wxAUI_TB_TEXT"/>
+      <option name="wxAUI_TB_DEFAULT_STYLE" help="默认是没有样式。"/>
       wxAUI_TB_HORZ_LAYOUT
     </property>
     <property name="label_visible" type="bool">0</property>
     <property name="toolbar_label" type="text">label</property>
-    <property name="use_explicit_ids" type="bool" help="Use user-specified tool IDs instead of automatically assigned ones (needed for old wxAuiToolBar implementation).">0</property>
+    <property name="use_explicit_ids" type="bool" help="使用用户指定的工具id，而不是自动分配的工具id(旧的wxAuiToolBar实现需要)">0</property>
   </objectinfo>
 
   <objectinfo class="tool" icon="tool.xpm" type="tool">
     <property name="name" type="text">m_tool</property>
     <property name="label" type="wxString_i18n">tool</property>
-    <property name="bitmap" type="bitmap" help="The primary tool bitmap."/>
+    <property name="bitmap" type="bitmap" help="主工具位图。"/>
     <property name="kind" type="option">
-      <option name="wxITEM_NORMAL" help="A normal toolbar button."/>
-      <option name="wxITEM_CHECK" help="A checkable tool (stays pressed after it has been toggled)."/>
-      <option name="wxITEM_RADIO" help="A checkable tool which makes part of a radio group of tools each of which is automatically unchecked whenever another button in the group is checked."/>
+      <option name="wxITEM_NORMAL" help="一个普通的工具栏按钮。"/>
+      <option name="wxITEM_CHECK" help="一个可检查的工具(在切换后保持按下)。"/>
+      <option name="wxITEM_RADIO" help="一种可检查的工具，它是一组工具的一部分，每当检查组中的另一个按钮时，每个工具都会自动取消检查。"/>
       wxITEM_NORMAL
     </property>
-    <property name="context_menu" type="bool" help="Specifies that a drop-down menu button will appear next to the tool button. Used only with wxAuiToolBar.">0</property>
-    <property name="tooltip" type="wxString_i18n" help="Help string used in the tooltip."/>
-    <property name="statusbar" type="wxString_i18n" help="This string is shown in the statusbar (if any) of the parent frame when the mouse pointer is inside the tool."/>
+    <property name="context_menu" type="bool" help="指定下拉菜单按钮将出现在工具按钮旁边。仅用于wxAuiToolBar。">0</property>
+    <property name="tooltip" type="wxString_i18n" help="工具提示中使用的帮助字符串。"/>
+    <property name="statusbar" type="wxString_i18n" help="当鼠标指针位于工具内时，此字符串会显示在父框架的状态栏（如果有）中。"/>
     <property name="id" type="macro">wxID_ANY</property>
-    <event name="OnToolClicked" class="wxCommandEvent" help="Process a wxEVT_COMMAND_TOOL_CLICKED event (a synonym for wxEVT_COMMAND_MENU_SELECTED). Pass the id of the tool."/>
-    <event name="OnMenuSelection" class="wxCommandEvent" help="The same as OnToolClicked. (EVT_TOOL)"/>
-    <event name="OnToolRClicked" class="wxCommandEvent" help="Process a wxEVT_COMMAND_TOOL_RCLICKED event."/>
-    <event name="OnToolEnter" class="wxCommandEvent" help="Process a wxEVT_COMMAND_TOOL_ENTER event. This uses the tools parent ID, the ToolBar, so be sure you set it to something that is not the default. The value of wxCommandEvent::GetSelection is the tool id, or -1 if the mouse cursor has moved off a tool."/>
-    <event name="OnUpdateUI" class="wxUpdateUIEvent" help="Process a wxEVT_UPDATE_UI event."/>
-    <event name="OnAuiToolBarToolDropDown" class="wxAuiToolBarEvent" help="Process a wxEVT_COMMAND_AUITOOLBAR_TOOL_DROPDOWN event."/>
-    <event name="OnAuiToolBarOverflowClick" class="wxAuiToolBarEvent" help="Process a wxEVT_COMMAND_AUITOOLBAR_OVERFLOW_CLICK event."/>
-    <event name="OnAuiToolBarRightClick" class="wxAuiToolBarEvent" help="Process a wxEVT_COMMAND_AUITOOLBAR_RIGHT_CLICK event."/>
-    <event name="OnAuiToolBarMiddleClick" class="wxAuiToolBarEvent" help="Process a wxEVT_COMMAND_AUITOOLBAR_MIDDLE_CLICK event."/>
-    <event name="OnAuiToolBarBeginDrag" class="wxAuiToolBarEvent" help="Process a wxEVT_COMMAND_AUITOOLBAR_BEGIN_DRAG event."/>
+    <event name="OnToolClicked" class="wxCommandEvent" help="处理wxEVT_COMMAND_TOOL_CLICKED事件。(wxEVT_COMMAND_MENU_SELECTED的同义词)。传递工具的id。"/>
+    <event name="OnMenuSelection" class="wxCommandEvent" help="和OnToolClicked一样。(EVT_TOOL)"/>
+    <event name="OnToolRClicked" class="wxCommandEvent" help="处理wxEVT_COMMAND_TOOL_RCLICKED事件。"/>
+    <event name="OnToolEnter" class="wxCommandEvent" help="处理wxEVT_COMMAND_TOOL_ENTER事件。这将使用工具的父ID，即 ToolBar，因此请确保将其设置为非默认值。wxCommandEvent::GetSelection的值是工具id，如果鼠标光标已从工具上移开，则为 -1。"/>
+    <event name="OnUpdateUI" class="wxUpdateUIEvent" help="处理wxEVT_UPDATE_UI事件。"/>
+    <event name="OnAuiToolBarToolDropDown" class="wxAuiToolBarEvent" help="处理wxEVT_COMMAND_AUITOOLBAR_TOOL_DROPDOWN事件。"/>
+    <event name="OnAuiToolBarOverflowClick" class="wxAuiToolBarEvent" help="处理wxEVT_COMMAND_AUITOOLBAR_OVERFLOW_CLICK事件。"/>
+    <event name="OnAuiToolBarRightClick" class="wxAuiToolBarEvent" help="处理wxEVT_COMMAND_AUITOOLBAR_RIGHT_CLICK事件。"/>
+    <event name="OnAuiToolBarMiddleClick" class="wxAuiToolBarEvent" help="处理wxEVT_COMMAND_AUITOOLBAR_MIDDLE_CLICK事件。"/>
+    <event name="OnAuiToolBarBeginDrag" class="wxAuiToolBarEvent" help="处理wxEVT_COMMAND_AUITOOLBAR_BEGIN_DRAG事件。"/>
   </objectinfo>
 
   <objectinfo class="toolSeparator" icon="toolSeparator.xpm" type="tool">
@@ -168,35 +168,35 @@ Written by
     <inherits class="wxWindow"/>
     <inherits class="AUI"/>
     <property name="name" type="text">m_infoCtrl</property>
-    <property name="show_effect" type="option" help="Set the effects to use when showing the bar.">
-      <option name="wxSHOW_EFFECT_NONE" help="No effect, equivalent to normal wxWindow::Show() or Hide() call."/>
-      <option name="wxSHOW_EFFECT_ROLL_TO_LEFT" help="Roll window to the left."/>
-      <option name="wxSHOW_EFFECT_ROLL_TO_RIGHT" help="Roll window to the right."/>
-      <option name="wxSHOW_EFFECT_ROLL_TO_TOP" help="Roll window to the top."/>
-      <option name="wxSHOW_EFFECT_ROLL_TO_BOTTOM" help="Roll window to the bottom."/>
-      <option name="wxSHOW_EFFECT_SLIDE_TO_LEFT" help="Slide window to the left."/>
-      <option name="wxSHOW_EFFECT_SLIDE_TO_RIGHT" help="Slide window to the right."/>
-      <option name="wxSHOW_EFFECT_SLIDE_TO_TOP" help="Slide window to the top."/>
-      <option name="wxSHOW_EFFECT_SLIDE_TO_BOTTOM" help="Slide window to the bottom."/>
-      <option name="wxSHOW_EFFECT_BLEND" help="Fade in or out effect."/>
-      <option name="wxSHOW_EFFECT_EXPAND" help="Expanding or collapsing effect."/>
+    <property name="show_effect" type="option" help="设置显示工具条时要使用的效果。">
+      <option name="wxSHOW_EFFECT_NONE" help="没有效果，相当于普通的wxWindow::Show()或Hide()调用。"/>
+      <option name="wxSHOW_EFFECT_ROLL_TO_LEFT" help="向左滚动窗口。"/>
+      <option name="wxSHOW_EFFECT_ROLL_TO_RIGHT" help="向右滚动窗口。"/>
+      <option name="wxSHOW_EFFECT_ROLL_TO_TOP" help="将窗口滚动到顶部。"/>
+      <option name="wxSHOW_EFFECT_ROLL_TO_BOTTOM" help="将窗口滚动到底部。"/>
+      <option name="wxSHOW_EFFECT_SLIDE_TO_LEFT" help="将窗口向左滑动。"/>
+      <option name="wxSHOW_EFFECT_SLIDE_TO_RIGHT" help="将窗口向右滑动。"/>
+      <option name="wxSHOW_EFFECT_SLIDE_TO_TOP" help="将窗口滑动到顶部。"/>
+      <option name="wxSHOW_EFFECT_SLIDE_TO_BOTTOM" help="将窗口滑动到底部。"/>
+      <option name="wxSHOW_EFFECT_BLEND" help="淡入或淡出效果。"/>
+      <option name="wxSHOW_EFFECT_EXPAND" help="扩展或折叠效果。"/>
       wxSHOW_EFFECT_NONE
     </property>
-    <property name="hide_effect" type="option" help="Set the effects to use when hiding the bar. ">
-      <option name="wxSHOW_EFFECT_NONE" help="No effect, equivalent to normal wxWindow::Show() or Hide() call."/>
-      <option name="wxSHOW_EFFECT_ROLL_TO_LEFT" help="Roll window to the left."/>
-      <option name="wxSHOW_EFFECT_ROLL_TO_RIGHT" help="Roll window to the right."/>
-      <option name="wxSHOW_EFFECT_ROLL_TO_TOP" help="Roll window to the top."/>
-      <option name="wxSHOW_EFFECT_ROLL_TO_BOTTOM" help="Roll window to the bottom."/>
-      <option name="wxSHOW_EFFECT_SLIDE_TO_LEFT" help="Slide window to the left."/>
-      <option name="wxSHOW_EFFECT_SLIDE_TO_RIGHT" help="Slide window to the right."/>
-      <option name="wxSHOW_EFFECT_SLIDE_TO_TOP" help="Slide window to the top."/>
-      <option name="wxSHOW_EFFECT_SLIDE_TO_BOTTOM" help="Slide window to the bottom."/>
-      <option name="wxSHOW_EFFECT_BLEND" help="Fade in or out effect."/>
-      <option name="wxSHOW_EFFECT_EXPAND" help="Expanding or collapsing effect."/>
+    <property name="hide_effect" type="option" help="设置隐藏工具条时使用的效果。">
+      <option name="wxSHOW_EFFECT_NONE" help="没有效果，相当于普通的wxWindow::Show()或Hide()调用。"/>
+      <option name="wxSHOW_EFFECT_ROLL_TO_LEFT" help="向左滚动窗口。"/>
+      <option name="wxSHOW_EFFECT_ROLL_TO_RIGHT" help="向右滚动窗口。"/>
+      <option name="wxSHOW_EFFECT_ROLL_TO_TOP" help="将窗口滚动到顶部。"/>
+      <option name="wxSHOW_EFFECT_ROLL_TO_BOTTOM" help="将窗口滚动到底部。"/>
+      <option name="wxSHOW_EFFECT_SLIDE_TO_LEFT" help="将窗口向左滑动。"/>
+      <option name="wxSHOW_EFFECT_SLIDE_TO_RIGHT" help="将窗口向右滑动。"/>
+      <option name="wxSHOW_EFFECT_SLIDE_TO_TOP" help="将窗口滑动到顶部。"/>
+      <option name="wxSHOW_EFFECT_SLIDE_TO_BOTTOM" help="将窗口滑动到底部。"/>
+      <option name="wxSHOW_EFFECT_BLEND" help="淡入或淡出效果。"/>
+      <option name="wxSHOW_EFFECT_EXPAND" help="扩展或折叠效果。"/>
       wxSHOW_EFFECT_NONE
     </property>
-    <property name="duration" type="int" help="Set the duration of the animation (in milliseconds) used when showing or hiding the bar.">500</property>
+    <property name="duration" type="int" help="设置显示或隐藏工具条时使用的动画持续时间(以毫秒为单位)。">500</property>
   </objectinfo>
 
 </package>

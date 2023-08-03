@@ -264,7 +264,7 @@ void ObjectTree::AddChildren(PObjectBase obj, wxTreeItemId& parent, bool is_root
             assert(parent);
 
             msg = wxString::Format(
-              wxT("Item without object as child of \'%s:%s\'"), itemParent->GetPropertyAsString(wxT("name")),
+              wxT("没有对象作为子对象的项 \'%s:%s\'"), itemParent->GetPropertyAsString(wxT("name")),
               itemParent->GetClassName());
 
             wxLogError(msg);
@@ -464,7 +464,7 @@ void ObjectTree::OnObjectSelected(wxFBObjectEvent& event)
         Connect(wxID_ANY, wxEVT_COMMAND_TREE_ITEM_COLLAPSED, wxTreeEventHandler(ObjectTree::OnExpansionChange));
     } else {
         wxLogError(
-          wxT("There is no tree item associated with this object.\n\tClass: %s\n\tName: %s"), obj->GetClassName(),
+          wxT("没有与此对象关联的树项目.\n\t类: %s\n\t名称: %s"), obj->GetClassName(),
           obj->GetPropertyAsString(wxT("name")));
     }
 }
@@ -530,20 +530,20 @@ END_EVENT_TABLE()
 
 ItemPopupMenu::ItemPopupMenu(PObjectBase obj) : m_object(obj)
 {
-    Append(MENU_CUT, wxT("Cut\tCtrl+X"));
-    Append(MENU_COPY, wxT("Copy\tCtrl+C"));
-    Append(MENU_PASTE, wxT("Paste\tCtrl+V"));
+    Append(MENU_CUT, wxT("剪切\tCtrl+X"));
+    Append(MENU_COPY, wxT("复制\tCtrl+C"));
+    Append(MENU_PASTE, wxT("粘贴\tCtrl+V"));
     AppendSeparator();
-    Append(MENU_DELETE, wxT("Delete\tCtrl+D"));
+    Append(MENU_DELETE, wxT("删除\tCtrl+D"));
     AppendSeparator();
-    Append(MENU_MOVE_UP, wxT("Move Up\tAlt+Up"));
-    Append(MENU_MOVE_DOWN, wxT("Move Down\tAlt+Down"));
-    Append(MENU_MOVE_LEFT, wxT("Move Left\tAlt+Left"));
-    Append(MENU_MOVE_RIGHT, wxT("Move Right\tAlt+Right"));
+    Append(MENU_MOVE_UP, wxT("向上移动\tAlt+Up"));
+    Append(MENU_MOVE_DOWN, wxT("向下移动\tAlt+Down"));
+    Append(MENU_MOVE_LEFT, wxT("向左移动\tAlt+Left"));
+    Append(MENU_MOVE_RIGHT, wxT("向右移动\tAlt+Right"));
     AppendSeparator();
-    Append(MENU_MOVE_NEW_BOXSIZER, wxT("Move into a new wxBoxSizer"));
+    Append(MENU_MOVE_NEW_BOXSIZER, wxT("移动到一个新的wxBoxSizer"));
     AppendSeparator();
-    Append(MENU_EDIT_MENUS, wxT("Menu Editor..."));
+    Append(MENU_EDIT_MENUS, wxT("菜单编辑器. ."));
 }
 
 void ItemPopupMenu::OnMenuEvent(wxCommandEvent& event)

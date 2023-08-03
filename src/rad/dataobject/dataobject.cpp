@@ -85,7 +85,7 @@ PObjectBase wxFBDataObject::GetObject() const
     auto versionMajor = root->IntAttribute("fbp_version_major", -1);
     auto versionMinor = root->IntAttribute("fbp_version_minor", -1);
     if (versionMajor < 0 || versionMinor < 0) {
-        wxLogError(_("wxFormBuilderDataFormat: Invalid version %i.%i"), versionMajor, versionMinor);
+        wxLogError(_("wxFormBuilderDataFormat: 无效的版本 %i.%i"), versionMajor, versionMinor);
 
         return PObjectBase();
     }
@@ -94,7 +94,7 @@ PObjectBase wxFBDataObject::GetObject() const
         versionMajor > AppData()->m_fbpVerMajor ||
         (versionMajor == AppData()->m_fbpVerMajor && versionMinor > AppData()->m_fbpVerMinor)
     ) {
-        wxLogError(_("wxFormBuilderDataFormat: This object cannot be pasted because it is from a newer version of wxFormBuilder"));
+        wxLogError(_("wxFormBuilderDataFormat: 无法粘贴此对象，因为它来自较新版本的wxFormBuilder"));
 
         return PObjectBase();
     }

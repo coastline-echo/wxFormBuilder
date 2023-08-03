@@ -146,13 +146,13 @@ int MyApp::OnRun()
     bool hasLanguage = parser.Found(wxT("l"), &language);
     if (parser.Found(wxT("g"))) {
         if (projectToLoad.empty()) {
-            wxLogError(_("You must pass a path to a project file. Nothing to generate."));
+            wxLogError(_("必须传递项目文件的路径。没有要生成的内容."));
             return 2;
         }
 
         if (hasLanguage) {
             if (language.empty()) {
-                wxLogError(_("Empty language option. Nothing generated."));
+                wxLogError(_("空语言选项。未生成任何内容."));
                 return 3;
             }
             language.Replace(wxT(","), wxT("|"), true);
@@ -173,12 +173,12 @@ int MyApp::OnRun()
         if (!projectToLoad.empty()) {
             wxFileName projectPath(projectToLoad);
             if (!projectPath.IsOk()) {
-                THROW_WXFBEX(wxT("This path is invalid: ") << projectToLoad);
+                THROW_WXFBEX(wxT("此路径无效: ") << projectToLoad);
             }
 
             if (!projectPath.IsAbsolute()) {
                 if (!projectPath.MakeAbsolute()) {
-                    THROW_WXFBEX(wxT("Could not make path absolute: ") << projectToLoad);
+                    THROW_WXFBEX(wxT("无法使路径为绝对路径: ") << projectToLoad);
                 }
             }
             projectToLoad = projectPath.GetFullPath();
@@ -209,7 +209,7 @@ int MyApp::OnRun()
     try {
         AppDataInit();
     } catch (wxFBException& ex) {
-        wxLogError(_("Error loading application: %s\nwxFormBuilder cannot continue."), ex.what());
+        wxLogError(_("错误加载应用程序:: %s\nwxFormBuilder无法继续。"), ex.what());
         wxLog::FlushActive();
         return 5;
     }
@@ -276,7 +276,7 @@ int MyApp::OnRun()
                 return wxApp::OnRun();
             }
         } else {
-            wxLogError(wxT("Unable to load project: %s"), projectToLoad);
+            wxLogError(wxT("无法加载项目: %s"), projectToLoad);
         }
     }
 
@@ -416,7 +416,7 @@ public:
 
     ~LoggingStackWalker() override
     {
-        wxLogError(wxT("A Fatal Error Occurred. Click Details for a backtrace."));
+        wxLogError(wxT("发生致命错误。单击“详细信息”进行回溯。"));
         wxLog::Resume();
         wxLog* logger = wxLog::GetActiveTarget();
         if (0 != logger) {

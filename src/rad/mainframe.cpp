@@ -509,8 +509,8 @@ void MainFrame::OnSaveProject(wxCommandEvent& event)
 void MainFrame::OnSaveAsProject(wxCommandEvent&)
 {
     wxFileDialog* dialog = new wxFileDialog(
-      this, wxT("Save Project"), m_currentDir, wxT(""),
-      wxT("wxFormBuilder Project File (*.fbp)|*.fbp|All files (*.*)|*.*"), wxFD_SAVE);
+      this, wxT("保存项目"), m_currentDir, wxT(""),
+      wxT("wxFormBuilder 项目文件 (*.fbp)|*.fbp|All files (*.*)|*.*"), wxFD_SAVE);
 
     if (dialog->ShowModal() == wxID_OK) {
         m_currentDir = dialog->GetDirectory();
@@ -527,7 +527,7 @@ void MainFrame::OnSaveAsProject(wxCommandEvent&)
         // Check the file whether exists or not
         if (file.FileExists() == true) {
             wxMessageDialog msg_box(
-              this, wxT("The file already exists. Do you want to replace it?"), wxT("Overwrite the file"),
+              this, wxT("该文件已经存在。要替换它吗？"), wxT("Overwrite the file"),
               wxYES_NO | wxICON_INFORMATION | wxNO_DEFAULT);
             if (msg_box.ShowModal() == wxID_NO) {
                 dialog->Destroy();
@@ -552,8 +552,8 @@ void MainFrame::OnOpenProject(wxCommandEvent&)
         return;
 
     wxFileDialog* dialog = new wxFileDialog(
-      this, wxT("Open Project"), m_currentDir, wxT(""),
-      wxT("wxFormBuilder Project File (*.fbp)|*.fbp|All files (*.*)|*.*"), wxFD_OPEN);
+      this, wxT("打开项目"), m_currentDir, wxT(""),
+      wxT("wxFormBuilder 项目文件 (*.fbp)|*.fbp|All files (*.*)|*.*"), wxFD_OPEN);
 
     if (dialog->ShowModal() == wxID_OK) {
         m_currentDir = dialog->GetDirectory();
@@ -586,9 +586,9 @@ void MainFrame::OnOpenRecent(wxCommandEvent& event)
         if (
           wxMessageBox(
             wxString::Format(
-              wxT("The project file '%s' doesn't exist. Would you like to remove it from the recent files list?"),
+              wxT("项目文件 '%s' 不存在。是否要将其从最近文件列表中删除"),
               filename.GetName().GetData()),
-            wxT("Open recent project"), wxICON_WARNING | wxYES_NO) == wxYES) {
+            wxT("打开近期的项目"), wxICON_WARNING | wxYES_NO) == wxYES) {
             m_recentProjects[i] = wxT("");
             UpdateRecentProjects();
         }
@@ -599,7 +599,7 @@ void MainFrame::OnImportXrc([[maybe_unused]] wxCommandEvent& event)
 {
     wxFileDialog dlg(
         this,
-        _("Import XRC File"),
+        _("导入 XRC 文件"),
         m_currentDir,
         wxEmptyString,
         _("XRC files (*.xrc)|*.xrc|All files (*.*)|*.*"),
@@ -614,7 +614,7 @@ void MainFrame::OnImportXrc([[maybe_unused]] wxCommandEvent& event)
     XrcLoader xrcLoader(AppData()->GetObjectDatabase());
     auto doc = XMLUtils::LoadXMLFile(xrcFile.GetFullPath(), false);
     if (!doc) {
-        wxLogError(_("%s: Failed to open file"), xrcFile.GetFullPath());
+        wxLogError(_("%s: 无法打开文件"), xrcFile.GetFullPath());
         return;
     }
     if (doc->Error()) {
@@ -670,12 +670,12 @@ void MainFrame::OnClose(wxCloseEvent& event)
 
 void MainFrame::OnProjectLoaded(wxFBEvent&)
 {
-    GetStatusBar()->SetStatusText(wxT("Project Loaded!"));
+    GetStatusBar()->SetStatusText(wxT("项目已加载!"));
     PObjectBase project = AppData()->GetProjectData();
 
     if (project) {
         wxString objDetails = wxString::Format(
-          wxT("Name: %s | Class: %s"), project->GetPropertyAsString(wxT("name")), project->GetClassName());
+          wxT("名称: %s | 类型: %s"), project->GetPropertyAsString(wxT("name")), project->GetClassName());
         GetStatusBar()->SetStatusText(objDetails, STATUS_FIELD_OBJECT);
     }
 
@@ -684,7 +684,7 @@ void MainFrame::OnProjectLoaded(wxFBEvent&)
 
 void MainFrame::OnProjectSaved(wxFBEvent&)
 {
-    GetStatusBar()->SetStatusText(wxT("Project Saved!"));
+    GetStatusBar()->SetStatusText(wxT("项目已保存!"));
     UpdateFrame();
 }
 
@@ -759,7 +759,7 @@ void MainFrame::OnObjectSelected(wxFBObjectEvent& event)
 
     // GetStatusBar()->SetStatusText( wxT( "Object " ) + name + wxT( " Selected!" ) );
 
-    wxString objDetails = wxString::Format(wxT("Name: %s | Class: %s"), name, obj->GetClassName());
+    wxString objDetails = wxString::Format(wxT("名称: %s | 类型: %s"), name, obj->GetClassName());
 
     GetStatusBar()->SetStatusText(objDetails, STATUS_FIELD_OBJECT);
 
@@ -774,12 +774,11 @@ void MainFrame::OnObjectCreated(wxFBObjectEvent& event)
 
     if (event.GetFBObject()) {
         message.Printf(
-          wxT("Object '%s' of class '%s' created."), event.GetFBObject()->GetPropertyAsString(wxT("name")),
-          event.GetFBObject()->GetClassName());
+          wxT("'%s' 类的对象  '%s' 已创建。"), event.GetFBObject()->GetClassName(), 
+          event.GetFBObject()->GetPropertyAsString(wxT("name")));
     } else {
         message = wxT(
-          "Impossible to create the object. Did you forget to add a sizer/parent object or turn on/off an AUI "
-          "management?");
+          "无法创建对象。您是否忘记添加sizer/父对象或打开/关闭AUI管理?");
         wxMessageBox(message, wxT("wxFormBuilder"), wxICON_WARNING | wxOK);
     }
 
@@ -791,7 +790,7 @@ void MainFrame::OnObjectCreated(wxFBObjectEvent& event)
 void MainFrame::OnObjectRemoved(wxFBObjectEvent& event)
 {
     wxString message;
-    message.Printf(wxT("Object '%s' removed."), event.GetFBObject()->GetPropertyAsString(wxT("name")));
+    message.Printf(wxT("项目 '%s' 已被删除。"), event.GetFBObject()->GetPropertyAsString(wxT("name")));
     GetStatusBar()->SetStatusText(message);
     UpdateFrame();
 }
@@ -813,7 +812,7 @@ void MainFrame::OnPropertyModified(wxFBPropertyEvent& event)
                 }
             }
 
-            GetStatusBar()->SetStatusText(wxT("Property Modified!"));
+            GetStatusBar()->SetStatusText(wxT("修改属性!"));
         }
 
         // When you change the sizeritem properties, the object modified is not
@@ -827,7 +826,7 @@ void MainFrame::OnEventHandlerModified(wxFBEventHandlerEvent& event)
 {
     wxString message;
     message.Printf(
-      wxT("Event handler '%s' of object '%s' modified."), event.GetFBEventHandler()->GetName(),
+      wxT("已修改对象 '%s' 的事件处理程序 '%s' 。"), event.GetFBEventHandler()->GetName(),
       event.GetFBEventHandler()->GetObject()->GetPropertyAsString(wxT("name")));
 
     GetStatusBar()->SetStatusText(message);
@@ -840,7 +839,7 @@ void MainFrame::OnCodeGeneration(wxFBEvent& event)
     bool panelOnly = (event.GetId() != 0);
 
     if (panelOnly) {
-        GetStatusBar()->SetStatusText(wxT("Code Generated!"));
+        GetStatusBar()->SetStatusText(wxT("已生成代码!"));
     }
 }
 
@@ -1222,7 +1221,7 @@ void MainFrame::OnGenInhertedClass(wxCommandEvent& WXUNUSED(e))
     // Show the dialog
     PObjectBase project = AppData()->GetProjectData();
     if (project->IsPropertyNull(_("file"))) {
-        wxLogWarning(_("You must set the \"file\" property of the project before generating inherited classes."));
+        wxLogWarning(_("在生成继承类之前，必须设置项目的 \"file\" 属性。"));
         return;
     }
     GenInheritedClassDlg dlg(this, project);
@@ -1250,8 +1249,8 @@ bool MainFrame::SaveWarning()
 
     if (AppData()->IsModified()) {
         result = ::wxMessageBox(
-          wxT("Current project file has been modified...\n") wxT("Do you want to save the changes?"),
-          wxT("Save project"), wxYES | wxNO | wxCANCEL, this);
+          wxT("当前项目文件已被修改...\n") wxT("要保存更改吗?"),
+          wxT("保存项目"), wxYES | wxNO | wxCANCEL, this);
 
         if (result == wxYES) {
             wxCommandEvent dummy;
@@ -1421,64 +1420,61 @@ void MainFrame::OnFind(wxFindDialogEvent& event)
 wxMenuBar* MainFrame::CreateFBMenuBar()
 {
     wxMenu* menuFile = new wxMenu;
-    menuFile->Append(ID_NEW_PRJ, wxT("&New Project\tCtrl+N"), wxT("Create an empty project"));
-    menuFile->Append(ID_OPEN_PRJ, wxT("&Open...\tCtrl+O"), wxT("Open a project"));
+    menuFile->Append(ID_NEW_PRJ, wxT("&新项目\tCtrl+N"), wxT("创建一个空项目"));
+    menuFile->Append(ID_OPEN_PRJ, wxT("&打开...\tCtrl+O"), wxT("打开一个项目"));
 
-    menuFile->Append(ID_SAVE_PRJ, wxT("&Save\tCtrl+S"), wxT("Save current project"));
-    menuFile->Append(ID_SAVE_AS_PRJ, wxT("Save &As...\tCtrl-Shift+S"), wxT("Save current project as..."));
+    menuFile->Append(ID_SAVE_PRJ, wxT("&保存\tCtrl+S"), wxT("保存当前项目"));
+    menuFile->Append(ID_SAVE_AS_PRJ, wxT("另存为...\tCtrl+Shift+S"), wxT("另存当前项目为..."));
     menuFile->AppendSeparator();
-    menuFile->Append(ID_IMPORT_XRC, wxT("&Import XRC..."), wxT("Import XRC file"));
+    menuFile->Append(ID_IMPORT_XRC, wxT("&导入 XRC..."), wxT("导入 XRC 文件"));
     menuFile->AppendSeparator();
-    menuFile->Append(ID_GENERATE_CODE, wxT("&Generate Code\tF8"), wxT("Generate Code"));
+    menuFile->Append(ID_GENERATE_CODE, wxT("&生成代码\tF8"), wxT("生成代码"));
     menuFile->AppendSeparator();
-    menuFile->Append(wxID_EXIT, wxT("E&xit\tAlt-F4"), wxT("Quit wxFormBuilder"));
+    menuFile->Append(wxID_EXIT, wxT("退出\tAlt-F4"), wxT("退出 wxFormBuilder"));
 
     wxMenu* menuEdit = new wxMenu;
-    menuEdit->Append(ID_UNDO, wxT("&Undo \tCtrl+Z"), wxT("Undo changes"));
-    menuEdit->Append(ID_REDO, wxT("&Redo \tCtrl+Y"), wxT("Redo changes"));
+menuEdit->Append(ID_UNDO, wxT("&撤消 \tCtrl+Z"), wxT("“撤消修改"));
+    menuEdit->Append(ID_REDO, wxT("恢复 \tCtrl+Y"), wxT("恢复更改"));
     menuEdit->AppendSeparator();
-    menuEdit->Append(ID_COPY, wxT("&Copy \tCtrl+C"), wxT("Copy selected object"));
-    menuEdit->Append(ID_CUT, wxT("Cut \tCtrl+X"), wxT("Cut selected object"));
-    menuEdit->Append(ID_PASTE, wxT("&Paste \tCtrl+V"), wxT("Paste on selected object"));
-    menuEdit->Append(ID_DELETE, wxT("&Delete \tCtrl+D"), wxT("Delete selected object"));
+    menuEdit->Append(ID_COPY, wxT("&复制 \tCtrl+C"), wxT("复制选定对象"));
+    menuEdit->Append(ID_CUT, wxT("剪切 \tCtrl+X"), wxT("剪切选定对象"));
+    menuEdit->Append(ID_PASTE, wxT("粘贴 \tCtrl+V"), wxT("粘贴到所选对象上"));
+    menuEdit->Append(ID_DELETE, wxT("删除 \tCtrl+D"), wxT("删除选定对象"));
     menuEdit->AppendSeparator();
-    menuEdit->Append(ID_CLIPBOARD_COPY, wxT("Copy Object To Clipboard\tCtrl+Shift+C"), wxT("Copy Object to Clipboard"));
+    menuEdit->Append(ID_CLIPBOARD_COPY, wxT("复制对象到剪贴板\tCtrl+Shift+C"), wxT("复制对象到剪贴板"));
     menuEdit->Append(
-      ID_CLIPBOARD_PASTE, wxT("Paste Object From Clipboard\tCtrl+Shift+V"), wxT("Paste Object from Clipboard"));
+      ID_CLIPBOARD_PASTE, wxT("从剪贴板粘贴对象\tCtrl+Shift+V"), wxT("从剪贴板粘贴对象"));
     menuEdit->AppendSeparator();
-    menuEdit->Append(ID_EXPAND, wxT("Toggle &Expand\tAlt+W"), wxT("Toggle wxEXPAND flag of sizeritem properties"));
-    menuEdit->Append(ID_STRETCH, wxT("Toggle &Stretch\tAlt+S"), wxT("Toggle option property of sizeritem properties"));
-    menuEdit->Append(ID_MOVE_UP, wxT("Move Up\tAlt+Up"), wxT("Move Up selected object"));
-    menuEdit->Append(ID_MOVE_DOWN, wxT("Move Down\tAlt+Down"), wxT("Move Down selected object"));
-    menuEdit->Append(ID_MOVE_LEFT, wxT("Move Left\tAlt+Left"), wxT("Move Left selected object"));
-    menuEdit->Append(ID_MOVE_RIGHT, wxT("Move Right\tAlt+Right"), wxT("Move Right selected object"));
+    menuEdit->Append(ID_EXPAND, wxT("切换扩展\tAlt+W"), wxT("切换sizeitem属性的wxEXPAND标志"));
+    menuEdit->Append(ID_STRETCH, wxT("切换Stretch\tAlt+S"), wxT("切换 sizeritem 属性的选项属性"));
+    menuEdit->Append(ID_MOVE_UP, wxT("向上移动\tAlt+Up"), wxT("上移所选对象"));
+    menuEdit->Append(ID_MOVE_DOWN, wxT("向下移动\tAlt+Down"), wxT("下移所选对象"));
+    menuEdit->Append(ID_MOVE_LEFT, wxT("向左移动\tAlt+Left"), wxT("左移所选对象"));
+    menuEdit->Append(ID_MOVE_RIGHT, wxT("向右移动\tAlt+Right"), wxT("右移所选对象"));
     menuEdit->AppendSeparator();
-    menuEdit->Append(ID_FIND, wxT("&Find\tCtrl+F"), wxT("Find text in the active code viewer"));
+    menuEdit->Append(ID_FIND, wxT("&查找\tCtrl+F"), wxT("在活动代码查看器中查找文本"));
     menuEdit->AppendSeparator();
-    menuEdit->Append(ID_ALIGN_LEFT, wxT("&Align &Left\tAlt+Shift+Left"), wxT("Align item to the left"));
-    menuEdit->Append(
-      ID_ALIGN_CENTER_H, wxT("&Align Center &Horizontal\tAlt+Shift+H"), wxT("Align item to the center horizontally"));
-    menuEdit->Append(ID_ALIGN_RIGHT, wxT("&Align &Right\tAlt+Shift+Right"), wxT("Align item to the right"));
-    menuEdit->Append(ID_ALIGN_TOP, wxT("&Align &Top\tAlt+Shift+Up"), wxT("Align item to the top"));
-    menuEdit->Append(
-      ID_ALIGN_CENTER_V, wxT("&Align Center &Vertical\tAlt+Shift+V"), wxT("Align item to the center vertically"));
-    menuEdit->Append(ID_ALIGN_BOTTOM, wxT("&Align &Bottom\tAlt+Shift+Down"), wxT("Align item to the bottom"));
+    menuEdit->Append(ID_ALIGN_LEFT, wxT("向左对齐\tAlt+Shift+Left"), wxT("将项目向左对齐"));
+    menuEdit->Append(ID_ALIGN_CENTER_H, wxT("水平居中对齐\tAlt+Shift+H"), wxT("将项目水平对齐到中心"));
+    menuEdit->Append(ID_ALIGN_RIGHT, wxT("向右对齐\tAlt+Shift+Right"), wxT("将项目向右对齐"));
+    menuEdit->Append(ID_ALIGN_TOP, wxT("向上对齐\tAlt+Shift+Up"), wxT("将项目对齐到顶部"));
+    menuEdit->Append(ID_ALIGN_CENTER_V, wxT("垂直居中对齐\tAlt+Shift+V"), wxT("将项目垂直对齐到中心"));
+    menuEdit->Append(ID_ALIGN_BOTTOM, wxT("底部对齐\tAlt+Shift+Down"), wxT("将项目对齐到底部"));
 
     wxMenu* menuComponents = CreateMenuComponents();
 
     wxMenu* menuView = new wxMenu;
-    menuView->Append(ID_PREVIEW_XRC, wxT("&XRC Window\tF5"), wxT("Show a preview of the XRC window"));
+    menuView->Append(ID_PREVIEW_XRC, wxT("XRC 窗口\tF5"), wxT("显示XRC窗口的预览"));
     menuView->AppendSeparator();
-    menuView->Append(
-      ID_WINDOW_SWAP, wxT("&Swap The Editor and Properties Window\tF12"), wxT("Swap The Editor and Properties Window"));
+    menuView->Append(ID_WINDOW_SWAP, wxT("切换编辑器和属性窗口\tF12"), wxT("交换编辑器和属性窗口"));
 
     wxMenu* menuTools = new wxMenu;
     menuTools->Append(
-      ID_GEN_INHERIT_CLS, wxT("&Generate Inherited Class\tF6"),
-      wxT("Creates the needed files and class for proper inheritance of your designed GUI"));
+      ID_GEN_INHERIT_CLS, wxT("生成继承类\tF6"),
+      wxT("创建所需的文件和类，以便正确继承所设计的GUI"));
 
     wxMenu* menuHelp = new wxMenu;
-    menuHelp->Append(wxID_ABOUT, wxT("&About...\tF1"), wxT("Show about dialog"));
+    menuHelp->Append(wxID_ABOUT, wxT("关于\tF1"), wxT("显示关于对话框"));
 
     // now append the freshly created menu to the menu bar...
     wxMenuBar* menuBar = new wxMenuBar();
@@ -1496,7 +1492,7 @@ wxMenu* MainFrame::CreateMenuComponents()
 {
     wxMenu* menuComponents = new wxMenu;
 
-    menuComponents->Append(ID_FIND_COMPONENT, _("&Find Component...\tCtrl+Shift+F"), _("Show Component Search Dialog"));
+    menuComponents->Append(ID_FIND_COMPONENT, _("&Find Component...\tCtrl+Shift+F"), _("显示组件搜索对话框"));
 
     // Package count
     unsigned int pkg_count = AppData()->GetPackageCount();
@@ -1516,8 +1512,7 @@ wxMenu* MainFrame::CreateMenuComponents()
     auto* config = wxConfigBase::Get();
     wxStringTokenizer pageOrder(
       config->Read(
-        wxT("/palette/pageOrder"), wxT("Common,Additional,Data,Containers,Menu/Toolbar,"
-                                       "Layout,Forms,Ribbon")),
+        wxT("/palette/pageOrder"), wxT("通用类,附加类,数据类,容器类,菜单类/工具栏类,布局类,表单类,功能区类")),
       wxT(","));
     while (pageOrder.HasMoreTokens()) {
         const auto packageName = pageOrder.GetNextToken();
@@ -1584,84 +1579,82 @@ wxToolBar* MainFrame::CreateFBToolBar()
     wxToolBar* toolbar = CreateToolBar();
     toolbar->SetToolBitmapSize(wxSize(AppBitmaps::GetPixelSize(AppBitmaps::Size::Tool), AppBitmaps::GetPixelSize(AppBitmaps::Size::Tool)));
     toolbar->AddTool(
-      ID_NEW_PRJ, wxT("New Project"), AppBitmaps::GetBitmap(wxT("new"), AppBitmaps::Size::Tool), wxNullBitmap, wxITEM_NORMAL,
-      wxT("New Project (Ctrl+N)"), wxT("Start a new project."));
+      ID_NEW_PRJ, wxT("新项目"), AppBitmaps::GetBitmap(wxT("new"), AppBitmaps::Size::Tool), wxNullBitmap, wxITEM_NORMAL,
+      wxT("新项目 (Ctrl+N)"), wxT("开始一个新项目"));
     toolbar->AddTool(
-      ID_OPEN_PRJ, wxT("Open Project"), AppBitmaps::GetBitmap(wxT("open"), AppBitmaps::Size::Tool), wxNullBitmap, wxITEM_NORMAL,
-      wxT("Open Project (Ctrl+O)"), wxT("Open an existing project."));
+      ID_OPEN_PRJ, wxT("打开项目"), AppBitmaps::GetBitmap(wxT("open"), AppBitmaps::Size::Tool), wxNullBitmap, wxITEM_NORMAL,
+      wxT("打开项目 (Ctrl+O)"), wxT("打开一个现有的项目"));
     toolbar->AddTool(
-      ID_SAVE_PRJ, wxT("Save Project"), AppBitmaps::GetBitmap(wxT("save"), AppBitmaps::Size::Tool), wxNullBitmap, wxITEM_NORMAL,
-      wxT("Save Project (Ctrl+S)"), wxT("Save the current project."));
+      ID_SAVE_PRJ, wxT("保存项目"), AppBitmaps::GetBitmap(wxT("save"), AppBitmaps::Size::Tool), wxNullBitmap, wxITEM_NORMAL,
+      wxT("保存项目 (Ctrl+S)"), wxT("保存当前项目"));
     toolbar->AddSeparator();
     toolbar->AddTool(
-      ID_UNDO, wxT("Undo"), AppBitmaps::GetBitmap(wxT("undo"), AppBitmaps::Size::Tool), wxNullBitmap, wxITEM_NORMAL,
-      wxT("Undo (Ctrl+Z)"), wxT("Undo the last action."));
+      ID_UNDO, wxT("撤消"), AppBitmaps::GetBitmap(wxT("undo"), AppBitmaps::Size::Tool), wxNullBitmap, wxITEM_NORMAL,
+      wxT("撤消 (Ctrl+Z)"), wxT("撤消上一个操作。"));
     toolbar->AddTool(
-      ID_REDO, wxT("Redo"), AppBitmaps::GetBitmap(wxT("redo"), AppBitmaps::Size::Tool), wxNullBitmap, wxITEM_NORMAL,
-      wxT("Redo (Ctrl+Y)"), wxT("Redo the last action that was undone."));
+      ID_REDO, wxT("恢复"), AppBitmaps::GetBitmap(wxT("redo"), AppBitmaps::Size::Tool), wxNullBitmap, wxITEM_NORMAL,
+      wxT("恢复 (Ctrl+Y)"), wxT("恢复上次取消的操作。"));
     toolbar->AddSeparator();
     toolbar->AddTool(
-      ID_CUT, wxT("Cut"), AppBitmaps::GetBitmap(wxT("cut"), AppBitmaps::Size::Tool), wxNullBitmap, wxITEM_NORMAL,
-      wxT("Cut (Ctrl+X)"), wxT("Remove the selected object and place it on the clipboard."));
+      ID_CUT, wxT("剪切"), AppBitmaps::GetBitmap(wxT("cut"), AppBitmaps::Size::Tool), wxNullBitmap, wxITEM_NORMAL,
+      wxT("剪切 (Ctrl+X)"), wxT("删除所选对象并将其放置在剪贴板上。"));
     toolbar->AddTool(
-      ID_COPY, wxT("Copy"), AppBitmaps::GetBitmap(wxT("copy"), AppBitmaps::Size::Tool), wxNullBitmap, wxITEM_NORMAL,
-      wxT("Copy (Ctrl+C)"), wxT("Copy the selected object to the clipboard."));
+      ID_COPY, wxT("复制"), AppBitmaps::GetBitmap(wxT("copy"), AppBitmaps::Size::Tool), wxNullBitmap, wxITEM_NORMAL,
+      wxT("复制 (Ctrl+C)"), wxT("将所选对象复制到剪贴板"));
     toolbar->AddTool(
-      ID_PASTE, wxT("Paste"), AppBitmaps::GetBitmap(wxT("paste"), AppBitmaps::Size::Tool), wxNullBitmap, wxITEM_NORMAL,
-      wxT("Paste (Ctrl+V)"), wxT("Insert an object from the clipboard."));
+      ID_PASTE, wxT("粘贴"), AppBitmaps::GetBitmap(wxT("paste"), AppBitmaps::Size::Tool), wxNullBitmap, wxITEM_NORMAL,
+      wxT("粘贴 (Ctrl+V)"), wxT("从剪贴板插入一个对象"));
     toolbar->AddTool(
-      ID_DELETE, wxT("Delete"), AppBitmaps::GetBitmap(wxT("delete"), AppBitmaps::Size::Tool), wxNullBitmap, wxITEM_NORMAL,
-      wxT("Delete (Ctrl+D)"), wxT("Remove the selected object."));
+      ID_DELETE, wxT("删除"), AppBitmaps::GetBitmap(wxT("delete"), AppBitmaps::Size::Tool), wxNullBitmap, wxITEM_NORMAL,
+      wxT("删除 (Ctrl+D)"), wxT("删除选定对象"));
     toolbar->AddSeparator();
     toolbar->AddTool(
-      ID_GENERATE_CODE, wxT("Generate Code"), AppBitmaps::GetBitmap(wxT("generate"), AppBitmaps::Size::Tool), wxNullBitmap,
-      wxITEM_NORMAL, wxT("Generate Code (F8)"), wxT("Create code from the current project."));
+      ID_GENERATE_CODE, wxT("生成代码"), AppBitmaps::GetBitmap(wxT("generate"), AppBitmaps::Size::Tool), wxNullBitmap,
+      wxITEM_NORMAL, wxT("生成代码 (F8)"), wxT("“从当前项目创建代码"));
     toolbar->AddSeparator();
     toolbar->AddTool(
       ID_ALIGN_LEFT, wxT(""), AppBitmaps::GetBitmap(wxT("lalign"), AppBitmaps::Size::Tool), wxNullBitmap, wxITEM_CHECK,
-      wxT("Align Left"), wxT("The item will be aligned to the left of the space allotted to it by the sizer."));
+      wxT("向左对齐"), wxT("该项目将对齐到由Sizer分配给它的空间的左边。"));
     toolbar->AddTool(
       ID_ALIGN_CENTER_H, wxT(""), AppBitmaps::GetBitmap(wxT("chalign"), AppBitmaps::Size::Tool), wxNullBitmap, wxITEM_CHECK,
-      wxT("Align Center Horizontally"),
-      wxT("The item will be centered horizontally in the space allotted to it by the sizer."));
+      wxT("水平居中对齐"), wxT("该项目将水平居中在Sizer分配给它的空间中"));
     toolbar->AddTool(
       ID_ALIGN_RIGHT, wxT(""), AppBitmaps::GetBitmap(wxT("ralign"), AppBitmaps::Size::Tool), wxNullBitmap, wxITEM_CHECK,
-      wxT("Align Right"), wxT("The item will be aligned to the right of the space allotted to it by the sizer."));
+      wxT("向右对齐"), wxT("该项目将对齐到由Sizer分配给它的空间的右边"));
     toolbar->AddSeparator();
     toolbar->AddTool(
       ID_ALIGN_TOP, wxT(""), AppBitmaps::GetBitmap(wxT("talign"), AppBitmaps::Size::Tool), wxNullBitmap, wxITEM_CHECK,
-      wxT("Align Top"), wxT("The item will be aligned to the top of the space allotted to it by the sizer."));
+      wxT("向上对齐"), wxT("该项目将对齐到由Sizer分配给它的空间的顶部"));
     toolbar->AddTool(
       ID_ALIGN_CENTER_V, wxT(""), AppBitmaps::GetBitmap(wxT("cvalign"), AppBitmaps::Size::Tool), wxNullBitmap, wxITEM_CHECK,
-      wxT("Align Center Vertically"),
-      wxT("The item will be centered vertically within space allotted to it by the sizer."));
+      wxT("垂直居中对齐"), wxT("该项目将垂直居中在Sizer分配给它的空间中"));
     toolbar->AddTool(
       ID_ALIGN_BOTTOM, wxT(""), AppBitmaps::GetBitmap(wxT("balign"), AppBitmaps::Size::Tool), wxNullBitmap, wxITEM_CHECK,
-      wxT("Align Bottom"), wxT("The item will be aligned to the bottom of the space allotted to it by the sizer."));
+      wxT("底部对齐"), wxT("该项目将对齐到由Sizer分配给它的空间的底部"));
     toolbar->AddSeparator();
     toolbar->AddTool(
       ID_EXPAND, wxT(""), AppBitmaps::GetBitmap(wxT("expand"), AppBitmaps::Size::Tool), wxNullBitmap, wxITEM_CHECK,
-      wxT("Expand (Alt+W)"), wxT("The item will be expanded to fill the space assigned to the item."));
+      wxT("展开 (Alt+W)"), wxT("项目将被展开以填充分配给该项的空间。"));
     toolbar->AddTool(
       ID_STRETCH, wxT(""), AppBitmaps::GetBitmap(wxT("stretch"), AppBitmaps::Size::Tool), wxNullBitmap, wxITEM_CHECK,
-      wxT("Stretch (Alt+S)"), wxT("The item will grow and shrink with the sizer."));
+      wxT("拉伸 (Alt+S)"), wxT("该物品将随着Sizer变大和缩小."));
     toolbar->AddSeparator();
     toolbar->AddTool(
       ID_BORDER_LEFT, wxT(""), AppBitmaps::GetBitmap(wxT("left"), AppBitmaps::Size::Tool), wxNullBitmap, wxITEM_CHECK,
-      wxT("Left Border"), wxT("A border will be added on the left side of the item."));
+      wxT("左边框"), wxT("将在项目的左侧添加边框。"));
     toolbar->AddTool(
       ID_BORDER_RIGHT, wxT(""), AppBitmaps::GetBitmap(wxT("right"), AppBitmaps::Size::Tool), wxNullBitmap, wxITEM_CHECK,
-      wxT("Right Border"), wxT("A border will be  added on the right side of the item."));
+      wxT("右边框"), wxT("将在项目的右侧添加边框。"));
     toolbar->AddTool(
       ID_BORDER_TOP, wxT(""), AppBitmaps::GetBitmap(wxT("top"), AppBitmaps::Size::Tool), wxNullBitmap, wxITEM_CHECK,
-      wxT("Top Border"), wxT("A border will be  added on the top of the item."));
+      wxT("上边框"), wxT("将在项目的上部添加边框。"));
     toolbar->AddTool(
       ID_BORDER_BOTTOM, wxT(""), AppBitmaps::GetBitmap(wxT("bottom"), AppBitmaps::Size::Tool), wxNullBitmap, wxITEM_CHECK,
-      wxT("Bottom Border"), wxT("A border will be  added on the bottom of the item."));
+      wxT("下边框"), wxT("将在项目的下部添加边框。"));
     toolbar->AddSeparator();
     toolbar->AddTool(
       ID_WINDOW_SWAP, wxT(""), AppBitmaps::GetBitmap(wxT("swap"), AppBitmaps::Size::Tool), wxNullBitmap, wxITEM_NORMAL,
-      wxT("Swap The Editor and Properties Window (F12)"), wxT("Swap the design window and properties window."));
+      wxT("交换编辑器和属性窗口 (F12)"), wxT("交换设计窗口和属性窗口。"));
     toolbar->Realize();
 
     return toolbar;
@@ -1733,12 +1726,12 @@ void MainFrame::CreateWideGui()
     // MainFrame only contains m_leftSplitter window
     m_leftSplitter = new wxSplitterWindow(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxSP_LIVE_UPDATE);
 
-    wxWindow* objectTree = Title::CreateTitle(CreateObjectTree(m_leftSplitter), wxT("Object Tree"));
+    wxWindow* objectTree = Title::CreateTitle(CreateObjectTree(m_leftSplitter), wxT("对象树"));
 
     // panel1 contains Palette and splitter2 (m_rightSplitter)
     wxPanel* panel1 = new wxPanel(m_leftSplitter, wxID_ANY);
 
-    wxWindow* palette = Title::CreateTitle(CreateComponentPalette(panel1), wxT("Component Palette"));
+    wxWindow* palette = Title::CreateTitle(CreateComponentPalette(panel1), wxT("组件面板"));
     m_rightSplitter = new wxSplitterWindow(panel1, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxSP_LIVE_UPDATE);
 
     wxBoxSizer* panel1_sizer = new wxBoxSizer(wxVERTICAL);
@@ -1747,8 +1740,8 @@ void MainFrame::CreateWideGui()
     panel1->SetSizer(panel1_sizer);
 
     // splitter2 contains the editor and the object inspector
-    wxWindow* designer = Title::CreateTitle(CreateDesignerWindow(m_rightSplitter), wxT("Editor"));
-    wxWindow* objectInspector = Title::CreateTitle(CreateObjectInspector(m_rightSplitter), wxT("Object Properties"));
+    wxWindow* designer = Title::CreateTitle(CreateDesignerWindow(m_rightSplitter), wxT("编辑器"));
+    wxWindow* objectInspector = Title::CreateTitle(CreateObjectInspector(m_rightSplitter), wxT("对象属性"));
 
     m_leftSplitter->SplitVertically(objectTree, panel1, m_leftSplitterWidth);
 
@@ -1779,14 +1772,14 @@ void MainFrame::CreateClassicGui()
     m_leftSplitter = new wxSplitterWindow(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxSP_LIVE_UPDATE);
     m_rightSplitter =
       new wxSplitterWindow(m_leftSplitter, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxSP_LIVE_UPDATE);
-    wxWindow* objectTree = Title::CreateTitle(CreateObjectTree(m_rightSplitter), wxT("Object Tree"));
-    wxWindow* objectInspector = Title::CreateTitle(CreateObjectInspector(m_rightSplitter), wxT("Object Properties"));
+    wxWindow* objectTree = Title::CreateTitle(CreateObjectTree(m_rightSplitter), wxT("对象树"));
+    wxWindow* objectInspector = Title::CreateTitle(CreateObjectInspector(m_rightSplitter), wxT("对象属性"));
 
     // panel1 contains palette and designer
     wxPanel* panel1 = new wxPanel(m_leftSplitter, wxID_ANY);
 
-    wxWindow* palette = Title::CreateTitle(CreateComponentPalette(panel1), wxT("Component Palette"));
-    wxWindow* designer = Title::CreateTitle(CreateDesignerWindow(panel1), wxT("Editor"));
+    wxWindow* palette = Title::CreateTitle(CreateComponentPalette(panel1), wxT("组件面板"));
+    wxWindow* designer = Title::CreateTitle(CreateDesignerWindow(panel1), wxT("编辑器"));
 
     wxBoxSizer* panel1_sizer = new wxBoxSizer(wxVERTICAL);
     panel1_sizer->Add(palette, 0, wxEXPAND);

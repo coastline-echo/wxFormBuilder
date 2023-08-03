@@ -237,10 +237,9 @@ PObjectBase ObjectDatabase::CreateObject(const wxString& classname, PObjectBase 
 
     if (!objInfo) {
         THROW_WXFBEX(
-          wxT("Unknown Object Type: ") << classname
-                                       << wxT("\n") wxT("The most likely causes are that this copy of wxFormBuilder is "
-                                                        "out of date, or that there is a plugin missing.\n")
-                                            wxT("Please check at http://www.wxFormBuilder.org")
+          wxT("未知对象类型: ") << classname
+                                       << wxT("\n") wxT("最有可能的原因是此 wxFormBuilder 副本已过期，或者缺少插件。\n")
+                                            wxT("请查看 http://www.wxFormBuilder.org")
                                        << wxT("\n"))
     }
 

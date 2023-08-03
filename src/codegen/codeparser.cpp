@@ -189,10 +189,10 @@ void CCodeParser::ParseSourceFunctions(wxString code)
         if (functionStart != wxNOT_FOUND) {
             functionEnd = functionStart;
         } else {
-            wxMessageBox(wxT("Brackets Missing in Source File!"));
+            wxMessageBox(wxT("源文件中缺少括号!"));
             code.insert(
-              functionEnd + 1, wxT("//The Following Block is missing a closing bracket\n//and has been "
-                                   "set aside by wxFormbuilder\n"));
+              functionEnd + 1, wxT("//下面的代码块缺少一个结束括号\n"
+                                   "并且已经被 wxFormBuilder搁置\n"));
             func->SetContents(wxT(""));
         }
 
@@ -240,7 +240,7 @@ wxString CCodeParser::ParseBrackets(wxString code, int& functionStart)
         index--;
         functionLength = index - functionStart;
     } else {
-        wxMessageBox(wxT("no brackets found"));
+        wxMessageBox(wxT("没有找到括号"));
     }
     Str = code.Mid(functionStart, functionLength);
     functionStart = functionStart + functionLength + 1;

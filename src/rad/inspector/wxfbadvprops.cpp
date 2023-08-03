@@ -835,19 +835,19 @@ void wxPGSliderEditor::SetValueToUnspecified(wxPGProperty* WXUNUSED(property), w
 #include <wx/fontdlg.h>
 #include <wx/fontenum.h>
 
-static const wxChar* gs_fp_es_family_labels[] = {wxT("Default"),  wxT("Decorative"), wxT("Roman"),
-                                                 wxT("Script"),   wxT("Swiss"),      wxT("Modern"),
+static const wxChar* gs_fp_es_family_labels[] = {wxT("默认"),  wxT("装饰体"), wxT("罗马体"),
+                                                 wxT("手写体"),   wxT("瑞士体"),      wxT("现代体"),
                                                  wxT("Teletype"), wxT("Unknown"),    (const wxChar*)NULL};
 
 static long gs_fp_es_family_values[] = {wxFONTFAMILY_DEFAULT,  wxFONTFAMILY_DECORATIVE, wxFONTFAMILY_ROMAN,
                                         wxFONTFAMILY_SCRIPT,   wxFONTFAMILY_SWISS,      wxFONTFAMILY_MODERN,
                                         wxFONTFAMILY_TELETYPE, wxFONTFAMILY_UNKNOWN};
 
-static const wxChar* gs_fp_es_style_labels[] = {wxT("Normal"), wxT("Slant"), wxT("Italic"), (const wxChar*)NULL};
+static const wxChar* gs_fp_es_style_labels[] = {wxT("标准"), wxT("Slant"), wxT("Italic"), (const wxChar*)NULL};
 
 static long gs_fp_es_style_values[] = {wxFONTSTYLE_NORMAL, wxFONTSTYLE_SLANT, wxFONTSTYLE_ITALIC};
 
-static const wxChar* gs_fp_es_weight_labels[] = {wxT("Normal"), wxT("Light"), wxT("Bold"), (const wxChar*)NULL};
+static const wxChar* gs_fp_es_weight_labels[] = {wxT("标准"), wxT("细体"), wxT("加粗"), (const wxChar*)NULL};
 
 static long gs_fp_es_weight_values[] = {wxFONTWEIGHT_NORMAL, wxFONTWEIGHT_LIGHT, wxFONTWEIGHT_BOLD};
 

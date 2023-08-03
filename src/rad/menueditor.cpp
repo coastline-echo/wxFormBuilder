@@ -67,29 +67,29 @@ MenuEditor::MenuEditor(wxWindow* parent, int id) :
     sizerTop = new wxBoxSizer(wxHORIZONTAL);
     m_menuList =
       new wxListCtrl(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLC_REPORT | wxLC_SINGLE_SEL | wxSTATIC_BORDER);
-    m_menuList->InsertColumn(0, wxT("Label"), wxLIST_FORMAT_LEFT, 150);
-    m_menuList->InsertColumn(1, wxT("Shortcut"), wxLIST_FORMAT_LEFT, 80);
+    m_menuList->InsertColumn(0, wxT("标签"), wxLIST_FORMAT_LEFT, 150);
+    m_menuList->InsertColumn(1, wxT("快捷键"), wxLIST_FORMAT_LEFT, 80);
     m_menuList->InsertColumn(2, wxT("Id"), wxLIST_FORMAT_LEFT, 80);
-    m_menuList->InsertColumn(3, wxT("Name"), wxLIST_FORMAT_LEFT, 50);
+    m_menuList->InsertColumn(3, wxT("名称"), wxLIST_FORMAT_LEFT, 50);
     m_menuList->InsertColumn(4, wxT("Help String"), wxLIST_FORMAT_LEFT, 150);
-    m_menuList->InsertColumn(5, wxT("Kind"), wxLIST_FORMAT_LEFT, 120);
+    m_menuList->InsertColumn(5, wxT("类别"), wxLIST_FORMAT_LEFT, 120);
     int width = 0;
     for (int i = 0; i < m_menuList->GetColumnCount(); ++i) { width += m_menuList->GetColumnWidth(i); }
     m_menuList->SetMinSize(wxSize(width, -1));
     sizerTop->Add(m_menuList, 1, wxALL | wxEXPAND, 5);
     wxStaticBoxSizer* sizer1;
-    sizer1 = new wxStaticBoxSizer(new wxStaticBox(this, wxID_ANY, wxT("Menu item")), wxVERTICAL);
+    sizer1 = new wxStaticBoxSizer(new wxStaticBox(this, wxID_ANY, wxT("菜单项")), wxVERTICAL);
     const auto sizer11 = new wxFlexGridSizer(2, 0, 0);
     sizer11->AddGrowableCol(1);
 
     wxStaticText* m_stLabel;
-    m_stLabel = new wxStaticText(this, wxID_ANY, wxT("Label"), wxDefaultPosition, wxDefaultSize, 0);
+    m_stLabel = new wxStaticText(this, wxID_ANY, wxT("标签"), wxDefaultPosition, wxDefaultSize, 0);
     sizer11->Add(m_stLabel, 0, wxALL | wxALIGN_CENTER_VERTICAL, 5);
     m_tcLabel = new wxTextCtrl(this, ID_LABEL, wxT(""), wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER);
     sizer11->Add(m_tcLabel, 0, wxALL | wxEXPAND, 5);
 
     wxStaticText* m_stShortcut;
-    m_stShortcut = new wxStaticText(this, wxID_ANY, wxT("Shortcut"), wxDefaultPosition, wxDefaultSize, 0);
+    m_stShortcut = new wxStaticText(this, wxID_ANY, wxT("快捷键"), wxDefaultPosition, wxDefaultSize, 0);
     sizer11->Add(m_stShortcut, 0, wxALL | wxALIGN_CENTER_VERTICAL, 5);
     m_tcShortcut = new wxTextCtrl(this, ID_LABEL, wxT(""), wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER);
     sizer11->Add(m_tcShortcut, 0, wxALL | wxEXPAND, 5);
@@ -101,7 +101,7 @@ MenuEditor::MenuEditor(wxWindow* parent, int id) :
     sizer11->Add(m_tcId, 0, wxALL | wxEXPAND, 5);
 
     wxStaticText* m_stName;
-    m_stName = new wxStaticText(this, wxID_ANY, wxT("Name"), wxDefaultPosition, wxDefaultSize, 0);
+    m_stName = new wxStaticText(this, wxID_ANY, wxT("名称"), wxDefaultPosition, wxDefaultSize, 0);
     sizer11->Add(m_stName, 0, wxALL | wxALIGN_CENTER_VERTICAL, 5);
     m_tcName = new wxTextCtrl(this, wxID_ANY, wxT(""), wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER);
     sizer11->Add(m_tcName, 0, wxALL | wxEXPAND, 5);
@@ -116,38 +116,38 @@ MenuEditor::MenuEditor(wxWindow* parent, int id) :
 
     wxString choices[] = {wxT("Normal"), wxT("Check"), wxT("Radio")};
     m_rbItemKind =
-      new wxRadioBox(this, wxID_ANY, wxT("Kind"), wxDefaultPosition, wxDefaultSize, 3, choices, 1, wxRA_SPECIFY_ROWS);
+      new wxRadioBox(this, wxID_ANY, wxT("类别"), wxDefaultPosition, wxDefaultSize, 3, choices, 1, wxRA_SPECIFY_ROWS);
     sizer1->Add(m_rbItemKind, 0, wxALL | wxEXPAND, 5);
 
     wxBoxSizer* sizer4;
     sizer4 = new wxBoxSizer(wxHORIZONTAL);
 
     wxButton* m_bAdd;
-    m_bAdd = new wxButton(this, ID_ADDMENUITEM, wxT("&Add"), wxDefaultPosition, wxDefaultSize, 0);
+    m_bAdd = new wxButton(this, ID_ADDMENUITEM, wxT("增加"), wxDefaultPosition, wxDefaultSize, 0);
     sizer4->Add(m_bAdd, 1, wxALL, 5);
 
     wxButton* m_bModify;
-    m_bModify = new wxButton(this, ID_MODIFYMENUITEM, wxT("&Modify"), wxDefaultPosition, wxDefaultSize, 0);
+    m_bModify = new wxButton(this, ID_MODIFYMENUITEM, wxT("修改"), wxDefaultPosition, wxDefaultSize, 0);
     sizer4->Add(m_bModify, 1, wxALL, 5);
 
     wxButton* m_bRemove;
-    m_bRemove = new wxButton(this, ID_REMOVEMENUITEM, wxT("&Remove"), wxDefaultPosition, wxDefaultSize, 0);
+    m_bRemove = new wxButton(this, ID_REMOVEMENUITEM, wxT("移除"), wxDefaultPosition, wxDefaultSize, 0);
     sizer4->Add(m_bRemove, 1, wxALL, 5);
 
     sizer1->Add(sizer4, 0, wxEXPAND, 5);
 
     wxButton* m_bAddSep;
-    m_bAddSep = new wxButton(this, ID_ADDSEPARATOR, wxT("Add &Separator"), wxDefaultPosition, wxDefaultSize, 0);
+    m_bAddSep = new wxButton(this, ID_ADDSEPARATOR, wxT("添加分隔符"), wxDefaultPosition, wxDefaultSize, 0);
     sizer1->Add(m_bAddSep, 0, wxALL | wxEXPAND, 5);
     sizerTop->Add(sizer1, 0, wxALL | wxEXPAND, 5);
     mainSizer->Add(sizerTop, 1, wxEXPAND, 5);
     wxBoxSizer* sizerMoveButtons;
     sizerMoveButtons = new wxBoxSizer(wxHORIZONTAL);
     wxButton* m_bUp;
-    m_bUp = new wxButton(this, ID_MENUUP, wxT("&Up"), wxDefaultPosition, wxDefaultSize, 0);
+    m_bUp = new wxButton(this, ID_MENUUP, wxT("上移"), wxDefaultPosition, wxDefaultSize, 0);
     sizerMoveButtons->Add(m_bUp, 0, wxALL, 5);
     wxButton* m_bDown;
-    m_bDown = new wxButton(this, ID_MENUDOWN, wxT("&Down"), wxDefaultPosition, wxDefaultSize, 0);
+    m_bDown = new wxButton(this, ID_MENUDOWN, wxT("下移"), wxDefaultPosition, wxDefaultSize, 0);
     sizerMoveButtons->Add(m_bDown, 0, wxALL, 5);
     wxButton* m_bLeft;
     m_bLeft = new wxButton(this, ID_MENULEFT, wxT("<"), wxDefaultPosition, wxDefaultSize, 0);
@@ -467,7 +467,7 @@ void MenuEditor::OnRemoveMenuItem(wxCommandEvent&)
         int nextIdent = GetItemIdentation(sel + 1);
         if (nextIdent > curIdent) {
             int res = wxMessageBox(
-              wxT("The children of the selected item will be eliminated too. Are you sure you want to continue?"),
+              wxT("所选项目的子项目也将被删除。你确定要继续吗?"),
               wxT("wxFormBuilder"), wxYES_NO);
             if (res == wxYES) {
                 long item = sel + 1;

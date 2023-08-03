@@ -21,7 +21,7 @@ Written by
   José Antonio Hurtado - joseantonio.hurtado@gmail.com
   Juan Antonio Ortega  - jortegalalmolda@gmail.com
 -->
-<package name="Data" lib="additional" icon="grid.xpm" desc="Data manipulation controls">
+<package name="数据类" lib="additional" icon="grid.xpm" desc="Data manipulation controls">
 
   <objectinfo class="wxTreeCtrl" icon="tree_ctrl.xpm" type="widget">
     <inherits class="wxTreeCtrlBase"/>
@@ -29,25 +29,25 @@ Written by
     <inherits class="AUI"/>
     <property name="name" type="text">m_treeCtrl</property>
     <property name="style" type="bitlist">
-      <option name="wxTR_EDIT_LABELS" help="Use this style if you wish the user to be able to edit labels in the tree control."/>
-      <option name="wxTR_NO_BUTTONS" help="For convenience to document that no buttons are to be drawn."/>
-      <option name="wxTR_HAS_BUTTONS" help="Use this style to show + and - buttons to the left of parent items."/>
-      <option name="wxTR_TWIST_BUTTONS" help="Selects alternative style of +/- buttons and shows rotating (&quot;twisting&quot;) arrows instead. Currently this style is only implemented under Microsoft Windows Vista and later Windows versions and is ignored under the other platforms. Notice that under Vista this style results in the same appearance as used by the tree control in Explorer and other built-in programs and so using it may be preferable to the default style."/>
-      <option name="wxTR_NO_LINES" help="Use this style to hide vertical level connectors."/>
-      <option name="wxTR_FULL_ROW_HIGHLIGHT" help="Use this style to have the background colour and the selection highlight extend over the entire horizontal row of the tree control window. (This flag is ignored under Windows unless you specify wxTR_NO_LINES as well.)"/>
-      <option name="wxTR_LINES_AT_ROOT" help="Use this style to show lines between root nodes. Only applicable if wxTR_HIDE_ROOT is set and wxTR_NO_LINES is not set."/>
-      <option name="wxTR_HIDE_ROOT" help="Use this style to suppress the display of the root node, effectively causing the first-level nodes to appear as a series of root nodes."/>
-      <option name="wxTR_ROW_LINES" help="Use this style to draw a contrasting border between displayed rows."/>
-      <option name="wxTR_HAS_VARIABLE_ROW_HEIGHT" help="Use this style to cause row heights to be just big enough to fit the content. If not set, all rows use the largest row height. The default is that this flag is unset. Generic only."/>
-      <option name="wxTR_SINGLE" help="For convenience to document that only one item may be selected at a time. Selecting another item causes the current selection, if any, to be deselected. This is the default."/>
-      <option name="wxTR_MULTIPLE" help="Use this style to allow a range of items to be selected. If a second range is selected, the current range, if any, is deselected."/>
-      <option name="wxTR_DEFAULT_STYLE" help="The set of flags that are closest to the defaults for the native control for a particular toolkit."/>
+      <option name="wxTR_EDIT_LABELS" help="如果您希望用户能够在树控件中编辑标签，请使用此样式。"/>
+      <option name="wxTR_NO_BUTTONS" help="为了便于记录，不需要绘制按钮。"/>
+      <option name="wxTR_HAS_BUTTONS" help="使用此样式可将+和-按钮显示在父项的左侧。"/>
+      <option name="wxTR_TWIST_BUTTONS" help="选择+/-按钮的替代样式，并显示旋转（“扭曲”）箭头。目前，这种风格仅在Microsoft Windows Vista和更高版本的Windows下实现，在其他平台下被忽略。请注意，在Vista下，这种样式的外观与资源管理器和其他内置程序中的树控件所使用的外观相同，因此使用它可能比默认样式更可取。"/>
+      <option name="wxTR_NO_LINES" help="使用此样式可以隐藏垂直级别的连接器。"/>
+      <option name="wxTR_FULL_ROW_HIGHLIGHT" help="使用此样式可以使背景颜色和选择高亮显示扩展到树状控件窗口的整个水平行。(除非同时指定wxTR_NO_LINES，否则在Windows下会忽略此标志。)"/>
+      <option name="wxTR_LINES_AT_ROOT" help="使用此样式可以显示根节点之间的线。仅在设置了wxTR_HIDE_ROOT且未设置wxTR_NO_LINES时适用。"/>
+      <option name="wxTR_HIDE_ROOT" help="使用此样式可以抑制根节点的显示，从而有效地使第一级节点显示为一系列根节点。"/>
+      <option name="wxTR_ROW_LINES" help="使用此样式可以在显示的行之间绘制对比边框。"/>
+      <option name="wxTR_HAS_VARIABLE_ROW_HEIGHT" help="使用此样式可以使行高度刚好足够大，以适合内容。如果未设置，则所有行都使用最大行高。默认情况下，此标志未设置。仅通用。"/>
+      <option name="wxTR_SINGLE" help="为了便于记录，一次只能选择一个项目。选择另一个项目会导致当前选择（如果有）被取消选择。这是默认设置。"/>
+      <option name="wxTR_MULTIPLE" help="使用此样式可以选择一系列项目。如果选择了第二个范围，则取消选择当前范围（如果有）。"/>
+      <option name="wxTR_DEFAULT_STYLE" help="最接近特定工具包的本机控件默认值的标志集。"/>
       wxTR_DEFAULT_STYLE
     </property>
-    <event name="OnTreeGetInfo" class="wxTreeEvent" help="Request information from the application."/>
-    <event name="OnTreeSetInfo" class="wxTreeEvent" help="Information is being supplied."/>
-    <event name="OnTreeItemGetTooltip" class="wxTreeEvent" help="The opportunity to set the item tooltip is being given to the application (call wxTreeEvent::SetToolTip). Windows only."/>
-    <event name="OnTreeStateImageClick" class="wxTreeEvent" help="The state image has been clicked. Windows only."/>
+    <event name="OnTreeGetInfo" class="wxTreeEvent" help="从应用程序请求信息。"/>
+    <event name="OnTreeSetInfo" class="wxTreeEvent" help="正在提供信息。"/>
+    <event name="OnTreeItemGetTooltip" class="wxTreeEvent" help="正在为应用程序提供设置项目工具提示的机会（调用wxTreeEvent::SetToolTip）。仅限Windows。"/>
+    <event name="OnTreeStateImageClick" class="wxTreeEvent" help="已单击状态图像。仅限Windows。"/>
   </objectinfo>
 
   <objectinfo class="wxGrid" icon="grid.xpm" type="widget">
@@ -55,112 +55,112 @@ Written by
     <inherits class="AUI"/>
     <property name="name" type="text">m_grid</property>
     <category name="Grid">
-      <property name="rows" type="uint" help="Number of Rows.">5</property>
-      <property name="cols" type="uint" help="Number of Columns.">5</property>
-      <property name="editing" type="bool" help="Allow editing grid contents.">1</property>
-      <property name="grid_lines" type="bool" help="Show grid lines.">1</property>
-      <property name="grid_line_color" type="wxColour" help="The colour used to draw grid lines."/>
-      <property name="drag_grid_size" type="bool" help="Allow sizing rows and columns by dragging gridlines.">0</property>
-      <property name="margin_width" type="uint" help="A grid may occupy more space than needed for its columns. This function allows to set how big this extra space is.">0</property>
-      <property name="margin_height" type="uint" help="A grid may occupy more space than needed for its rows. This function allows to set how big this extra space is.">0</property>
+      <property name="rows" type="uint" help="行数。">5</property>
+      <property name="cols" type="uint" help="列数。">5</property>
+      <property name="editing" type="bool" help="允许编辑网格内容。">1</property>
+      <property name="grid_lines" type="bool" help="显示网格线。">1</property>
+      <property name="grid_line_color" type="wxColour" help="用来画网格线的颜色。"/>
+      <property name="drag_grid_size" type="bool" help="允许通过拖动网格线来调整行和列的大小。">0</property>
+      <property name="margin_width" type="uint" help="网格占用的空间可能超过其列所需的空间。这个函数允许设置这个额外空间的大小。">0</property>
+      <property name="margin_height" type="uint" help="网格可能会占用超出行所需的空间。这个函数允许设置这个额外空间的大小。">0</property>
     </category>
     <category name="Columns">
-      <property name="column_sizes" type="uintlist" help="Comma separated list of column sizes. Note: wxGrid sets up arrays to store individual row and column sizes when non-default sizes are used. The memory requirements for this could become prohibitive if your grid is very large."/>
-      <property name="autosize_cols" type="bool" help="Automatically sizes all columns to fit their contents. wxGrid sets up arrays to store individual row and column sizes when non-default sizes are used. The memory requirements for this could become prohibitive if your grid is very large.">0</property>
-      <property name="drag_col_move" type="bool" help="Allow moving columns by dragging.">0</property>
-      <property name="drag_col_size" type="bool" help="Allow sizing columns by dragging.">1</property>
-      <property name="col_label_size" type="editoption" help="Height of column labels">
-        <option name="wxGRID_AUTOSIZE" help="If height equals to wxGRID_AUTOSIZE then height is calculated automatically so that no label is truncated. Note that this could be slow for a large table."/>
+      <property name="column_sizes" type="uintlist" help="以逗号分隔的列大小列表。注意：当使用非默认大小时，wxGrid会设置数组来存储单独的行和列大小。如果网格非常大，那么这方面的内存需求可能会变得过高。"/>
+      <property name="autosize_cols" type="bool" help="自动调整所有列的大小以适应其内容。wxGrid设置数组，以便在使用非默认大小时存储单独的行和列大小。如果网格非常大，那么这方面的内存需求可能会变得过高。">0</property>
+      <property name="drag_col_move" type="bool" help="允许通过拖动移动列。">0</property>
+      <property name="drag_col_size" type="bool" help="允许通过拖动调整列大小。">1</property>
+      <property name="col_label_size" type="editoption" help="列标签的高度">
+        <option name="wxGRID_AUTOSIZE" help="如果高度等于wxGRID_AUTOSIZE，则会自动计算高度，从而不会截断任何标签。请注意，对于一张大桌子来说，这可能会很慢。"/>
       </property>
-      <property name="col_label_values" type="stringlist" help="List of column labels."></property>
-      <property name="col_label_horiz_alignment" type="option" help="Horizontal alignment of column label text.">
-        <option name="wxALIGN_LEFT" help="Align labels left."/>
-        <option name="wxALIGN_CENTER" help="Align labels centered."/>
-        <option name="wxALIGN_RIGHT" help="Align labels right."/>
+      <property name="col_label_values" type="stringlist" help="列标签列表。"></property>
+      <property name="col_label_horiz_alignment" type="option" help="列标签文本的水平对齐">
+        <option name="wxALIGN_LEFT" help="左对齐标签。"/>
+        <option name="wxALIGN_CENTER" help="将标签居中对齐。"/>
+        <option name="wxALIGN_RIGHT" help="右对齐标签。"/>
         wxALIGN_CENTER
       </property>
-      <property name="col_label_vert_alignment" type="option" help="Vertical alignment of column label text.">
-        <option name="wxALIGN_TOP" help="Align labels top."/>
-        <option name="wxALIGN_CENTER" help="Align labels centered."/>
-        <option name="wxALIGN_BOTTOM" help="Align labels bottom."/>
+      <property name="col_label_vert_alignment" type="option" help="列标签文本的垂直对齐。">
+        <option name="wxALIGN_TOP" help="将标签顶部对齐。"/>
+        <option name="wxALIGN_CENTER" help="将标签居中对齐。"/>
+        <option name="wxALIGN_BOTTOM" help="将标签底部对齐。"/>
         wxALIGN_CENTER
       </property>
     </category>
     <category name="Rows">
-      <property name="row_sizes" type="uintlist" help="Comma separated list of row sizes. Note: wxGrid sets up arrays to store individual row and column sizes when non-default sizes are used. The memory requirements for this could become prohibitive if your grid is very large."/>
-      <property name="autosize_rows" type="bool" help="Automatically sizes all rows to fit their contents. wxGrid sets up arrays to store individual row and column sizes when non-default sizes are used. The memory requirements for this could become prohibitive if your grid is very large.">0</property>
-      <property name="drag_row_size" type="bool" help="Allow sizing rows by dragging.">1</property>
-      <property name="row_label_size" type="editoption" help="Width of row labels">
-        <option name="wxGRID_AUTOSIZE" help="If height equals to wxGRID_AUTOSIZE then width is calculated automatically so that no label is truncated. Note that this could be slow for a large table."/>
+      <property name="row_sizes" type="uintlist" help="行大小的逗号分隔列表。注意：当使用非默认大小时，wxGrid会设置数组来存储单独的行和列大小。如果网格非常大，那么这方面的内存需求可能会变得过高。"/>
+      <property name="autosize_rows" type="bool" help="自动调整所有行的大小以适应其内容。wxGrid设置数组，以便在使用非默认大小时存储单独的行和列大小。如果网格非常大，那么这方面的内存需求可能会变得过高。">0</property>
+      <property name="drag_row_size" type="bool" help="允许通过拖动调整行大小。">1</property>
+      <property name="row_label_size" type="editoption" help="行标签宽度">
+        <option name="wxGRID_AUTOSIZE" help="如果高度等于wxGRID_AUTOSIZE，则会自动计算宽度，从而不会截断任何标签。请注意，对于一张大桌子来说，这可能会很慢。"/>
       </property>
-      <property name="row_label_values" type="stringlist" help="List of row labels."></property>
-      <property name="row_label_horiz_alignment" type="option" help="Horizontal alignment of row label text.">
-        <option name="wxALIGN_LEFT" help="Align labels left."/>
-        <option name="wxALIGN_CENTER" help="Align labels centered."/>
-        <option name="wxALIGN_RIGHT" help="Align labels right."/>
+      <property name="row_label_values" type="stringlist" help="'行标签列表。"></property>
+      <property name="row_label_horiz_alignment" type="option" help="'行标签文本的水平对齐。">
+        <option name="wxALIGN_LEFT" help="左对齐标签。"/>
+        <option name="wxALIGN_CENTER" help="将标签居中对齐。"/>
+        <option name="wxALIGN_RIGHT" help="右对齐标签。"/>
         wxALIGN_CENTER
       </property>
-      <property name="row_label_vert_alignment" type="option" help="Vertical alignment of row label text.">
-        <option name="wxALIGN_TOP" help="Align labels top."/>
-        <option name="wxALIGN_CENTER" help="Align labels centered."/>
-        <option name="wxALIGN_BOTTOM" help="Align labels bottom."/>
+      <property name="row_label_vert_alignment" type="option" help="行标签文本的垂直对齐方式。">
+        <option name="wxALIGN_TOP" help="将标签顶部对齐。"/>
+        <option name="wxALIGN_CENTER" help="将标签居中对齐。"/>
+        <option name="wxALIGN_BOTTOM" help="将标签底部对齐。"/>
         wxALIGN_CENTER
       </property>
     </category>
       <category name="Label Appearance">
-      <property name="label_bg" type="wxColour" help="Background color for row and column labels."/>
-      <property name="label_font" type="wxFont" help="Font for row and column labels."/>
-      <property name="label_text" type="wxColour" help="Colour for row and column label text."/>
+      <property name="label_bg" type="wxColour" help="行和列标签的背景色。"/>
+      <property name="label_font" type="wxFont" help="行和列标签的字体。"/>
+      <property name="label_text" type="wxColour" help="行和列标签文本的颜色。"/>
     </category>
     <category name="Cell Defaults">
-      <property name="cell_bg" type="wxColour" help="Default cell background color."/>
-      <property name="cell_font" type="wxFont" help="Default cell font."/>
-      <property name="cell_text" type="wxColour" help="Default cell text color."/>
-      <property name="cell_horiz_alignment" type="option" help="Default horizontal alignment of cell values.">
-        <option name="wxALIGN_LEFT" help="Align left."/>
-        <option name="wxALIGN_CENTER" help="Align centered."/>
-        <option name="wxALIGN_RIGHT" help="Align right."/>
+      <property name="cell_bg" type="wxColour" help="默认的单元格背景色。"/>
+      <property name="cell_font" type="wxFont" help="行和列标签的字体。"/>
+      <property name="cell_text" type="wxColour" help="默认的单元格文本颜色。"/>
+      <property name="cell_horiz_alignment" type="option" help="单元格值的默认水平对齐方式。">
+        <option name="wxALIGN_LEFT" help="左对齐"/>
+        <option name="wxALIGN_CENTER" help="居中对齐。"/>
+        <option name="wxALIGN_RIGHT" help="右对齐。"/>
         wxALIGN_LEFT
       </property>
-      <property name="cell_vert_alignment" type="option" help="Default vertical alignment of cell values.">
-        <option name="wxALIGN_TOP" help="Align top."/>
-        <option name="wxALIGN_CENTER" help="Align centered."/>
-        <option name="wxALIGN_BOTTOM" help="Align bottom."/>
+      <property name="cell_vert_alignment" type="option" help="单元格值的默认垂直对齐方式。">
+        <option name="wxALIGN_TOP" help="顶部对齐。"/>
+        <option name="wxALIGN_CENTER" help="居中对齐。"/>
+        <option name="wxALIGN_BOTTOM" help="底部对齐"/>
         wxALIGN_TOP
       </property>
     </category>
-    <event name="OnGridCellLeftClick" class="wxGridEvent" help="The user clicked a cell with the left mouse button. Processes a wxEVT_GRID_CELL_LEFT_CLICK."/>
-    <event name="OnGridCellRightClick" class="wxGridEvent" help="The user clicked a cell with the right mouse button. Processes a wxEVT_GRID_CELL_RIGHT_CLICK."/>
-    <event name="OnGridCellLeftDClick" class="wxGridEvent" help="The user double-clicked a cell with the left mouse button. Processes a wxEVT_GRID_CELL_LEFT_DCLICK."/>
-    <event name="OnGridCellRightDClick" class="wxGridEvent" help="The user double-clicked a cell with the right mouse button. Processes a wxEVT_GRID_CELL_RIGHT_DCLICK."/>
-    <event name="OnGridLabelLeftClick" class="wxGridEvent" help="The user clicked a label with the left mouse button. Processes a wxEVT_GRID_LABEL_LEFT_CLICK."/>
-    <event name="OnGridLabelRightClick" class="wxGridEvent" help="The user clicked a label with the right mouse button. Processes a wxEVT_GRID_LABEL_RIGHT_CLICK."/>
-    <event name="OnGridLabelLeftDClick" class="wxGridEvent" help="The user double-clicked a label with the left mouse button. Processes a wxEVT_GRID_LABEL_LEFT_DCLICK."/>
-    <event name="OnGridLabelRightDClick" class="wxGridEvent" help="The user double-clicked a label with the right mouse button. Processes a wxEVT_GRID_LABEL_RIGHT_DCLICK."/>
-    <event name="OnGridCellChange" class="wxGridEvent" help="The user changed the data in a cell. Processes a wxEVT_GRID_CELL_CHANGED."/>
-    <event name="OnGridSelectCell" class="wxGridEvent" help="The user moved to, and selected a cell. Processes a wxEVT_GRID_SELECT_CELL."/>
-    <event name="OnGridEditorHidden" class="wxGridEvent" help="The editor for a cell was hidden. Processes a wxEVT_GRID_EDITOR_HIDDEN."/>
-    <event name="OnGridEditorShown" class="wxGridEvent" help="The editor for a cell was shown. Processes a wxEVT_GRID_EDITOR_SHOWN."/>
-    <event name="OnGridCmdCellLeftClick" class="wxGridEvent" help="The user clicked a cell with the left mouse button; variant taking a window identifier. Processes a wxEVT_GRID_CELL_LEFT_CLICK."/>
-    <event name="OnGridCmdCellRightClick" class="wxGridEvent" help="The user clicked a cell with the right mouse button; variant taking a window identifier. Processes a wxEVT_GRID_CELL_RIGHT_CLICK."/>
-    <event name="OnGridCmdCellLeftDClick" class="wxGridEvent" help="The user double-clicked a cell with the left mouse button; variant taking a window identifier. Processes a wxEVT_GRID_CELL_LEFT_DCLICK."/>
-    <event name="OnGridCmdCellRightDClick" class="wxGridEvent" help="The user double-clicked a cell with the right mouse button; variant taking a window identifier. Processes a wxEVT_GRID_CELL_RIGHT_DCLICK."/>
-    <event name="OnGridCmdLabelLeftClick" class="wxGridEvent" help="The user clicked a label with the left mouse button; variant taking a window identifier. Processes a wxEVT_GRID_LABEL_LEFT_CLICK"/>
-    <event name="OnGridCmdLabelRightClick" class="wxGridEvent" help="The user clicked a label with the right mouse button; variant taking a window identifier. Processes a wxEVT_GRID_LABEL_RIGHT_CLICK."/>
-    <event name="OnGridCmdLabelLeftDClick" class="wxGridEvent" help="The user double-clicked a label with the left mouse button; variant taking a window identifier. Processes a wxEVT_GRID_LABEL_LEFT_DCLICK."/>
-    <event name="OnGridCmdLabelRightDClick" class="wxGridEvent" help="The user double-clicked a label with the right mouse button; variant taking a window identifier. Processes a wxEVT_GRID_LABEL_RIGHT_DCLICK."/>
-    <event name="OnGridCmdCellChange" class="wxGridEvent" help="The user changed the data in a cell; variant taking a window identifier. Processes a wxEVT_GRID_CELL_CHANGED."/>
-    <event name="OnGridCmdSelectCell" class="wxGridEvent" help="The user moved to, and selected a cell; variant taking a window identifier. Processes a wxEVT_GRID_SELECT_CELL."/>
-    <event name="OnGridCmdEditorHidden" class="wxGridEvent" help="The editor for a cell was hidden; variant taking a window identifier. Processes a wxEVT_GRID_EDITOR_HIDDEN."/>
-    <event name="OnGridCmdEditorShown" class="wxGridEvent" help="The editor for a cell was shown; variant taking a window identifier. Processes a wxEVT_GRID_EDITOR_SHOWN."/>
-    <event name="OnGridColSize" class="wxGridSizeEvent" help="The user resized a column by dragging it. Processes a wxEVT_GRID_COL_SIZE."/>
-    <event name="OnGridRowSize" class="wxGridSizeEvent" help="The user resized a row by dragging it. Processes a wxEVT_GRID_ROW_SIZE."/>
-    <event name="OnGridCmdColSize" class="wxGridSizeEvent" help="The user resized a column by dragging it; variant taking a window identifier. Processes a wxEVT_GRID_COL_SIZE."/>
-    <event name="OnGridCmdRowSize" class="wxGridSizeEvent" help="The user resized a row by dragging it; variant taking a window identifier. Processes a wxEVT_GRID_ROW_SIZE."/>
-    <event name="OnGridRangeSelect" class="wxGridRangeSelectEvent" help="The user selected a group of contiguous cells. Processes a wxEVT_GRID_RANGE_SELECT."/>
-    <event name="OnGridCmdRangeSelect" class="wxGridRangeSelectEvent" help="The user selected a group of contiguous cells; variant taking a window identifier. Processes a wxEVT_GRID_RANGE_SELECT."/>
-    <event name="OnGridEditorCreated" class="wxGridEditorCreatedEvent" help="The editor for a cell was created. Processes a wxEVT_GRID_EDITOR_CREATED."/>
-    <event name="OnGridCmdEditorCreated" class="wxGridEditorCreatedEvent" help="The editor for a cell was created; variant taking a window identifier. Processes a wxEVT_GRID_EDITOR_CREATED."/>
+    <event name="OnGridCellLeftClick" class="wxGridEvent" help="用户用鼠标左键单击了一个单元格. 处理wxEVT_GRID_CELL_LEFT_CLICK."/>
+    <event name="OnGridCellRightClick" class="wxGridEvent" help="用户用鼠标右键单击单元格. 处理wxEVT_GRID_CELL_RIGHT_CLICK."/>
+    <event name="OnGridCellLeftDClick" class="wxGridEvent" help="用户用鼠标左键双击一个单元格. 处理wxEVT_GRID_CELL_LEFT_DCLICK."/>
+    <event name="OnGridCellRightDClick" class="wxGridEvent" help="用户用鼠标右键双击单元格. 处理wxEVT_GRID_CELL_RIGHT_DCLICK."/>
+    <event name="OnGridLabelLeftClick" class="wxGridEvent" help="用户用鼠标左键单击标签. 处理wxEVT_GRID_LABEL_LEFT_CLICK."/>
+    <event name="OnGridLabelRightClick" class="wxGridEvent" help="用户用鼠标右键单击标签. 处理wxEVT_GRID_LABEL_RIGHT_CLICK."/>
+    <event name="OnGridLabelLeftDClick" class="wxGridEvent" help="用户用鼠标左键双击标签. 处理wxEVT_GRID_LABEL_LEFT_DCLICK."/>
+    <event name="OnGridLabelRightDClick" class="wxGridEvent" help="用户用鼠标右键双击标签. 处理wxEVT_GRID_LABEL_RIGHT_DCLICK."/>
+    <event name="OnGridCellChange" class="wxGridEvent" help="用户更改了单元格中的数据. 处理wxEVT_GRID_CELL_CHANGED."/>
+    <event name="OnGridSelectCell" class="wxGridEvent" help="用户移动到并选择了一个单元格. 处理wxEVT_GRID_SELECT_CELL."/>
+    <event name="OnGridEditorHidden" class="wxGridEvent" help="单元格的编辑器已隐藏. 处理wxEVT_GRID_EDITOR_HIDDEN."/>
+    <event name="OnGridEditorShown" class="wxGridEvent" help="显示了单元格的编辑器. 处理wxEVT_GRID_EDITOR_SHOWN."/>
+    <event name="OnGridCmdCellLeftClick" class="wxGridEvent" help="用户用鼠标左键单击了一个单元格; 采用窗口标识符的变量。 处理wxEVT_GRID_CELL_LEFT_CLICK."/>
+    <event name="OnGridCmdCellRightClick" class="wxGridEvent" help="用户用鼠标右键单击单元格; 采用窗口标识符的变量。 处理wxEVT_GRID_CELL_RIGHT_CLICK."/>
+    <event name="OnGridCmdCellLeftDClick" class="wxGridEvent" help="用户用鼠标左键双击一个单元格; 采用窗口标识符的变量。 处理wxEVT_GRID_CELL_LEFT_DCLICK."/>
+    <event name="OnGridCmdCellRightDClick" class="wxGridEvent" help="用户用鼠标右键双击单元格; 采用窗口标识符的变量。 处理wxEVT_GRID_CELL_RIGHT_DCLICK."/>
+    <event name="OnGridCmdLabelLeftClick" class="wxGridEvent" help="用户用鼠标左键单击标签; 采用窗口标识符的变量。 处理wxEVT_GRID_LABEL_LEFT_CLICK"/>
+    <event name="OnGridCmdLabelRightClick" class="wxGridEvent" help="用户用鼠标右键单击标签; 采用窗口标识符的变量。 处理wxEVT_GRID_LABEL_RIGHT_CLICK."/>
+    <event name="OnGridCmdLabelLeftDClick" class="wxGridEvent" help="用户用鼠标左键双击标签; 采用窗口标识符的变量。 处理wxEVT_GRID_LABEL_LEFT_DCLICK."/>
+    <event name="OnGridCmdLabelRightDClick" class="wxGridEvent" help="用户用鼠标右键双击标签; 采用窗口标识符的变量。 处理wxEVT_GRID_LABEL_RIGHT_DCLICK."/>
+    <event name="OnGridCmdCellChange" class="wxGridEvent" help="用户更改了单元格中的数据; 采用窗口标识符的变量。 处理wxEVT_GRID_CELL_CHANGED."/>
+    <event name="OnGridCmdSelectCell" class="wxGridEvent" help="用户移动到并选择了一个单元格; 采用窗口标识符的变量。 处理wxEVT_GRID_SELECT_CELL."/>
+    <event name="OnGridCmdEditorHidden" class="wxGridEvent" help="单元格的编辑器已隐藏; 采用窗口标识符的变量。 处理wxEVT_GRID_EDITOR_HIDDEN."/>
+    <event name="OnGridCmdEditorShown" class="wxGridEvent" help="显示了单元格的编辑器; 采用窗口标识符的变量。 处理wxEVT_GRID_EDITOR_SHOWN."/>
+    <event name="OnGridColSize" class="wxGridSizeEvent" help="用户通过拖动来调整列的大小. 处理wxEVT_GRID_COL_SIZE."/>
+    <event name="OnGridRowSize" class="wxGridSizeEvent" help="用户通过拖动来调整行的大小. 处理wxEVT_GRID_ROW_SIZE."/>
+    <event name="OnGridCmdColSize" class="wxGridSizeEvent" help="用户通过拖动来调整列的大小; 采用窗口标识符的变量。 处理wxEVT_GRID_COL_SIZE."/>
+    <event name="OnGridCmdRowSize" class="wxGridSizeEvent" help="用户通过拖动来调整行的大小; 采用窗口标识符的变量。 处理wxEVT_GRID_ROW_SIZE."/>
+    <event name="OnGridRangeSelect" class="wxGridRangeSelectEvent" help="用户选择了一组连续单元格. 处理wxEVT_GRID_RANGE_SELECT."/>
+    <event name="OnGridCmdRangeSelect" class="wxGridRangeSelectEvent" help="用户选择了一组连续单元格; 采用窗口标识符的变量。 处理wxEVT_GRID_RANGE_SELECT."/>
+    <event name="OnGridEditorCreated" class="wxGridEditorCreatedEvent" help="已创建单元格的编辑器. 处理wxEVT_GRID_EDITOR_CREATED."/>
+    <event name="OnGridCmdEditorCreated" class="wxGridEditorCreatedEvent" help="已创建单元格的编辑器; 采用窗口标识符的变量。 处理wxEVT_GRID_EDITOR_CREATED."/>
   </objectinfo>
 
   <objectinfo class="wxCheckListBox" icon="checklistbox.xpm" type="widget">
@@ -169,18 +169,18 @@ Written by
     <inherits class="Validator"/>
     <property name="name" type="text">m_checkList</property>
     <property name="style" type="bitlist">
-      <option name="wxLB_SINGLE" help="Single-selection list."/>
-      <option name="wxLB_MULTIPLE" help="Multiple-selection list: the user can toggle multiple items on and off."/>
-      <option name="wxLB_EXTENDED" help="Extended-selection list: the user can select multiple items using the SHIFT key and the mouse or special key combinations."/>
-      <option name="wxLB_HSCROLL" help="Create horizontal scrollbar if contents are too wide (Windows only)."/>
-      <option name="wxLB_ALWAYS_SB" help="Always show a vertical scrollbar."/>
-      <option name="wxLB_NEEDED_SB" help="Only create a vertical scrollbar if needed."/>
-      <option name="wxLB_NO_SB" help="Don't create vertical scrollbar (wxMSW only)."/>
-      <option name="wxLB_SORT" help="The listbox contents are sorted in alphabetical order."/></property>
-    <property name="choices" type="stringlist" help="List of default values."/>
-    <event name="OnCheckListBoxToggled" class="wxCommandEvent" help="Process a wxEVT_COMMAND_CHECKLISTBOX_TOGGLED event, when an item in the check list box is checked or unchecked."/>
-    <event name="OnCheckListBox" class="wxCommandEvent" help="Process a wxEVT_COMMAND_LISTBOX_SELECTED event, when an item on the list is selected."/>
-    <event name="OnCheckListBoxDClick" class="wxCommandEvent" help="Process a wxEVT_COMMAND_LISTBOX_DOUBLECLICKED event, when the listbox is double-clicked."/>
+      <option name="wxLB_SINGLE" help="单选列表。"/>
+      <option name="wxLB_MULTIPLE" help="多选列表:用户可以切换多个项目的开启和关闭。l"/>
+      <option name="wxLB_EXTENDED" help="扩展选择列表：用户可以使用SHIFT键和鼠标或特殊组合键选择多个项目。"/>
+      <option name="wxLB_HSCROLL" help="如果内容太宽，创建水平滚动条(仅限Windows)。"/>
+      <option name="wxLB_ALWAYS_SB" help="“始终显示垂直滚动条。"/>
+      <option name="wxLB_NEEDED_SB" help="只在需要时创建垂直滚动条。"/>
+      <option name="wxLB_NO_SB" help="不要创建垂直滚动条(仅限于wxMSW)。"/>
+      <option name="wxLB_SORT" help="列表框内容按字母顺序排序。"/></property>
+    <property name="choices" type="stringlist" help="列表的默认值。"/>
+    <event name="OnCheckListBoxToggled" class="wxCommandEvent" help="选中或取消选中复选框中的某个项目时，处理wxEVT_COMMAND_CHECKLISTBOX_TOGGLED事件。"/>
+    <event name="OnCheckListBox" class="wxCommandEvent" help="当列表中的一个项被选中时，处理wxEVT_COMMAND_LISTBOX_SELECTED事件。"/>
+    <event name="OnCheckListBoxDClick" class="wxCommandEvent" help="当列表框被双击时，处理wxEVT_COMMAND_LISTBOX_DOUBLECLICKED事件。"/>
   </objectinfo>
 
   <objectinfo class="wxTreeListCtrl" icon="treelistctrl.xpm" type="treelistctrl" startgroup="1">
@@ -188,41 +188,41 @@ Written by
     <inherits class="AUI"/>
     <property name="name" type="text">m_treeListCtrl</property>
     <property name="style" type="bitlist">
-      <option name="wxTL_SINGLE" help="Single selection, this is the default."/>
-      <option name="wxTL_MULTIPLE" help="Allow multiple selection."/>
-      <option name="wxTL_CHECKBOX" help="Show the usual, 2 state, checkboxes for the items in the first column."/>
-      <option name="wxTL_3STATE" help="Show the checkboxes that can possibly be set by the program, but not the user, to a third, undetermined, state, for the items in the first column. Implies wxTL_CHECKBOX."/>
-      <option name="wxTL_USER_3STATE" help="Same as wxTL_3STATE but the user can also set the checkboxes to the undetermined state. Implies wxTL_3STATE."/>
-      <option name="wxTL_DEFAULT_STYLE" help="Style used by the control by default, just wxTL_SINGLE currently."/>
+      <option name="wxTL_SINGLE" help="单选择，这是默认值。"/>
+      <option name="wxTL_MULTIPLE" help="允许多种选择。"/>
+      <option name="wxTL_CHECKBOX" help="为第一列中的项目显示通常的2个状态复选框。"/>
+      <option name="wxTL_3STATE" help="显示第一列中项目的复选框，这些复选框可能由程序而非用户设置为第三种未确定状态。意味着wxTL_CHECKBOX。"/>
+      <option name="wxTL_USER_3STATE" help="与wxTL_3STATE相同，但用户也可以将复选框设置为未确定状态。意味着wxTL_3STATE。"/>
+      <option name="wxTL_DEFAULT_STYLE" help="控件默认使用的样式，目前只有wxTL_SINGLE。"/>
       wxTL_DEFAULT_STYLE
     </property>
-    <event name="OnTreelistSelectionChanged" class="wxTreeListEvent" help="Process wxEVT_TREELIST_SELECTION_CHANGED event and notifies about the selection change in the control. In the single selection case the item indicated by the event has been selected and previously selected item, if any, was deselected. In multiple selection case, the selection of this item has just changed (it may have been either selected or deselected) but notice that the selection of other items could have changed as well, use wxTreeListCtrl::GetSelections() to retrieve the new selection if necessary."/>
-    <event name="OnTreelistItemExpanding" class="wxTreeListEvent" help="Process wxEVT_TREELIST_ITEM_EXPANDING event notifying about the given branch being expanded. This event is sent before the expansion occurs and can be vetoed to prevent it from happening."/>
-    <event name="OnTreelistItemExpanded" class="wxTreeListEvent" help="Process wxEVT_TREELIST_ITEM_EXPANDED event notifying about the expansion of the given branch. This event is sent after the expansion occurs and can't be vetoed."/>
-    <event name="OnTreelistItemChecked" class="wxTreeListEvent" help="Process wxEVT_TREELIST_ITEM_CHECKED event notifying about the user checking or unchecking the item. You can use wxTreeListCtrl::GetCheckedState() to retrieve the new item state and wxTreeListEvent::GetOldCheckedState() to get the previous one."/>
-    <event name="OnTreelistItemActivated" class="wxTreeListEvent" help="Process wxEVT_TREELIST_ITEM_ACTIVATED event notifying about the user double clicking the item or activating it from keyboard."/>
-    <event name="OnTreelistItemContextMenu" class="wxTreeListEvent" help="Process wxEVT_TREELIST_ITEM_CONTEXT_MENU event indicating that the popup menu for the given item should be displayed."/>
-    <event name="OnTreelistColumnSorted" class="wxTreeListEvent" help="Process wxEVT_TREELIST_COLUMN_SORTED event indicating that the control contents has just been resorted using the specified column. The event doesn't carry the sort direction, use GetSortColumn() method if you need to know it."/>
+    <event name="OnTreelistSelectionChanged" class="wxTreeListEvent" help="处理wxEVT_TREELIST_SELECTION_CHANGED事件，并通知控件中的选择更改。在单选的情况下，事件指示的项目已被选中，而先前选择的项目（如果有）已被取消选中。在多选的情况下，此项目的选择刚刚更改（可能已被选中或取消选中），但请注意，其他项目的选择也可能已更改，如有必要，请使用wxTreeListCtrl::GetSelections()检索新的选择。"/>
+    <event name="OnTreelistItemExpanding" class="wxTreeListEvent" help="处理wxEVT_TREELIST_ITEM_EXPANDING事件，通知正在扩展的给定分支。此事件在扩展发生之前发送，可以否决以防止其发生。"/>
+    <event name="OnTreelistItemExpanded" class="wxTreeListEvent" help="处理wxEVT_TREELIST_ITEM_EXPANDED事件，通知给定分支的扩展。此事件是在扩展发生后发送的，不能被否决。"/>
+    <event name="OnTreelistItemChecked" class="wxTreeListEvent" help="P处理wxEVT_TREELIST_ITEM_CHECKED事件，通知用户检查或取消检查项目。您可以使用wxTreeListCtrl::GetCheckedState()来检索新项目状态，使用wxTreeListEvent::GetOldCheckedState:()来获取上一个状态。"/>
+    <event name="OnTreelistItemActivated" class="wxTreeListEvent" help="处理wxEVT_TREELIST_ITEM_ACTIVATE事件，通知用户双击项目或从键盘激活项目。"/>
+    <event name="OnTreelistItemContextMenu" class="wxTreeListEvent" help="处理wxEVT_TREELIST_ITEM_CONTEXT_MENU事件，指示应显示给定项目的弹出菜单。"/>
+    <event name="OnTreelistColumnSorted" class="wxTreeListEvent" help="处理wxEVT_TREELIST_COLUMN_SORTED事件，该事件指示刚刚使用指定的列调用了控件内容。该事件不包含排序方向，如果需要，请使用GetSortColumn()方法。"/>
   </objectinfo>
 
   <objectinfo class="wxTreeListCtrlColumn" icon="treelistctrlcolumn.xpm" type="treelistctrlcolumn">
-    <property name="name" type="wxString_i18n" help="The column label.">Column</property>
-    <property name="width" type="editoption" help="The width of the column in pixels or the special wxCOL_WIDTH_AUTOSIZE value indicating that the column should adjust to its contents. Notice that the first column is special and will be always resized to fill all the space not taken by the other columns, i.e. the width specified here is ignored for it.">
-      <option name="wxCOL_WIDTH_DEFAULT" help="Special value used for column width meaning unspecified or default."/>
-      <option name="wxCOL_WIDTH_AUTOSIZE" help="Size the column automatically to fit all values.&#10;&#10;Note:&#10;On OS X, this style is only implemented in the Cocoa build on OS X >= 10.5; it behaves identically to wxCOL_WIDTH_DEFAULT otherwise."/>
+    <property name="name" type="wxString_i18n" help="列标签。">Column</property>
+    <property name="width" type="editoption" help="列的宽度（以像素为单位）或特殊的wxCOL_width_AUTOSIZE值，指示列应根据其内容进行调整。请注意，第一列是特殊的，将始终调整大小以填充其他列未占用的所有空间，即忽略此处指定的宽度。">
+      <option name="wxCOL_WIDTH_DEFAULT" help="用于列宽的特殊值，表示未指定或默认值。"/>
+      <option name="wxCOL_WIDTH_AUTOSIZE" help="自动调整列的大小以适应所有值。&#10;&#10;注意:&#10;在 OS X, 上，这种风格仅在OSX>=10.5上的Cocoa构建中实现；则其行为与wxCOL_WIDTH_DEFAULT相同。"/>
       wxCOL_WIDTH_DEFAULT
     </property>
-    <property name="alignment" type="option" help="Alignment of both the column header and its items.">
-      <option name="wxALIGN_LEFT" help="Align the item to the left."/>
-      <option name="wxALIGN_RIGHT" help="Align the item to the right."/>
-      <option name="wxALIGN_CENTER" help="Align the item to the center."/>
+    <property name="alignment" type="option" help="列标题及其项的对齐方式。">
+      <option name="wxALIGN_LEFT" help="将项目向左对齐。"/>
+      <option name="wxALIGN_RIGHT" help="将项目向右对齐。"/>
+      <option name="wxALIGN_CENTER" help="将项目与中心对齐。"/>
       wxALIGN_LEFT
     </property>
     <property name="flag" type="bitlist">
-      <option name="wxCOL_RESIZABLE" help="Column can be resized (included in default flags)."/>
-      <option name="wxCOL_SORTABLE" help="Column can be clicked to toggle the sort order by its contents."/>
-      <option name="wxCOL_REORDERABLE" help="Column can be dragged to change its order (included in default)."/>
-      <option name="wxCOL_HIDDEN" help="Column is not shown at all."/>
+      <option name="wxCOL_RESIZABLE" help="列可以调整大小(包括在默认标志中)。"/>
+      <option name="wxCOL_SORTABLE" help="可以单击列以按其内容切换排序顺序。"/>
+      <option name="wxCOL_REORDERABLE" help="可以拖动列以更改其顺序(默认包含)"/>
+      <option name="wxCOL_HIDDEN" help="列根本没有显示。"/>
       wxCOL_RESIZABLE
     </property>
   </objectinfo>
@@ -232,33 +232,33 @@ Written by
     <inherits class="wxWindow"/>
     <property name="name" type="text">m_dataViewCtrl</property>
     <property name="style" type="bitlist">
-      <option name="wxDV_SINGLE" help="Single selection mode. This is the default."/>
-      <option name="wxDV_MULTIPLE" help="Multiple selection mode."/>
-      <option name="wxDV_ROW_LINES" help="Use alternating colours for rows if supported by platform and theme. Currently only supported by the native GTK and OS X implementations but not by the generic one."/>
-      <option name="wxDV_HORIZ_RULES" help="Display the separator lines between rows"/>
-      <option name="wxDV_VERT_RULES" help="Display the separator lines between columns."/>
-      <option name="wxDV_VARIABLE_LINE_HEIGHT" help="Allow variable line heights. This can be inefficient when displaying large number of items."/>
-      <option name="wxDV_NO_HEADER" help="Do not show column headers (which are shown by default)."/>
+      <option name="wxDV_SINGLE" help="单选模式。这是默认值。"/>
+      <option name="wxDV_MULTIPLE" help="多选模式。"/>
+      <option name="wxDV_ROW_LINES" help="如果平台和主题支持，则对行使用交替颜色。目前仅受本机GTK和OSX实现的支持，但不受通用实现的支持。"/>
+      <option name="wxDV_HORIZ_RULES" help="显示行之间的分隔线"/>
+      <option name="wxDV_VERT_RULES" help="显示列之间的分隔线。"/>
+      <option name="wxDV_VARIABLE_LINE_HEIGHT" help="允许可变的线条高度。当显示大量项目时，这可能是低效的。"/>
+      <option name="wxDV_NO_HEADER" help="不显示列标题(默认显示)。"/>
     </property>
     <template name="generated_event_handlers"></template>
-    <event name="OnDataViewCtrlSelectionChanged" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_SELECTION_CHANGED event."/>
-    <event name="OnDataViewCtrlItemActivated" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_ACTIVATED event. This event is triggered by double clicking an item or pressing some special key (usually 'Enter') when it is focused."/>
-    <event name="OnDataViewCtrlItemStartEditing" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_START_EDITING event. This event can be vetoed in order to prevent editing on an item by item basis."/>
-    <event name="OnDataViewCtrlItemEditingStarted" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_EDITING_STARTED event."/>
-    <event name="OnDataViewCtrlItemEditingDone" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_EDITING_DONE event."/>
-    <event name="OnDataViewCtrlItemCollapsing" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_COLLAPSING event."/>
-    <event name="OnDataViewCtrlItemCollapsed" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_COLLAPSED event."/>
-    <event name="OnDataViewCtrlItemExpanding" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_EXPANDING event."/>
-    <event name="OnDataViewCtrlItemExpanded" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_EXPANDED event."/>
-    <event name="OnDataViewCtrlItemValueChanged" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_VALUE_CHANGED event"/>
-    <event name="OnDataViewCtrlItemContextMenu" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_CONTEXT_MENU event generated when the user right clicks inside the control. Notice that this menu is generated even if the click didn't occur on any valid item, in this case wxDataViewEvent::GetItem() simply returns an invalid item."/>
-    <event name="OnDataViewCtrlColumnHeaderClick" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_COLUMN_HEADER_CLICK event."/>
-    <event name="OnDataViewCtrlColumnHeaderRightClick" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_COLUMN_HEADER_RIGHT_CLICK event. Notice that currently this event is not generated in the native OS X versions of the control."/>
-    <event name="OnDataViewCtrlColumnSorted" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_COLUMN_SORTED event."/>
-    <event name="OnDataViewCtrlColumnReordered" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_COLUMN_REORDERED event."/>
-    <event name="OnDataViewCtrlItemBeginDrag" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_BEGIN_DRAG event."/>
-    <event name="OnDataViewCtrlItemDropPossible" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_DROP_POSSIBLE event."/>
-    <event name="OnDataViewCtrlItemDrop" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_DROP event."/>
+    <event name="OnDataViewCtrlSelectionChanged" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_SELECTION_CHANGED事件。"/>
+    <event name="OnDataViewCtrlItemActivated" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_ACTIVATED事件。 此事件是通过双击项目或在项目聚焦时按下某些特殊键（通常为“Enter”）触发的。"/>
+    <event name="OnDataViewCtrlItemStartEditing" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_START_EDITING事件。 可以否决此事件，以防止逐项进行编辑。"/>
+    <event name="OnDataViewCtrlItemEditingStarted" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_EDITING_STARTED事件。"/>
+    <event name="OnDataViewCtrlItemEditingDone" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_EDITING_DONE事件。"/>
+    <event name="OnDataViewCtrlItemCollapsing" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_COLLAPSING事件。"/>
+    <event name="OnDataViewCtrlItemCollapsed" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_COLLAPSED事件。"/>
+    <event name="OnDataViewCtrlItemExpanding" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_EXPANDING事件。"/>
+    <event name="OnDataViewCtrlItemExpanded" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_EXPANDED事件。"/>
+    <event name="OnDataViewCtrlItemValueChanged" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_VALUE_CHANGED事件。"/>
+    <event name="OnDataViewCtrlItemContextMenu" class="wxDataViewEvent" help="处理用户在控件内右键单击时生成的wxEVT_DATAVIEW_ITEM_CONTEXT_MENU事件。请注意，即使单击没有发生在任何有效项上，也会生成此菜单，在这种情况下，wxDataViewEvent::GetItem()只是返回一个无效项。"/>
+    <event name="OnDataViewCtrlColumnHeaderClick" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_COLUMN_HEADER_CLICK事件。"/>
+    <event name="OnDataViewCtrlColumnHeaderRightClick" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_COLUMN_HEADER_RIGHT_CLICK事件。 请注意，当前此事件不是在控件的本机OSX版本中生成的。"/>
+    <event name="OnDataViewCtrlColumnSorted" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_COLUMN_SORTED事件。"/>
+    <event name="OnDataViewCtrlColumnReordered" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_COLUMN_REORDERED事件。"/>
+    <event name="OnDataViewCtrlItemBeginDrag" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_BEGIN_DRAG事件。"/>
+    <event name="OnDataViewCtrlItemDropPossible" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_DROP_POSSIBLE事件。"/>
+    <event name="OnDataViewCtrlItemDrop" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_DROP事件。"/>
   </objectinfo>
 
   <objectinfo class="wxDataViewTreeCtrl" icon="dataviewtree_ctrl.xpm" type="dataviewtreectrl" wxversion="2904" >
@@ -266,33 +266,33 @@ Written by
     <inherits class="wxWindow"/>
     <property name="name" type="text">m_dataViewTreeCtrl</property>
     <property name="style" type="bitlist">
-      <option name="wxDV_SINGLE" help="Single selection mode. This is the default."/>
-      <option name="wxDV_MULTIPLE" help="Multiple selection mode."/>
-      <option name="wxDV_ROW_LINES" help="Use alternating colours for rows if supported by platform and theme. Currently only supported by the native GTK and OS X implementations but not by the generic one."/>
-      <option name="wxDV_HORIZ_RULES" help="Display the separator lines between rows"/>
-      <option name="wxDV_VERT_RULES" help="Display the separator lines between columns."/>
-      <option name="wxDV_VARIABLE_LINE_HEIGHT" help="Allow variable line heights. This can be inefficient when displaying large number of items."/>
-      <option name="wxDV_NO_HEADER" help="Do not show column headers (which are shown by default)."/>
+      <option name="wxDV_SINGLE" help="单选模式。这是默认值。"/>
+      <option name="wxDV_MULTIPLE" help="多选模式。"/>
+      <option name="wxDV_ROW_LINES" help="如果平台和主题支持，则对行使用交替颜色。目前仅受本机GTK和OSX实现的支持，但不受通用实现的支持。"/>
+      <option name="wxDV_HORIZ_RULES" help="显示行之间的分隔线"/>
+      <option name="wxDV_VERT_RULES" help="显示列之间的分隔线。"/>
+      <option name="wxDV_VARIABLE_LINE_HEIGHT" help="允许可变的线条高度。当显示大量项目时，这可能是低效的。"/>
+      <option name="wxDV_NO_HEADER" help="不显示列标题(默认显示)。"/>
     </property>
     <template name="generated_event_handlers"></template>
-    <event name="OnDataViewTreeCtrlSelectionChanged" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_SELECTION_CHANGED event."/>
-    <event name="OnDataViewTreeCtrlItemActivated" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_ACTIVATED event. This event is triggered by double clicking an item or pressing some special key (usually 'Enter') when it is focused."/>
-    <event name="OnDataViewTreeCtrlItemStartEditing" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_START_EDITING event. This event can be vetoed in order to prevent editing on an item by item basis."/>
-    <event name="OnDataViewTreeCtrlItemEditingStarted" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_EDITING_STARTED event."/>
-    <event name="OnDataViewTreeCtrlItemEditingDone" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_EDITING_DONE event."/>
-    <event name="OnDataViewTreeCtrlItemCollapsing" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_COLLAPSING event."/>
-    <event name="OnDataViewTreeCtrlItemCollapsed" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_COLLAPSED event."/>
-    <event name="OnDataViewTreeCtrlItemExpanding" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_EXPANDING event."/>
-    <event name="OnDataViewTreeCtrlItemExpanded" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_EXPANDED event."/>
-    <event name="OnDataViewTreeCtrlItemValueChanged" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_VALUE_CHANGED event"/>
-    <event name="OnDataViewTreeCtrlItemContextMenu" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_CONTEXT_MENU event generated when the user right clicks inside the control. Notice that this menu is generated even if the click didn't occur on any valid item, in this case wxDataViewEvent::GetItem() simply returns an invalid item."/>
-    <event name="OnDataViewTreeCtrlColumnHeaderClick" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_COLUMN_HEADER_CLICK event."/>
-    <event name="OnDataViewTreeCtrlColumnHeaderRightClick" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_COLUMN_HEADER_RIGHT_CLICK event. Notice that currently this event is not generated in the native OS X versions of the control."/>
-    <event name="OnDataViewTreeCtrlColumnSorted" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_COLUMN_SORTED event."/>
-    <event name="OnDataViewTreeCtrlColumnReordered" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_COLUMN_REORDERED event."/>
-    <event name="OnDataViewTreeCtrlItemBeginDrag" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_BEGIN_DRAG event."/>
-    <event name="OnDataViewTreeCtrlItemDropPossible" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_DROP_POSSIBLE event."/>
-    <event name="OnDataViewTreeCtrlItemDrop" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_DROP event."/>
+    <event name="OnDataViewTreeCtrlSelectionChanged" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_SELECTION_CHANGED事件。"/>
+    <event name="OnDataViewTreeCtrlItemActivated" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_ACTIVATED事件。 此事件是通过双击项目或在项目聚焦时按下某些特殊键（通常为“Enter”）触发的。"/>
+    <event name="OnDataViewTreeCtrlItemStartEditing" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_START_EDITING事件。 可以否决此事件，以防止逐项进行编辑。"/>
+    <event name="OnDataViewTreeCtrlItemEditingStarted" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_EDITING_STARTED事件。"/>
+    <event name="OnDataViewTreeCtrlItemEditingDone" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_EDITING_DONE事件。"/>
+    <event name="OnDataViewTreeCtrlItemCollapsing" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_COLLAPSING事件。"/>
+    <event name="OnDataViewTreeCtrlItemCollapsed" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_COLLAPSED事件。"/>
+    <event name="OnDataViewTreeCtrlItemExpanding" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_EXPANDING事件。"/>
+    <event name="OnDataViewTreeCtrlItemExpanded" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_EXPANDED事件。"/>
+    <event name="OnDataViewTreeCtrlItemValueChanged" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_VALUE_CHANGED事件。"/>
+    <event name="OnDataViewTreeCtrlItemContextMenu" class="wxDataViewEvent" help="处理用户在控件内右键单击时生成的wxEVT_DATAVIEW_ITEM_CONTEXT_MENU事件。请注意，即使单击没有发生在任何有效项上，也会生成此菜单，在这种情况下，wxDataViewEvent::GetItem()只是返回一个无效项。"/>
+    <event name="OnDataViewTreeCtrlColumnHeaderClick" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_COLUMN_HEADER_CLICK事件。"/>
+    <event name="OnDataViewTreeCtrlColumnHeaderRightClick" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_COLUMN_HEADER_RIGHT_CLICK事件。 请注意，当前此事件不是在控件的本机OSX版本中生成的。"/>
+    <event name="OnDataViewTreeCtrlColumnSorted" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_COLUMN_SORTED事件。"/>
+    <event name="OnDataViewTreeCtrlColumnReordered" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_COLUMN_REORDERED事件。"/>
+    <event name="OnDataViewTreeCtrlItemBeginDrag" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_BEGIN_DRAG事件。"/>
+    <event name="OnDataViewTreeCtrlItemDropPossible" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_DROP_POSSIBLE事件。"/>
+    <event name="OnDataViewTreeCtrlItemDrop" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_DROP事件。"/>
   </objectinfo>
 
   <objectinfo class="wxDataViewListCtrl" icon="dataviewlist_ctrl.xpm" type="dataviewlistctrl" wxversion="2904" >
@@ -300,33 +300,33 @@ Written by
     <inherits class="wxWindow"/>
     <property name="name" type="text">m_dataViewListCtrl</property>
     <property name="style" type="bitlist">
-      <option name="wxDV_SINGLE" help="Single selection mode. This is the default."/>
-      <option name="wxDV_MULTIPLE" help="Multiple selection mode."/>
-      <option name="wxDV_ROW_LINES" help="Use alternating colours for rows if supported by platform and theme. Currently only supported by the native GTK and OS X implementations but not by the generic one."/>
-      <option name="wxDV_HORIZ_RULES" help="Display the separator lines between rows"/>
-      <option name="wxDV_VERT_RULES" help="Display the separator lines between columns."/>
-      <option name="wxDV_VARIABLE_LINE_HEIGHT" help="Allow variable line heights. This can be inefficient when displaying large number of items."/>
-      <option name="wxDV_NO_HEADER" help="Do not show column headers (which are shown by default)."/>
+      <option name="wxDV_SINGLE" help="单选模式。这是默认值。"/>
+      <option name="wxDV_MULTIPLE" help="多选模式。"/>
+      <option name="wxDV_ROW_LINES" help="如果平台和主题支持，则对行使用交替颜色。目前仅受本机GTK和OSX实现的支持，但不受通用实现的支持。"/>
+      <option name="wxDV_HORIZ_RULES" help="显示行之间的分隔线"/>
+      <option name="wxDV_VERT_RULES" help="显示列之间的分隔线。"/>
+      <option name="wxDV_VARIABLE_LINE_HEIGHT" help="允许可变的线条高度。当显示大量项目时，这可能是低效的。"/>
+      <option name="wxDV_NO_HEADER" help="不显示列标题(默认显示)。"/>
     </property>
     <template name="generated_event_handlers"></template>
-    <event name="OnDataViewListCtrlSelectionChanged" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_SELECTION_CHANGED event."/>
-    <event name="OnDataViewListCtrlItemActivated" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_ACTIVATED event. This event is triggered by double clicking an item or pressing some special key (usually 'Enter') when it is focused."/>
-    <event name="OnDataViewListCtrlItemStartEditing" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_START_EDITING event. This event can be vetoed in order to prevent editing on an item by item basis."/>
-    <event name="OnDataViewListCtrlItemEditingStarted" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_EDITING_STARTED event."/>
-    <event name="OnDataViewListCtrlItemEditingDone" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_EDITING_DONE event."/>
-    <event name="OnDataViewListCtrlItemCollapsing" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_COLLAPSING event."/>
-    <event name="OnDataViewListCtrlItemCollapsed" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_COLLAPSED event."/>
-    <event name="OnDataViewListCtrlItemExpanding" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_EXPANDING event."/>
-    <event name="OnDataViewListCtrlItemExpanded" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_EXPANDED event."/>
-    <event name="OnDataViewListCtrlItemValueChanged" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_VALUE_CHANGED event"/>
-    <event name="OnDataViewListCtrlItemContextMenu" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_CONTEXT_MENU event generated when the user right clicks inside the control. Notice that this menu is generated even if the click didn't occur on any valid item, in this case wxDataViewEvent::GetItem() simply returns an invalid item."/>
-    <event name="OnDataViewListCtrlColumnHeaderClick" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_COLUMN_HEADER_CLICK event."/>
-    <event name="OnDataViewListCtrlColumnHeaderRightClick" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_COLUMN_HEADER_RIGHT_CLICK event. Notice that currently this event is not generated in the native OS X versions of the control."/>
-    <event name="OnDataViewListCtrlColumnSorted" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_COLUMN_SORTED event."/>
-    <event name="OnDataViewListCtrlColumnReordered" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_COLUMN_REORDERED event."/>
-    <event name="OnDataViewListCtrlItemBeginDrag" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_BEGIN_DRAG event."/>
-    <event name="OnDataViewListCtrlItemDropPossible" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_DROP_POSSIBLE event."/>
-    <event name="OnDataViewListCtrlItemDrop" class="wxDataViewEvent" help="Process a wxEVT_DATAVIEW_ITEM_DROP event."/>
+    <event name="OnDataViewListCtrlSelectionChanged" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_SELECTION_CHANGED事件。"/>
+    <event name="OnDataViewListCtrlItemActivated" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_ACTIVATED事件。 此事件是通过双击项目或在项目聚焦时按下某些特殊键（通常为“Enter”）触发的。"/>
+    <event name="OnDataViewListCtrlItemStartEditing" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_START_EDITING事件。 可以否决此事件，以防止逐项进行编辑。"/>
+    <event name="OnDataViewListCtrlItemEditingStarted" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_EDITING_STARTED事件。"/>
+    <event name="OnDataViewListCtrlItemEditingDone" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_EDITING_DONE事件。"/>
+    <event name="OnDataViewListCtrlItemCollapsing" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_COLLAPSING事件。"/>
+    <event name="OnDataViewListCtrlItemCollapsed" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_COLLAPSED事件。"/>
+    <event name="OnDataViewListCtrlItemExpanding" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_EXPANDING事件。"/>
+    <event name="OnDataViewListCtrlItemExpanded" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_EXPANDED事件。"/>
+    <event name="OnDataViewListCtrlItemValueChanged" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_VALUE_CHANGED事件。"/>
+    <event name="OnDataViewListCtrlItemContextMenu" class="wxDataViewEvent" help="处理用户在控件内右键单击时生成的wxEVT_DATAVIEW_ITEM_CONTEXT_MENU事件。请注意，即使单击没有发生在任何有效项上，也会生成此菜单，在这种情况下，wxDataViewEvent::GetItem()只是返回一个无效项。"/>
+    <event name="OnDataViewListCtrlColumnHeaderClick" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_COLUMN_HEADER_CLICK事件。"/>
+    <event name="OnDataViewListCtrlColumnHeaderRightClick" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_COLUMN_HEADER_RIGHT_CLICK事件。 请注意，当前此事件不是在控件的本机OSX版本中生成的。"/>
+    <event name="OnDataViewListCtrlColumnSorted" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_COLUMN_SORTED事件。"/>
+    <event name="OnDataViewListCtrlColumnReordered" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_COLUMN_REORDERED事件。"/>
+    <event name="OnDataViewListCtrlItemBeginDrag" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_BEGIN_DRAG事件。"/>
+    <event name="OnDataViewListCtrlItemDropPossible" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_DROP_POSSIBLE事件。"/>
+    <event name="OnDataViewListCtrlItemDrop" class="wxDataViewEvent" help="处理wxEVT_DATAVIEW_ITEM_DROP事件。"/>
   </objectinfo>
 
   <objectinfo class="dataViewColumn" icon="dataviewlist_column.xpm" type="dataviewcolumn" wxversion="2904" >
@@ -334,44 +334,44 @@ Written by
     <property name="label" type="wxString_i18n">Name</property>
     <property name="model_column" type="uint">0</property>
     <property name="type" type="option">
-      <option name="Text" help="Appends a text column to the control and the store."/>
-      <option name="Bitmap" help="Appends a column for rendering a bitmap."/>
-      <option name="Date" help="Appends a column for rendering a date."/>
-      <option name="Toggle" help="Appends a toggle column to the control and the store."/>
-      <option name="Progress" help="Appends a progress column to the control and the store."/>
-      <option name="IconText" help="Appends an icon-and-text column to the control and the store."/>
+      <option name="Text" help="将文本列追加到控件和存储区。"/>
+      <option name="Bitmap" help="附加一列以渲染位图。"/>
+      <option name="Date" help="追加一列以显示日期。"/>
+      <option name="Toggle" help="将切换列追加到控件和存储中。"/>
+      <option name="Progress" help="将进度列追加到控件和存储中。"/>
+      <option name="IconText" help="将图标和文本列追加到控件和存储区。"/>
       Text
     </property>
     <property name="mode" type="option">
-      <option name="wxDATAVIEW_CELL_INERT" help="The cell only displays information and cannot be manipulated or otherwise interacted with in any way."/>
-      <option name="wxDATAVIEW_CELL_ACTIVATABLE" help="Indicates that the cell can be activated by clicking it or using keyboard."/>
-      <option name="wxDATAVIEW_CELL_EDITABLE" help="Indicates that the user can edit the data in-place in an inline editor control that will show up when the user wants to edit the cell."/>
+      <option name="wxDATAVIEW_CELL_INERT" help="单元格只显示信息，不能以任何方式操作或与之交互。"/>
+      <option name="wxDATAVIEW_CELL_ACTIVATABLE" help="指示可以通过单击单元格或使用键盘来激活单元格。"/>
+      <option name="wxDATAVIEW_CELL_EDITABLE" help="指示用户可以在内联编辑器控件中就地编辑数据，该控件将在用户想要编辑单元格时显示"/>
       wxDATAVIEW_CELL_INERT
     </property>
     <property name="width" type="int">-1</property>
     <property name="align" type="bitlist">
-      <option name="wxALIGN_LEFT" help="Align the item to the left."/>
-      <option name="wxALIGN_TOP" help="Align the item to the top."/>
-      <option name="wxALIGN_RIGHT" help="Align the item to the right."/>
-      <option name="wxALIGN_BOTTOM" help="Align the item to the bottom."/>
-      <option name="wxALIGN_CENTER" help="Align the item to the center."/>
-      <option name="wxALIGN_CENTER_HORIZONTAL" help="Align the item to the horizontal center."/>
-      <option name="wxALIGN_CENTER_VERTICAL" help="Align the item to the vertical."/>
+      <option name="wxALIGN_LEFT" help="将项目向左对齐。"/>
+      <option name="wxALIGN_TOP" help="将项目对齐到顶部。"/>
+      <option name="wxALIGN_RIGHT" help="将项目向右对齐。"/>
+      <option name="wxALIGN_BOTTOM" help="将项目对齐到底部。"/>
+      <option name="wxALIGN_CENTER" help="将项目与中心对齐。"/>
+      <option name="wxALIGN_CENTER_HORIZONTAL" help="将项目与水平中心对齐。"/>
+      <option name="wxALIGN_CENTER_VERTICAL" help="将项目垂直对齐。"/>
       wxALIGN_LEFT
     </property>
     <property name="flags" type="bitlist">
-      <option name="wxDATAVIEW_COL_RESIZABLE" help="Column can be resized."/>
-      <option name="wxDATAVIEW_COL_SORTABLE" help="Column can be clicked to toggle the sort order by its contents."/>
-      <option name="wxDATAVIEW_COL_REORDERABLE" help="Column can be dragged to change its order."/>
-      <option name="wxDATAVIEW_COL_HIDDEN" help="Column is not shown at all."/>
+      <option name="wxDATAVIEW_COL_RESIZABLE" help="列可以调整大小。"/>
+      <option name="wxDATAVIEW_COL_SORTABLE" help="可以单击列以按其内容切换排序顺序。"/>
+      <option name="wxDATAVIEW_COL_REORDERABLE" help="可以拖动列以更改其顺序。"/>
+      <option name="wxDATAVIEW_COL_HIDDEN" help="列根本没有显示。"/>
       wxDATAVIEW_COL_RESIZABLE
     </property>
     <property name="ellipsize" type="option">
       <option name=""/>
-      <option name="wxELLIPSIZE_NONE" help="Don't ellipsize the text at all."/>
-      <option name="wxELLIPSIZE_START" help="Put the ellipsis at the start of the string, if the string needs ellipsization."/>
-      <option name="wxELLIPSIZE_MIDDLE" help="Put the ellipsis in the middle of the string, if the string needs ellipsization."/>
-      <option name="wxELLIPSIZE_END" help="Put the ellipsis at the end of the string, if the string needs ellipsization."/>
+      <option name="wxELLIPSIZE_NONE" help="完全不用椭圆字体。"/>
+      <option name="wxELLIPSIZE_START" help="如果字符串需要省略号，则将省略号放在字符串的开头。"/>
+      <option name="wxELLIPSIZE_MIDDLE" help="如果字符串需要省略号，请将省略号放在字符串的中间。"/>
+      <option name="wxELLIPSIZE_END" help="如果字符串需要省略号，则将省略号放在字符串的末尾。"/>
     </property>
   </objectinfo>
 
@@ -379,153 +379,153 @@ Written by
     <property name="name" type="text">m_dataViewListColumn</property>
     <property name="label" type="wxString_i18n">Name</property>
     <property name="type" type="option">
-      <option name="Text" help="Appends a text column to the control and the store."/>
-      <option name="Toggle" help="Appends a toggle column to the control and the store."/>
-      <option name="Progress" help="Appends a progress column to the control and the store."/>
-      <option name="IconText" help="Appends an icon-and-text column to the control and the store."/>
+      <option name="Text" help="将文本列追加到控件和存储区。"/>
+      <option name="Toggle" help="将切换列追加到控件和存储中。"/>
+      <option name="Progress" help="将进度列追加到控件和存储中。"/>
+      <option name="IconText" help="将图标和文本列追加到控件和存储区。"/>
       Text
     </property>
     <property name="mode" type="option">
-      <option name="wxDATAVIEW_CELL_INERT" help="The cell only displays information and cannot be manipulated or otherwise interacted with in any way."/>
-      <option name="wxDATAVIEW_CELL_ACTIVATABLE" help="Indicates that the cell can be activated by clicking it or using keyboard."/>
-      <option name="wxDATAVIEW_CELL_EDITABLE" help="Indicates that the user can edit the data in-place in an inline editor control that will show up when the user wants to edit the cell."/>
+      <option name="wxDATAVIEW_CELL_INERT" help="单元格只显示信息，不能以任何方式操作或与之交互。"/>
+      <option name="wxDATAVIEW_CELL_ACTIVATABLE" help="指示可以通过单击单元格或使用键盘来激活单元格。"/>
+      <option name="wxDATAVIEW_CELL_EDITABLE" help="指示用户可以在内联编辑器控件中就地编辑数据，该控件将在用户想要编辑单元格时显示"/>
       wxDATAVIEW_CELL_INERT
     </property>
     <property name="width" type="int">-1</property>
     <property name="align" type="bitlist">
-      <option name="wxALIGN_LEFT" help="Align the item to the left."/>
-      <option name="wxALIGN_TOP" help="Align the item to the top."/>
-      <option name="wxALIGN_RIGHT" help="Align the item to the right."/>
-      <option name="wxALIGN_BOTTOM" help="Align the item to the bottom."/>
-      <option name="wxALIGN_CENTER" help="Align the item to the center."/>
-      <option name="wxALIGN_CENTER_HORIZONTAL" help="Align the item to the horizontal center."/>
-      <option name="wxALIGN_CENTER_VERTICAL" help="Align the item to the vertical."/>
+      <option name="wxALIGN_LEFT" help="将项目向左对齐。"/>
+      <option name="wxALIGN_TOP" help="将项目对齐到顶部。"/>
+      <option name="wxALIGN_RIGHT" help="将项目向右对齐。"/>
+      <option name="wxALIGN_BOTTOM" help="将项目对齐到底部。"/>
+      <option name="wxALIGN_CENTER" help="将项目与中心对齐。"/>
+      <option name="wxALIGN_CENTER_HORIZONTAL" help="将项目与水平中心对齐。"/>
+      <option name="wxALIGN_CENTER_VERTICAL" help="将项目垂直对齐。"/>
       wxALIGN_LEFT
     </property>
     <property name="flags" type="bitlist">
-      <option name="wxDATAVIEW_COL_RESIZABLE" help="Column can be resized."/>
-      <option name="wxDATAVIEW_COL_SORTABLE" help="Column can be clicked to toggle the sort order by its contents."/>
-      <option name="wxDATAVIEW_COL_REORDERABLE" help="Column can be dragged to change its order."/>
-      <option name="wxDATAVIEW_COL_HIDDEN" help="Column is not shown at all."/>
+      <option name="wxDATAVIEW_COL_RESIZABLE" help="列可以调整大小。"/>
+      <option name="wxDATAVIEW_COL_SORTABLE" help="可以单击列以按其内容切换排序顺序。"/>
+      <option name="wxDATAVIEW_COL_REORDERABLE" help="可以拖动列以更改其顺序。"/>
+      <option name="wxDATAVIEW_COL_HIDDEN" help="列根本没有显示。"/>
       wxDATAVIEW_COL_RESIZABLE
     </property>
     <property name="ellipsize" type="option">
       <option name=""/>
-      <option name="wxELLIPSIZE_NONE" help="Don't ellipsize the text at all."/>
-      <option name="wxELLIPSIZE_START" help="Put the ellipsis at the start of the string, if the string needs ellipsization."/>
-      <option name="wxELLIPSIZE_MIDDLE" help="Put the ellipsis in the middle of the string, if the string needs ellipsization."/>
-      <option name="wxELLIPSIZE_END" help="Put the ellipsis at the end of the string, if the string needs ellipsization."/>
+      <option name="wxELLIPSIZE_NONE" help="完全不用椭圆字体。"/>
+      <option name="wxELLIPSIZE_START" help="如果字符串需要省略号，则将省略号放在字符串的开头。"/>
+      <option name="wxELLIPSIZE_MIDDLE" help="如果字符串需要省略号，请将省略号放在字符串的中间。"/>
+      <option name="wxELLIPSIZE_END" help="如果字符串需要省略号，则将省略号放在字符串的末尾。"/>
     </property>
   </objectinfo>
 
   <objectinfo class="wxPropertyGrid" icon="propgrid.xpm" type="propgrid" startgroup="1" wxversion="2904" >
     <inherits class="wxWindow"/>
-    <inherits class="AUI"/> <property name="bitmap" type="bitmap" help="This is the bitmap shown in the default state, it must be always valid while all the other bitmaps are optional and don't have to be set."/>
+    <inherits class="AUI"/> <property name="bitmap" type="bitmap" help="这是默认状态下显示的位图，它必须始终有效，而所有其他位图都是可选的，不必设置。"/>
     <property name="style" type="bitlist">
-      <option name="wxPG_AUTO_SORT" help="This will cause Sort() automatically after an item is added. When inserting a lot of items in this mode, it may make sense to use Freeze() before operations and Thaw() afterwards to increase performance."/>
-      <option name="wxPG_HIDE_CATEGORIES" help="Categories are not initially shown (even if added)."/>
-      <option name="wxPG_ALPHABETIC_MODE" help="This style combines non-categoric mode and automatic sorting."/>
-      <option name="wxPG_BOLD_MODIFIED" help="Modified values are shown in bold font."/>
-      <option name="wxPG_SPLITTER_AUTO_CENTER" help="When wxPropertyGrid is resized, splitter moves to the center. This behaviour stops once the user manually moves the splitter."/>
-      <option name="wxPG_TOOLTIPS" help="Display tooltips for cell text that cannot be shown completely. If wxUSE_TOOLTIPS is 0, then this doesn't have any effect."/>
-      <option name="wxPG_HIDE_MARGIN" help="Disables margin and hides all expand/collapse buttons that would appear outside the margin (for sub-properties). Toggling this style automatically expands all collapsed items."/>
-      <option name="wxPG_STATIC_SPLITTER" help="This style prevents user from moving the splitter."/>
-      <option name="wxPG_STATIC_LAYOUT" help="Combination of other styles that make it impossible for user to modify the layout."/>
-      <option name="wxPG_LIMITED_EDITING" help="Disables wxTextCtrl based editors for properties which can be edited in another way."/>
-      <option name="wxPG_DEFAULT_STYLE" help="Combines various styles."/>
-      <option name="wxTAB_TRAVERSAL" help="wxTAB_TRAVERSAL allows using Tab/Shift-Tab to travel between properties in grid. Travelling forwards from last property will navigate to the next control, and backwards from first will navigate to the previous one."/>
+      <option name="wxPG_AUTO_SORT" help="这将导致在添加项之后自动执行 Sort ()。在这种模式下插入大量项目时，在操作之前使用Freeze()，在操作之后使用Thaw()可以提高性能。"/>
+      <option name="wxPG_HIDE_CATEGORIES" help="类别最初不会显示(即使添加了)。"/>
+      <option name="wxPG_ALPHABETIC_MODE" help="这种样式结合了非分类模式和自动排序。."/>
+      <option name="wxPG_BOLD_MODIFIED" help="修改后的值以粗体显示。"/>
+      <option name="wxPG_SPLITTER_AUTO_CENTER" help="调整wxPropertyGrid的大小时，拆分器会移动到中心。一旦用户手动移动拆分器，这种行为就会停止。"/>
+      <option name="wxPG_TOOLTIPS" help="显示无法完全显示的单元格文本的工具提示。如果wxUSE_TOOLTIPS为0，那么这没有任何效果。"/>
+      <option name="wxPG_HIDE_MARGIN" help="禁用页边距并隐藏页边距外出现的所有展开/折叠按钮（用于子属性）。切换此样式会自动展开所有折叠的项目。"/>
+      <option name="wxPG_STATIC_SPLITTER" help="此样式可防止用户移动分隔器。"/>
+      <option name="wxPG_STATIC_LAYOUT" help="其他样式的组合，使得用户无法修改布局。"/>
+      <option name="wxPG_LIMITED_EDITING" help="对于可以以另一种方式编辑的属性，禁用基于wxTextctrl的编辑器"/>
+      <option name="wxPG_DEFAULT_STYLE" help="结合多种风格。"/>
+      <option name="wxTAB_TRAVERSAL" help="wxTAB_TRAVERSAL允许使用Tab/Shift-Tab在网格中的财产之间移动。从最后一个属性向前移动将导航到下一个控件，从第一个属性向后移动将导航至上一个控件。"/>
       wxPG_DEFAULT_STYLE
     </property>
     <property name="extra_style" type="bitlist">
-      <option name="wxPG_EX_INIT_NOCAT" help="Speeds up switching to wxPG_HIDE_CATEGORIES mode. Initially, if wxPG_HIDE_CATEGORIES is not defined, the non-categorized data storage is not activated, and switching the mode first time becomes somewhat slower. wxPG_EX_INIT_NOCAT activates the non-categorized data storage right away. IMPORTANT NOTE: If you do plan not switching to non-categoric mode, or if you don't plan to use categories at all, then using this style will result in waste of resources."/>
-      <option name="wxPG_EX_HELP_AS_TOOLTIPS" help="Show property help strings as tool tips instead as text on the status bar."/>
-      <option name="wxPG_EX_NATIVE_DOUBLE_BUFFERING" help="Allows relying on native double-buffering."/>
-      <option name="wxPG_EX_AUTO_UNSPECIFIED_VALUES" help="Set this style to let user have ability to set values of properties to unspecified state. Same as setting wxPG_PROP_AUTO_UNSPECIFIED for all properties."/>
-      <option name="wxPG_EX_WRITEONLY_BUILTIN_ATTRIBUTES" help="If this style is used, built-in attributes (such as wxPG_FLOAT_PRECISION and wxPG_STRING_PASSWORD) are not stored into property's attribute storage (thus they are not readable). Note that this option is global, and applies to all wxPG property containers."/>
-      <option name="wxPG_EX_MULTIPLE_SELECTION" help="Allows multiple properties to be selected by user (by pressing SHIFT when clicking on a property, or by dragging with left mouse button down)."/>
-      <option name="wxPG_EX_ENABLE_TLP_TRACKING" help="This enables top-level window tracking which allows wxPropertyGrid to notify the application of last-minute property value changes by user. This style is not enabled by default because it may cause crashes when wxPropertyGrid is used in with wxAUI or similar system. If you are not in fact using any system that may change wxPropertyGrid's top-level parent window on its own, then you are recommended to enable this style."/>
+      <option name="wxPG_EX_INIT_NOCAT" help="加快切换到wxPG_HIDE_CATEGORIES模式的速度。最初，如果未定义wxPG_HIDE_CATEGORIES，则未分类的数据存储不会被激活，并且第一次切换模式的速度会变慢。wxPG_EX_INIT_NOTAT立即激活未分类的数据存储。重要提示：如果您不打算切换到非分类模式，或者根本不打算使用分类，那么使用这种样式将导致资源浪费。"/>
+      <option name="wxPG_EX_HELP_AS_TOOLTIPS" help="将属性帮助字符串显示为工具提示，而不是状态栏上的文本。"/>
+      <option name="wxPG_EX_NATIVE_DOUBLE_BUFFERING" help="允许依赖本地双缓冲。"/>
+      <option name="wxPG_EX_AUTO_UNSPECIFIED_VALUES" help="设置此样式可以让用户将属性值设置为未指定状态。与为所有属性设置wxPG_PROP_AUTO_UNSPECIFIED相同。"/>
+      <option name="wxPG_EX_WRITEONLY_BUILTIN_ATTRIBUTES" help="如果使用此样式，则内置属性（如wxPG_FLOAT_PRECISION和wxPGSTRING_PASSWORD）不会存储到属性的属性存储中（因此它们不可读）。请注意，此选项是全局的，适用于所有wxPG属性容器。"/>
+      <option name="wxPG_EX_MULTIPLE_SELECTION" help="允许用户选择多个属性(单击属性时按SHIFT键，或用鼠标左键向下拖动)"/>
+      <option name="wxPG_EX_ENABLE_TLP_TRACKING" help="这将启用顶级窗口跟踪，允许wxPropertyGrid通知应用程序用户在最后一刻更改属性值。默认情况下不会启用此样式，因为当wxPropertyGrid与wxAUI或类似系统一起使用时，它可能会导致崩溃。如果您实际上没有使用任何可能自行更改wxPropertyGrid的顶级父窗口的系统，那么建议您启用此样式。"/>
     </property>
     <property name="name" type="text">m_propertyGrid</property>
-    <property name="include_advanced" type="bool" help="Include Advanced Properties">1</property>
-    <event name="OnPropertyGridChanging" class="wxPropertyGridEvent" help="Property value is about to be changed. Use wxPropertyGridEvent::GetValue() to take a peek at the pending value, and wxPropertyGridEvent::Veto() to prevent change from taking place, if necessary."/>
-    <event name="OnPropertyGridChanged" class="wxPropertyGridEvent" help="Property value is modified."/>
+    <property name="include_advanced" type="bool" help="包含高级属性">1</property>
+    <event name="OnPropertyGridChanging" class="wxPropertyGridEvent" help="属性值即将更改。如有必要，可使用wxPropertyGridEvent::GetValue()查看挂起的值，并使用wxProperties GridEvent：：Veto()防止发生更改。"/>
+    <event name="OnPropertyGridChanged" class="wxPropertyGridEvent" help="属性值被修改。"/>
   </objectinfo>
 
   <objectinfo class="wxPropertyGridManager" icon="propgridman.xpm" type="propgridman" wxversion="2904">
     <inherits class="wxWindow"/>
     <inherits class="AUI"/>
     <property name="style" type="bitlist">
-      <option name="wxPG_AUTO_SORT" help="This will cause Sort() automatically after an item is added. When inserting a lot of items in this mode, it may make sense to use Freeze() before operations and Thaw() afterwards to increase performance."/>
-      <option name="wxPG_HIDE_CATEGORIES" help="Categories are not initially shown (even if added)."/>
-      <option name="wxPG_ALPHABETIC_MODE" help="This style combines non-categoric mode and automatic sorting."/>
-      <option name="wxPG_BOLD_MODIFIED" help="Modified values are shown in bold font."/>
-      <option name="wxPG_SPLITTER_AUTO_CENTER" help="When wxPropertyGrid is resized, splitter moves to the center. This behaviour stops once the user manually moves the splitter."/>
-      <option name="wxPG_TOOLTIPS" help="Display tooltips for cell text that cannot be shown completely. If wxUSE_TOOLTIPS is 0, then this doesn't have any effect."/>
-      <option name="wxPG_HIDE_MARGIN" help="Disables margin and hides all expand/collapse buttons that would appear outside the margin (for sub-properties). Toggling this style automatically expands all collapsed items."/>
-      <option name="wxPG_STATIC_SPLITTER" help="This style prevents user from moving the splitter."/>
-      <option name="wxPG_STATIC_LAYOUT" help="Combination of other styles that make it impossible for user to modify the layout."/>
-      <option name="wxPG_LIMITED_EDITING" help="Disables wxTextCtrl based editors for properties which can be edited in another way."/>
-      <option name="wxTAB_TRAVERSAL" help="wxTAB_TRAVERSAL allows using Tab/Shift-Tab to travel between properties in grid. Travelling forwards from last property will navigate to the next control, and backwards from first will navigate to the previous one."/>
-      <option name="wxPG_COMPACTOR" help="Show compactor button that toggles hidden state of low-priority properties."/>
-      <option name="wxPGMAN_DEFAULT_STYLE" help="Combines various styles."/>
-      <option name="wxPG_DESCRIPTION" help="Show adjustable text box showing description or help text, if available, for currently selected property."/>
-      <option name="wxPG_TOOLBAR" help="Show toolbar for mode and page selection."/>
-      <option name="wxPG_NO_INTERNAL_BORDER" help="Don't show an internal border around the property grid. Recommended if you use a header."/>
+      <option name="wxPG_AUTO_SORT" help="这将导致在添加项之后自动执行 Sort ()。在这种模式下插入大量项目时，在操作之前使用Freeze()，在操作之后使用Thaw()可以提高性能。"/>
+      <option name="wxPG_HIDE_CATEGORIES" help="类别最初不会显示(即使添加了)。"/>
+      <option name="wxPG_ALPHABETIC_MODE" help="这种样式结合了非分类模式和自动排序。."/>
+      <option name="wxPG_BOLD_MODIFIED" help="修改后的值以粗体显示。"/>
+      <option name="wxPG_SPLITTER_AUTO_CENTER" help="调整wxPropertyGrid的大小时，拆分器会移动到中心。一旦用户手动移动拆分器，这种行为就会停止。"/>
+      <option name="wxPG_TOOLTIPS" help="显示无法完全显示的单元格文本的工具提示。如果wxUSE_TOOLTIPS为0，那么这没有任何效果。"/>
+      <option name="wxPG_HIDE_MARGIN" help="禁用页边距并隐藏页边距外出现的所有展开/折叠按钮（用于子属性）。切换此样式会自动展开所有折叠的项目。"/>
+      <option name="wxPG_STATIC_SPLITTER" help="此样式可防止用户移动分割器。"/>
+      <option name="wxPG_STATIC_LAYOUT" help="其他样式的组合，使得用户无法修改布局。"/>
+      <option name="wxPG_LIMITED_EDITING" help="对于可以以另一种方式编辑的属性，禁用基于wxTextctrl的编辑器"/>
+      <option name="wxTAB_TRAVERSAL" help="wxTAB_TRAVERSAL允许使用Tab/Shift-Tab在网格中的财产之间移动。从最后一个属性向前移动将导航到下一个控件，从第一个属性向后移动将导航至上一个控件。"/>
+      <option name="wxPG_COMPACTOR" help="显示压缩程序按钮，用于切换低优先级属性的隐藏状态。"/>
+      <option name="wxPGMAN_DEFAULT_STYLE" help="结合多种风格。"/>
+      <option name="wxPG_DESCRIPTION" help="显示可调整的文本框，显示当前选定属性的说明或帮助文本（如果可用）。"/>
+      <option name="wxPG_TOOLBAR" help="显示用于模式和页面选择的工具栏。"/>
+      <option name="wxPG_NO_INTERNAL_BORDER" help="不要在属性网格周围显示内部边界。如果使用头文件，建议使用。"/>
       wxPGMAN_DEFAULT_STYLE
     </property>
     <property name="extra_style" type="bitlist">
-      <option name="wxPG_EX_INIT_NOCAT" help="Speeds up switching to wxPG_HIDE_CATEGORIES mode. Initially, if wxPG_HIDE_CATEGORIES is not defined, the non-categorized data storage is not activated, and switching the mode first time becomes somewhat slower. wxPG_EX_INIT_NOCAT activates the non-categorized data storage right away. IMPORTANT NOTE: If you do plan not switching to non-categoric mode, or if you don't plan to use categories at all, then using this style will result in waste of resources."/>
-      <option name="wxPG_EX_NO_FLAT_TOOLBAR" help="Extended window style that sets wxPropertyGridManager toolbar to not use flat style."/>
-      <option name="wxPG_EX_MODE_BUTTONS" help="Shows alphabetic/categoric mode buttons from toolbar."/>
-      <option name="wxPG_EX_HELP_AS_TOOLTIPS" help="Show property help strings as tool tips instead as text on the status bar."/>
-      <option name="wxPG_EX_NATIVE_DOUBLE_BUFFERING" help="Allows relying on native double-buffering."/>
-      <option name="wxPG_EX_AUTO_UNSPECIFIED_VALUES" help="Set this style to let user have ability to set values of properties to unspecified state. Same as setting wxPG_PROP_AUTO_UNSPECIFIED for all properties."/>
+      <option name="wxPG_EX_INIT_NOCAT" help="加快切换到wxPG_HIDE_CATEGORIES模式的速度。最初，如果未定义wxPG_HIDE_CATEGORIES，则未分类的数据存储不会被激活，并且第一次切换模式的速度会变慢。wxPG_EX_INIT_NOTAT立即激活未分类的数据存储。重要提示：如果您不打算切换到非分类模式，或者根本不打算使用分类，那么使用这种样式将导致资源浪费。"/>
+      <option name="wxPG_EX_NO_FLAT_TOOLBAR" help="将wxPropertyGridManager工具栏设置为不使用平面样式的扩展窗口样式。"/>
+      <option name="wxPG_EX_MODE_BUTTONS" help="从工具栏显示字母/分类模式按钮。"/>
+      <option name="wxPG_EX_HELP_AS_TOOLTIPS" help="将属性帮助字符串显示为工具提示，而不是状态栏上的文本。"/>
+      <option name="wxPG_EX_NATIVE_DOUBLE_BUFFERING" help="允许依赖本地双缓冲。"/>
+      <option name="wxPG_EX_AUTO_UNSPECIFIED_VALUES" help="设置此样式可以让用户将属性值设置为未指定状态。与为所有属性设置wxPG_PROP_AUTO_UNSPECIFIED相同。"/>
       <option name="wxPG_EX_WRITEONLY_BUILTIN_ATTRIBUTES" help="If this style is used, built-in attributes (such as wxPG_FLOAT_PRECISION and wxPG_STRING_PASSWORD) are not stored into property's attribute storage (thus they are not readable). Note that this option is global, and applies to all wxPG property containers."/>
       <option name="wxPG_EX_HIDE_PAGE_BUTTONS" help="Hides page selection buttons from tool bar."/>
-      <option name="wxPG_EX_MULTIPLE_SELECTION" help="Allows multiple properties to be selected by user (by pressing SHIFT when clicking on a property, or by dragging with left mouse button down)."/>
-      <option name="wxPG_EX_ENABLE_TLP_TRACKING" help="This enables top-level window tracking which allows wxPropertyGrid to notify the application of last-minute property value changes by user. This style is not enabled by default because it may cause crashes when wxPropertyGrid is used in with wxAUI or similar system. If you are not in fact using any system that may change wxPropertyGrid's top-level parent window on its own, then you are recommended to enable this style."/>
-      <option name="wxPG_EX_NO_TOOLBAR_DIVIDER" help="Don't show divider above toolbar, on Windows."/>
-      <option name="wxPG_EX_TOOLBAR_SEPARATOR" help="Show a separator below the toolbar."/>
+      <option name="wxPG_EX_MULTIPLE_SELECTION" help="允许用户选择多个属性(单击属性时按SHIFT键，或用鼠标左键向下拖动)"/>
+      <option name="wxPG_EX_ENABLE_TLP_TRACKING" help="这将启用顶级窗口跟踪，允许wxPropertyGrid通知应用程序用户在最后一刻更改属性值。默认情况下不会启用此样式，因为当wxPropertyGrid与wxAUI或类似系统一起使用时，它可能会导致崩溃。如果您实际上没有使用任何可能自行更改wxPropertyGrid的顶级父窗口的系统，那么建议您启用此样式。"/>
+      <option name="wxPG_EX_NO_TOOLBAR_DIVIDER" help="在Windows上，不要在工具栏上显示分隔符。"/>
+      <option name="wxPG_EX_TOOLBAR_SEPARATOR" help="在工具栏下方显示分隔符。"/>
       wxPG_EX_MODE_BUTTONS
     </property>
     <property name="name" type="text">m_propertyGridManager</property>
     <property name="include_advanced" type="bool" help="Include Advanced Properties">1</property>
-    <event name="OnPropertyGridChanging" class="wxPropertyGridEvent" help="Property value is about to be changed. Use wxPropertyGridEvent::GetValue() to take a peek at the pending value, and wxPropertyGridEvent::Veto() to prevent change from taking place, if necessary."/>
-    <event name="OnPropertyGridChanged" class="wxPropertyGridEvent" help="Property value is modified."/>
+    <event name="OnPropertyGridChanging" class="wxPropertyGridEvent" help="属性值即将更改。如有必要，可使用wxPropertyGridEvent::GetValue()查看挂起的值，并使用wxProperties GridEvent：：Veto()防止发生更改。"/>
+    <event name="OnPropertyGridChanged" class="wxPropertyGridEvent" help="属性值被修改。"/>
   </objectinfo>
 
   <objectinfo class="propGridPage" icon="propgridpage.xpm" type="propgridpage" wxversion="2904">
     <property name="name" type="text" help="Instance name.">m_propertyGridPage</property>
-    <property name="label" type="wxString_i18n" help="Label shown as a tooltip of the manager's tool button.">Page</property>
-    <property name="bitmap" type="bitmap" help="Bitmap shown in the property manager's header."/>
+    <property name="label" type="wxString_i18n" help="标签显示为管理器工具按钮的工具提示。">Page</property>
+    <property name="bitmap" type="bitmap" help="位图显示在属性管理器的头部。"/>
   </objectinfo>
 
   <objectinfo class="propGridItem" icon="propgriditem.xpm" type="propgriditem" wxversion="2904">
-    <property name="name" type="text" help="Instance name and an internal name of the property item.">m_propertyGridItem</property>
-    <property name="label" type="wxString_i18n" help="Label shown in parent property grid/page.">Name</property>
-    <property name="type" type="option" help="Type of the property item.">
-      <option name="Category" help="Append properties category."/>
-      <option name="Bool" help="Append Boolean property to the parent property grid (page)."/>
-      <option name="Colour" help="Append Colour property to the parent property grid (page)."/>
-      <option name="Cursor" help="Append Cursor property to the parent property grid (page)."/>
-      <option name="Date" help="Append Date property to the parent property grid (page)."/>
-      <option name="Dir" help="Append Dir property to the parent property grid (page)."/>
-      <option name="EditEnum" help="Append EditEnum property to the parent property grid (page)."/>
-      <option name="Enum" help="Append Enum property to the parent property grid (page)."/>
-      <option name="File" help="Append File property to the parent property grid (page)."/>
-      <option name="Flags" help="Append Flags property to the parent property grid (page)."/>
-      <option name="Float" help="Append Float property to the parent property grid (page)."/>
-      <option name="Font" help="Append Font property to the parent property grid (page)."/>
-      <option name="ImageFile" help="Append ImageFile property to the parent property grid (page)."/>
-      <option name="Int" help="Append Int property to the parent property grid (page)."/>
-      <option name="LongString" help="Append LongString property to the parent property grid (page)."/>
-      <option name="MultiChoice" help="Append MultiChoice property to the parent property grid (page)."/>
-      <option name="String" help="Append String property to the parent property grid (page)."/>
-      <option name="SystemColour" help="Append SystemColour property to the parent property grid (page)."/>
-      <option name="UInt" help="Append UInt property to the parent property grid (page)."/>
+    <property name="name" type="text" help="属性项的类型。">m_propertyGridItem</property>
+    <property name="label" type="wxString_i18n" help="标签显示在父属性网格/页中。">Name</property>
+    <property name="type" type="option" help="属性项的类型。">
+      <option name="Category" help="附加属性类别。"/>
+      <option name="Bool" help="将Boolean属性附加到父属性网格（页面）。"/>
+      <option name="Colour" help="将Colour属性附加到父属性网格（页面）。"/>
+      <option name="Cursor" help="将Cursor属性附加到父属性网格（页面）。"/>
+      <option name="Date" help="将Date属性附加到父属性网格（页面）。"/>
+      <option name="Dir" help="将Dir属性附加到父属性网格（页面）。"/>
+      <option name="EditEnum" help="将EditEnum属性附加到父属性网格（页面）。"/>
+      <option name="Enum" help="将Enum属性附加到父属性网格（页面）。"/>
+      <option name="File" help="将File属性附加到父属性网格（页面）。"/>
+      <option name="Flags" help="将Flags属性附加到父属性网格（页面）。"/>
+      <option name="Float" help="将Float属性附加到父属性网格（页面）。"/>
+      <option name="Font" help="将Font属性附加到父属性网格（页面）。"/>
+      <option name="ImageFile" help="将ImageFile属性附加到父属性网格（页面）。"/>
+      <option name="Int" help="将Int属性附加到父属性网格（页面）。"/>
+      <option name="LongString" help="将LongString属性附加到父属性网格（页面）。"/>
+      <option name="MultiChoice" help="将MultiChoice属性附加到父属性网格（页面）。"/>
+      <option name="String" help="将String属性附加到父属性网格（页面）。"/>
+      <option name="SystemColour" help="将SystemColour属性附加到父属性网格（页面）。"/>
+      <option name="UInt" help="将UInt属性附加到父属性网格（页面）。"/>
       String
     </property>
-    <property name="help" type="wxString_i18n" help="Property item's name."></property>
+    <property name="help" type="wxString_i18n" help="属性项的名称。"></property>
   </objectinfo>
 
 </package>

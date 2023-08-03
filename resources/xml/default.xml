@@ -3,69 +3,69 @@
 
   <objectinfo class="Project" smallIcon="project.xpm" type="project">
     <property name="name" type="text">MyProject</property>
-    <property name="path" type="path" help="The path to generated files">.</property>
-    <property name="embedded_files_path" type="path" help="The path to generated files for embedded files">res</property>
-    <property name="file" type="text" help="The filenames for generated files"/>
-    <property name="relative_path" type="bool" help="Use relative paths for external files ( e.g. image files )">1</property>
-    <property name="first_id" type="text" help="All GUI controls have an integer ID, this is the value for the first control, each additional control with increment by 1.">1000</property>
+    <property name="path" type="path" help="生成文件的路径">.</property>
+    <property name="embedded_files_path" type="path" help="为嵌入式文件生成文件的路径">res</property>
+    <property name="file" type="text" help="生成文件的文件名"/>
+    <property name="relative_path" type="bool" help="外部文件(如图像文件)使用相对路径">1</property>
+    <property name="first_id" type="text" help="所有GUI控件都有一个整数ID，这是第一个控件的值，每个附加控件都增加1。">1000</property>
     <property name="code_generation" type="bitlist">
-      <option name="C++" help="Generate C++ Code"/>
-      <option name="Python" help="Generate Python Code"/>
-      <option name="PHP" help="Generate PHP Code"/>
-      <option name="XRC" help="Generate XRC Code"/>
-      <option name="Lua" help="Generate Lua Code"/>
+      <option name="C++" help="生成c++代码"/>
+      <option name="Python" help="生成Python代码"/>
+      <option name="PHP" help="生成PHP代码"/>
+      <option name="XRC" help="生成XRC代码"/>
+      <option name="Lua" help="生成Lua代码"/>
       C++
     </property>
-    <property name="internationalize" type="bool" help="For C++ Only.&#x0A;Generate strings with _() macro instead of wxT() macro. This allows for translation.">0</property>
+    <property name="internationalize" type="bool" help="仅适用于C++。&#x0A;使用 _()宏而不是 wxT()宏生成字符串。">0</property>
     <category name="C++ Properties">
-      <property name="use_enum" type="bool" help="For C++ Only.&#x0A;Generate an enumeration for control IDs instead of a list of #defines">0</property>
-      <property name="use_array_enum" type="bool" help="For C++ Only.&#x0A;Generate an enumeration for the dimensions of arrays">0</property>
-      <property name="use_microsoft_bom" type="bool" help="For C++ and WXMSW Only.&#x0A;Files are generated with UTF-8 encoding. Microsoft compilers expect a specific byte sequence at the beginning of a file. GCC does NOT expect this. Only set this to true when using a Microsoft compiler.">0</property>
-      <property name="precompiled_header" type="text" help="For C++ Only.&#x0A;The exact code to be generated at the top of the source file to support precompiled headers. For example, to include wxprec.h, the value of this property should be:&#x0A;#include &lt;wx/wxprec.h&gt;"/>
-      <property name="class_decoration" type="parent" help="For C++ Only.&#x0A;Used to decorate classes with DLL export macros.">
-        <child name="decoration" help="The name of the macro or the dll export decoration."/>
-        <child name="header" help="Optional header file where the export macro is defined."/>
+      <property name="use_enum" type="bool" help="仅适用于C++。&#x0A;生成控制ID的枚举，而不是#Defines列表">0</property>
+      <property name="use_array_enum" type="bool" help="仅适用于C++。&#x0A;生成数组方面的枚举">0</property>
+      <property name="use_microsoft_bom" type="bool" help="仅适用于 C++ 和 WXMSW &#x0A;文件是使用UTF-8编码生成的。Microsoft编译器希望在文件的开头有一个特定的字节序列。GCC没有预料到这一点。只有在使用Microsoft编译器时才将此设置为true。">0</property>
+      <property name="precompiled_header" type="text" help="仅适用于C++。&#x0A;要在源文件顶部生成的确切代码，以支持预编译的头。 例如，要包含wxprec.h, 此属性的值应为:&#x0A;#include &lt;wx/wxprec.h&gt;"/>
+      <property name="class_decoration" type="parent" help="仅适用于C++。&#x0A;用于用DLL导出宏装饰类">
+        <child name="decoration" help="宏或dll导出装饰的名称。"/>
+        <child name="header" help="定义导出宏的可选头文件。"/>
       </property>
       <property name="encoding" type="option" help="">
         <option name="UTF-8"/>
         <option name="ANSI"/>
         UTF-8
       </property>
-      <property name="namespace" type="stringlist" help="For C++ Only.&#x0A;Namespaces to wrap class declarations in."/>
-      <property name="event_generation" type="option" help="For C++ Only.&#x0A;Type of event connection to generate.">
-        <option name="connect" help="Use the Connect() function to link event handlers to events."/>
-        <option name="table" help="Use event macro tables to link event handlers to events."/>
+      <property name="namespace" type="stringlist" help="仅适用于C++。&#x0A;用于包装类声明的名称空间。"/>
+      <property name="event_generation" type="option" help="仅适用于C++。&#x0A;要生成的事件连接类型。">
+        <option name="connect" help="使用Connect()函数将事件处理程序链接到事件"/>
+        <option name="table" help="使用事件宏表将事件处理程序链接到事件。"/>
         connect
       </property>
-      <property name="disconnect_events" type="bool" help="For event_generation=connect Only.&#x0A;Disconnect events in the destructor.">1</property>
-      <property name="help_provider" type="option" help="For C++ Only.&#x0A;The class of help provider to use for context-sensitive help.">
-        <option name="none" help="No support for context-sensitive help."/>
-        <option name="wxSimpleHelpProvider" help="Use wxSimpleHelpProvider to provide context-sensitive help."/>
-        <option name="wxHelpControllerHelpProvider" help="Use wxHelpControllerHelpProvider to provide context-sensitive help."/>
+      <property name="disconnect_events" type="bool" help="只适用于 event_generation=connect &#x0A;断开析构函数中的事件。">1</property>
+      <property name="help_provider" type="option" help="仅适用于C++。&#x0A;用于上下文关联帮助的帮助提供程序类。">
+        <option name="none" help="不支持上下文关联帮助。"/>
+        <option name="wxSimpleHelpProvider" help="使用wxSimpleHelpProvider提供上下文关联帮助。"/>
+        <option name="wxHelpControllerHelpProvider" help="使用wxHelpControllerHelpProvider提供上下文关联帮助。"/>
         none
       </property>
     </category>
     <category name="Lua Properties">
-      <property name="skip_lua_events" type="bool" help="For Lua Only.&#x0A;Call Skip() function in all generated event handlers.">1</property>
-      <property name="ui_table" type="text" help="For Lua Only.&#x0A;Define a table which will store- all UI stuff you'll create.">UI</property>
+      <property name="skip_lua_events" type="bool" help="仅适用于Lua。&#x0A;在所有生成的事件处理程序中调用Skip()函数。">1</property>
+      <property name="ui_table" type="text" help="仅适用于Lua。&#x0A;定义一个表来存储你要创建的所有UI内容。">UI</property>
     </category>
     <category name="Python Properties">
-      <property name="skip_python_events" type="bool" help="For Python Only.&#x0A;Call Skip() function in all generated event handlers.">1</property>
-      <property name="disconnect_python_events" type="bool" help="For Python Only.&#x0A;Disconnect events in the destructor.">0</property>
-      <property name="disconnect_mode" type="option" help="For Python Only.&#x0A;Choose which strategy will be used for disconnecting of events (due to different prototypes of Unbind() function in wxPython).">
-        <option name="source_name" help="Pass source widget name to Unbind() function."/>
-        <option name="handler_name" help="Pass event handler name to Unbind() function."/>
+      <property name="skip_python_events" type="bool" help="仅适用于Python。&#x0A;在所有生成的事件处理程序中调用Skip()函数。">1</property>
+      <property name="disconnect_python_events" type="bool" help="仅适用于Python。&#x0A;断开析构函数中的事件。">0</property>
+      <property name="disconnect_mode" type="option" help="仅适用于Python。&#x0A;选择将使用哪种策略来断开事件的连接(由于wxPython中Unbind()函数的不同原型).">
+        <option name="source_name" help="将源小部件名传递给 Unbind ()函数。"/>
+        <option name="handler_name" help="将事件处理程序名称传递给 Unbind ()函数。"/>
         source_name
       </property>
-      <property name="indent_with_spaces" type="bool" help="For Python only.&#x0A;Use 4-spaces for indentation instead of tabs"/>
-      <property name="image_path_wrapper_function_name" type="text" help="For Python only.&#x0A;Wrap image paths into a function with this name.&#x0A;Useful for freezing the application." />
+      <property name="indent_with_spaces" type="bool" help="仅适用于Python。&#x0A;使用4个空格代替制表符作为缩进"/>
+      <property name="image_path_wrapper_function_name" type="text" help="仅适用于Python。&#x0A;将图像路径封装到具有此名称的函数中.&#x0A;用于冻结应用程序。" />
     </category>
     <category name="PHP Properties">
-      <property name="skip_php_events" type="bool" help="For PHP Only.&#x0A;Call Skip() function in all generated event handlers.">1</property>
-      <property name="disconnect_php_events" type="bool" help="For PHP Only.&#x0A;Disconnect events in the destructor.">0</property>
-      <property name="disconnect_mode" type="option" help="For PHP Only.&#x0A;Choose which strategy will be used for disconnecting of events (due to different prototypes of Unbind() function in wxPHP).">
-        <option name="source_name" help="Pass source widget name to Unbind() function."/>
-        <option name="handler_name" help="Pass event handler name to Unbind() function."/>
+      <property name="skip_php_events" type="bool" help="仅适用于PHP。&#x0A;在所有生成的事件处理程序中调用Skip()函数。">1</property>
+      <property name="disconnect_php_events" type="bool" help="仅适用于PHP。&#x0A;断开析构函数中的事件。">0</property>
+      <property name="disconnect_mode" type="option" help="仅适用于PHP。&#x0A;选择将使用哪种策略来断开事件的连接(由于wxPHP中Unbind()函数的不同原型).">
+        <option name="source_name" help="将源小部件名传递给 Unbind ()函数。"/>
+        <option name="handler_name" help="将事件处理程序名称传递给 Unbind ()函数。"/>
         source_name
       </property>
     </category>
@@ -94,133 +94,133 @@
 
   <objectinfo class="wxWindow" smallIcon="wxwindow.png" type="interface">
     <property name="id" type="macro">wxID_ANY</property>
-    <property name="pos" type="wxPoint" help="Window position. The default is (-1, -1) which indicates that wxWidgets should generate a default position for the window."/>
-    <property name="size" type="wxSize" help="Window size. The default is (-1, -1) which indicates that wxWidgets should generate a default size for the window."/>
-    <property name="minimum_size" type="wxSize" help="Sets the minimum size of the window, to indicate to the sizer layout mechanism that this is the minimum required size."/>
-    <property name="maximum_size" type="wxSize" help="Sets the maximum size of the window, to indicate to the sizer layout mechanism that this is the maximum allowable size."/>
-    <property name="font" type="wxFont" help="Sets the font for this window. This should not be use for a parent window if you don't want its font to be inherited by its children"/>
-    <property name="fg" type="wxColour" help="Sets the foreground colour of the window."/>
-    <property name="bg" type="wxColour" help="Sets the background colour of the window."/>
-    <property name="window_name" type="wxString" help="The name of the window. This parameter is used to associate a name with the item, allowing the application user to set Motif resource values for individual windows."/>
+    <property name="pos" type="wxPoint" help="窗口的位置。默认值是(-1，-1)，这表明wxWidgets应该为窗口生成一个默认位置。"/>
+    <property name="size" type="wxSize" help="窗口大小。默认值是(-1，-1)，这表明wxWidgets应该为窗口生成默认大小"/>
+    <property name="minimum_size" type="wxSize" help="设置窗口的最小大小，以向sizer布局机制指示这是允许的最小大小。"/>
+    <property name="maximum_size" type="wxSize" help="设置窗口的最大大小，以向sizer布局机制指示这是允许的最大大小。"/>
+    <property name="font" type="wxFont" help="设置此窗口的字体。如果您不希望其父窗口的字体被其子窗口继承，则不应将此选项用于父窗口"/>
+    <property name="fg" type="wxColour" help="设置窗口的前景色"/>
+    <property name="bg" type="wxColour" help="设置窗口的背景色"/>
+    <property name="window_name" type="wxString" help="窗口的名称。此参数用于将名称与项目相关联，允许应用程序用户为各个窗口设置Motif资源值。"/>
     <property name="window_style" type="bitlist">
-      <option name="wxBORDER_DEFAULT" help="The window class will decide the kind of border to show, if any."/>
-      <option name="wxBORDER_SIMPLE" help="Displays a thin border around the window. wxSIMPLE_BORDER is the old name for this style."/>
-      <option name="wxBORDER_SUNKEN" help="Displays a sunken border. wxSUNKEN_BORDER is the old name for this style."/>
-      <option name="wxBORDER_RAISED" help="Displays a raised border. wxRAISED_BORDER is the old name for this style."/>
-      <option name="wxBORDER_STATIC" help="Displays a border suitable for a static control. wxSTATIC_BORDER is the old name for this style. Windows only."/>
-      <option name="wxBORDER_THEME" help="Displays a native border suitable for a control, on the current platform. On Windows XP or Vista, this will be a themed border; on most other platforms a sunken border will be used. For more information for themed borders on Windows, please see Themed borders on Windows."/>
-      <option name="wxBORDER_NONE" help="Displays no border, overriding the default border style for the window. wxNO_BORDER is the old name for this style."/>
-      <option name="wxTRANSPARENT_WINDOW" help="The window is transparent, that is, it will not receive paint events. Windows only."/>
-      <option name="wxTAB_TRAVERSAL" help="Use this to enable tab traversal for non-dialog windows."/>
-      <option name="wxWANTS_CHARS" help="Use this to indicate that the window wants to get all char/key events for all keys - even for keys like TAB or ENTER which are usually used for dialog navigation and which wouldn't be generated without this style. If you need to use this style in order to get the arrows or etc., but would still like to have normal keyboard navigation take place, you should call Navigate in response to the key events for Tab and Shift-Tab."/>
-      <option name="wxVSCROLL" help="Use this style to enable a vertical scrollbar. Notice that this style cannot be used with native controls which don't support scrollbars nor with top-level windows in most ports."/>
-      <option name="wxHSCROLL" help="Use this style to enable a horizontal scrollbar. The same limitations as for wxVSCROLL apply to this style."/>
-      <option name="wxALWAYS_SHOW_SB" help="If a window has scrollbars, disable them instead of hiding them when they are not needed (i.e. when the size of the window is big enough to not require the scrollbars to navigate it). This style is currently implemented for wxMSW, wxGTK and wxUniversal and does nothing on the other platforms."/>
-      <option name="wxCLIP_CHILDREN" help="Use this style to eliminate flicker caused by the background being repainted, then children being painted over them. Windows only."/>
-      <option name="wxFULL_REPAINT_ON_RESIZE" help="Use this style to force a complete redraw of the window whenever it is resized instead of redrawing just the part of the window affected by resizing. Note that this was the behaviour by default before 2.5.1 release and that if you experience redraw problems with code which previously used to work you may want to try this. Currently this style applies on GTK+ 2 and Windows only, and full repainting is always done on other platforms."/>
-      <option name="wxNO_FULL_REPAINT_ON_RESIZE" help="On Windows, this style used to disable repainting the window completely when its size is changed. Since this behaviour is now the default, the style is now obsolete and no longer has an effect."/>
+      <option name="wxBORDER_DEFAULT" help="窗口类将决定要显示的边框类型（如果有的话）。"/>
+      <option name="wxBORDER_SIMPLE" help="在窗口周围显示细边框。wxSIMPLE_BORDER是这种样式的旧名称。"/>
+      <option name="wxBORDER_SUNKEN" help="显示凹陷的边框。wxSUNKEN_BORDER是此样式的旧名称。"/>
+      <option name="wxBORDER_RAISED" help="显示凸起的边框。wxRAISED_BORDER是此样式的旧名称。"/>
+      <option name="wxBORDER_STATIC" help="显示适用于静态控件的边框。wxSTATIC_BORDER是此样式的旧名称。仅限Windows。"/>
+      <option name="wxBORDER_THEME" help="在当前平台上显示适合控件的本机边框。在WindowsXP或Vista上，这将是一个主题边框;在大多数其他平台上，将使用凹陷的边框。有关Windows主题边框的详细信息，请参阅Windows主题边框。"/>
+      <option name="wxBORDER_NONE" help="不显示边框，覆盖窗口的默认边框样式。wxNO_BORDER是这个样式的旧名称。"/>
+      <option name="wxTRANSPARENT_WINDOW" help="窗口是透明的，也就是说，它不会接收绘制事件。仅Windows。"/>
+      <option name="wxTAB_TRAVERSAL" help="使用此选项可以为非对话框窗口启用选项卡遍历。"/>
+      <option name="wxWANTS_CHARS" help="使用此选项可以指示窗口希望获取所有键的所有字符/键事件，即使是TAB或ENTER等键，这些键通常用于对话框导航，如果没有此样式，也不会生成。如果您需要使用此样式来获取箭头等，但仍希望进行正常的键盘导航，则应调用Navigate以响应Tab和Shift Tab的键事件。"/>
+      <option name="wxVSCROLL" help="使用此样式可以启用垂直滚动条。请注意，这种样式不能用于不支持滚动条的本地控件，也不能用于大多数端口中的顶级窗口。"/>
+      <option name="wxHSCROLL" help="使用此样式可启用水平滚动条。与wxVSCRolL相同的限制也适用于此样式。"/>
+      <option name="wxALWAYS_SHOW_SB" help="如果窗口有滚动条，请在不需要时禁用它们，而不是隐藏它们（即，当窗口的大小足够大，不需要滚动条来导航时）。这种风格目前是为wxMSW、wxGTK和wxUniversal实现的，在其他平台上什么都不做。"/>
+      <option name="wxCLIP_CHILDREN" help="使用此样式可以消除由于重新绘制背景，然后将儿童绘制在背景上而导致的闪烁。仅限Windows。"/>
+      <option name="wxFULL_REPAINT_ON_RESIZE" help="无论何时调整窗口的大小，都可以使用此样式强制完全重新绘制窗口，而不是只重新绘制受调整大小影响的窗口部分。请注意，这是2.5.1版本之前默认的行为，如果您在以前使用的代码中遇到重绘问题，您可能需要尝试一下。目前，这种风格仅适用于GTK+2和Windows，并且在其他平台上总是进行完全的重新绘制。"/>
+      <option name="wxNO_FULL_REPAINT_ON_RESIZE" help="在Windows上，此样式用于在更改窗口大小时完全禁用重新绘制窗口。由于这种行为现在是默认的，所以样式现在已经过时，不再有效果。"/>
     </property>
     <property name="window_extra_style" type="bitlist">
-      <option name="wxWS_EX_VALIDATE_RECURSIVELY" help="By default, Validate/TransferDataTo/FromWindow() only work on direct children of the window (compatible behaviour). Set this flag to make them recursively descend into all subwindows."/>
-      <option name="wxWS_EX_BLOCK_EVENTS" help="wxCommandEvents and the objects of the derived classes are forwarded to the parent window and so on recursively by default. Using this flag for the given window allows to block this propagation at this window, i.e. prevent the events from being propagated further upwards. Dialogs have this flag on by default."/>
-      <option name="wxWS_EX_TRANSIENT" help="Don't use this window as an implicit parent for the other windows: this must be used with transient windows as otherwise there is the risk of creating a dialog/frame with this window as a parent which would lead to a crash if the parent is destroyed before the child."/>
-      <option name="wxWS_EX_CONTEXTHELP" help="Under Windows, puts a query button on the caption. When pressed, Windows will go into a context-sensitive help mode and wxWidgets will send a wxEVT_HELP event if the user clicked on an application window. This style cannot be used (because of the underlying native behaviour) together with wxMAXIMIZE_BOX or wxMINIMIZE_BOX, so these two styles are automatically turned off if this one is used."/>
-      <option name="wxWS_EX_PROCESS_IDLE" help="This window should always process idle events, even if the mode set by wxIdleEvent::SetMode is wxIDLE_PROCESS_SPECIFIED."/>
-      <option name="wxWS_EX_PROCESS_UI_UPDATES" help="This window should always process UI update events, even if the mode set by wxUpdateUIEvent::SetMode is wxUPDATE_UI_PROCESS_SPECIFIED."/>
+      <option name="wxWS_EX_VALIDATE_RECURSIVELY" help="默认情况下，Validate/TransferDataTo/FromWindow()仅适用于窗口的直接子级(兼容行为)。设置此标志使它们递归地下降到所有子窗口中。"/>
+      <option name="wxWS_EX_BLOCK_EVENTS" help="默认情况下，wxCommandEvents和派生类的对象被递归地转发到父窗口，依此类推。对给定窗口使用此标志可以阻止此窗口的传播，即防止事件进一步向上传播。对话框默认情况下会打开此标志。"/>
+      <option name="wxWS_EX_TRANSIENT" help="不要将此窗口用作其他窗口的隐式父窗口：这必须与瞬态窗口一起使用，否则会有创建将此窗口作为父窗口的对话框/框架的风险，如果父窗口先于子窗口销毁，则会导致崩溃。"/>
+      <option name="wxWS_EX_CONTEXTHELP" help="在Windows下，在标题上放置一个查询按钮。按下时，Windows将进入上下文相关的帮助模式，如果用户单击应用程序窗口，wxWidgets将发送wxEVT_help事件。此样式不能与wxMAXIMIZE_BOX或wxMINIMIZE_BOX一起使用（因为潜在的本地行为），因此如果使用此样式，这两种样式将自动关闭。"/>
+      <option name="wxWS_EX_PROCESS_IDLE" help="此窗口应始终处理空闲事件，即使wxIdleEvent::SetMode设置的模式为wxIDLE_process_DELEMENT。"/>
+      <option name="wxWS_EX_PROCESS_UI_UPDATES" help="此窗口应始终处理UI更新事件，即使wxUpdateUIEvent::SetMode设置的模式为wxUPDATE_UI_process_SPECIFIED。"/>
     </property>
-    <property name="tooltip" type="wxString_i18n" help="Attach a tooltip to the window."/>
-    <property name="context_menu" type="bool" help="Generates event handler for displaying of menu assigned to this widgets as a context menu.">1</property>
-    <property name="context_help" type="wxString_i18n" help="Attach context-sensitive help to the window. Note: The Project's &quot;help_provider&quot; property must be set for context-sensitive help to work."/>
-    <property name="drag_accept_files" type="bool" help="Enables or disables eligibility for drop file events (OnDropFiles).">0</property>
-    <property name="enabled" type="bool" help="Enable or disable the window for user input. Note that when a parent window is disabled, all of its children are disabled as well and they are reenabled again when the parent is.">1</property>
-    <property name="hidden" type="bool" help="Shows or hides the window.">0</property>
-    <property name="subclass" type="parent" help="For easy use of custom widgets which are simple variations from standard ones, without requiring a new plugin for wxFB or a full xrc handler for wxWidgets. For C++, this replaces the name of the class. For XRC, this sets the subclass value on the object tag.">
-      <child name="name" help="The name of the subclass."/>
-      <child name="header" help="For C++ Only. The header to be included for the subclass."/>
+    <property name="tooltip" type="wxString_i18n" help="将工具提示附加到窗口"/>
+    <property name="context_menu" type="bool" help="生成事件处理程序，用于将分配给此小部件的菜单显示为上下文菜单。">1</property>
+    <property name="context_help" type="wxString_i18n" help="将上下文相关的帮助附加到窗口。注: 本项目的 &quot;help_provider&quot; 必须设置属性，上下文相关帮助才能工作。"/>
+    <property name="drag_accept_files" type="bool" help="启用或禁用删除文件事件的资格(OnDropFiles)。">0</property>
+    <property name="enabled" type="bool" help="启用或禁用 用户输入的窗口。请注意，当父窗口被禁用时，它的所有子窗口也将被禁用，并且当父窗口处于禁用状态时，它们将重新启用。">1</property>
+    <property name="hidden" type="bool" help="显示或隐藏窗口。">0</property>
+    <property name="subclass" type="parent" help="为了方便使用自定义小部件，这些小部件是标准小部件的简单变体，而不需要wxFB的新插件或wxWidgets的完整xrc处理程序。对于C++，这将替换类的名称。对于XRC，这将设置对象标记上的子类值。">
+      <child name="name" help="子类的名称。"/>
+      <child name="header" help="仅适用于C++。 子类要包含的头文件。"/>
       <!-- Note: Because the element type parent is stored in the format of a composed wxPGProperty the value has to be specified in this format:
                  true == forward_declare
                  false == Not forward_declare
       -->
-      <child name="forward_declare" type="bool" help="For C++ Only. Forward declare the subclass, otherwise include the header.">forward_declare</child>
+      <child name="forward_declare" type="bool" help="仅适用于C++。 正向声明子类，否则包括头文件。">forward_declare</child>
     </property>
     <category name="wxKeyEvent" type="interface">
-      <event name="OnChar" class="wxKeyEvent" help="Process a wxEVT_CHAR event."/>
-      <event name="OnCharHook" class="wxKeyEvent" help="Process a wxEVT_CHAR_HOOK event. Unlike all the other key events, this event is propagated upwards the window hierarchy which allows intercepting it in the parent window of the focused window to which it is sent initially (if there is no focused window, this event is sent to the wxApp global object). It is also generated before any other key events and so gives the parent window an opportunity to modify the keyboard handling of its children, e.g. it is used internally by wxWidgets in some ports to intercept pressing Esc key in any child of a dialog to close the dialog itself when it's pressed. By default, if this event is handled, i.e. the handler doesn't call wxEvent::Skip(), neither wxEVT_KEY_DOWN nor wxEVT_CHAR events will be generated (although wxEVT_KEY_UP still will be), i.e. it replaces the normal key events. However by calling the special DoAllowNextEvent() method you can handle wxEVT_CHAR_HOOK and still allow normal events generation. This is something that is rarely useful but can be required if you need to prevent a parent wxEVT_CHAR_HOOK handler from running without suppressing the normal key events. Finally notice that this event is not generated when the mouse is captured as it is considered that the window which has the capture should receive all the keyboard events too without allowing its parent wxTopLevelWindow to interfere with their processing."/>
-      <event name="OnKeyDown" class="wxKeyEvent" help="Process a wxEVT_KEY_DOWN event (any key has been pressed). If this event is handled and not skipped, wxEVT_CHAR will not be generated at all for this key press (but wxEVT_KEY_UP will be)."/>
-      <event name="OnKeyUp" class="wxKeyEvent" help="Process a wxEVT_KEY_UP event (any key has been released)."/>
+      <event name="OnChar" class="wxKeyEvent" help="处理wxEVT_CHAR事件"/>
+      <event name="OnCharHook" class="wxKeyEvent" help="处理wxEVT_CHAR_HOOK事件。与所有其他关键事件不同，此事件在窗口层次结构中向上传播，这允许在最初发送它的聚焦窗口的父窗口中拦截它(如果没有聚焦窗口，则将此事件发送到wxApp全局对象)。它也在任何其他键事件之前生成，因此为父窗口提供了修改其子窗口的键盘处理的机会，例如，它在某些端口中由wxWidgets内部使用，以拦截在对话框的任何子窗口中按下Esc键，从而在按下时关闭对话框本身。默认情况下，如果处理此事件，即处理程序不调用wxEvent::Skip()，则既不会生成wxEVT_KEY_DOWN事件，也不会生成wxDEVT_CHAR事件（尽管wxEVT_KEY_UP仍然会生成），即它会替换正常的键事件。但是，通过调用特殊的DoAllowNextEvent()方法，您可以处理wxEVT_CHAR_HOOK，并且仍然允许生成正常的事件。这是一个很少有用的东西，但如果您需要阻止父wxEVT_CHAR_HOOK处理程序在不抑制正常键事件的情况下运行，则可能需要它。最后请注意，当鼠标被捕获时不会生成此事件，因为被认为具有捕获的窗口也应该接收所有键盘事件，而不允许其父窗口wxTopLevelWindow干扰它们的处理。"/>
+      <event name="OnKeyDown" class="wxKeyEvent" help="处理wxEVT_KEY_DOWN事件（已按下任何键）。如果处理了此事件而没有跳过，则此按键根本不会生成wxEVT_CHAR（但会生成wxEV T_key_UP）。"/>
+      <event name="OnKeyUp" class="wxKeyEvent" help="处理wxEVT_KEY_UP事件（已发布任何密钥）。"/>
     </category>
     <category name="wxMouseEvent" type="interface">
-      <event name="OnEnterWindow" class="wxMouseEvent" help="Process a wxEVT_ENTER_WINDOW event."/>
-      <event name="OnLeaveWindow" class="wxMouseEvent" help="Process a wxEVT_LEAVE_WINDOW event."/>
-      <event name="OnLeftDClick" class="wxMouseEvent" help="Process a wxEVT_LEFT_DCLICK event."/>
-      <event name="OnLeftDown" class="wxMouseEvent" help="Process a wxEVT_LEFT_DOWN event."/>
-      <event name="OnLeftUp" class="wxMouseEvent" help="Process a wxEVT_LEFT_UP event."/>
-      <event name="OnMiddleDClick" class="wxMouseEvent" help="Process a wxEVT_MIDDLE_DCLICK event."/>
-      <event name="OnMiddleDown" class="wxMouseEvent" help="Process a wxEVT_MIDDLE_DOWN event."/>
-      <event name="OnMiddleUp" class="wxMouseEvent" help="Process a wxEVT_MIDDLE_UP event."/>
-      <event name="OnRightDClick" class="wxMouseEvent" help="Process a wxEVT_RIGHT_DCLICK event."/>
-      <event name="OnRightDown" class="wxMouseEvent" help="Process a wxEVT_RIGHT_DOWN event."/>
-      <event name="OnRightUp" class="wxMouseEvent" help="Process a wxEVT_RIGHT_UP event."/>
-      <event name="OnAux1DClick" class="wxMouseEvent" help="Process a wxEVT_AUX1_DCLICK event."/>
-      <event name="OnAux1Down" class="wxMouseEvent" help="Process a wxEVT_AUX1_DOWN event."/>
-      <event name="OnAux1Up" class="wxMouseEvent" help="Process a wxEVT_AUX1_UP event."/>
-      <event name="OnAux2DClick" class="wxMouseEvent" help="Process a wxEVT_AUX2_DCLICK event."/>
-      <event name="OnAux2Down" class="wxMouseEvent" help="Process a wxEVT_AUX2_DOWN event."/>
-      <event name="OnAux2Up" class="wxMouseEvent" help="Process a wxEVT_AUX2_UP event."/>
-      <event name="OnMotion" class="wxMouseEvent" help="Process a wxEVT_MOTION event."/>
-      <event name="OnMouseWheel" class="wxMouseEvent" help="Process a wxEVT_MOUSEWHEEL event."/>
-      <event name="OnMouseEvents" class="wxMouseEvent" help="Process all mouse events."/>
+      <event name="OnEnterWindow" class="wxMouseEvent" help="处理wxEVT_ENTER_WINDOW事件"/>
+      <event name="OnLeaveWindow" class="wxMouseEvent" help="处理wxEVT_LEAVE_WINDOW事件"/>
+      <event name="OnLeftDClick" class="wxMouseEvent" help="处理wxEVT_LEFT_DCLICK事件"/>
+      <event name="OnLeftDown" class="wxMouseEvent" help="处理wxEVT_LEFT_DOWN事件"/>
+      <event name="OnLeftUp" class="wxMouseEvent" help="处理wxEVT_LEFT_UP事件"/>
+      <event name="OnMiddleDClick" class="wxMouseEvent" help="处理wxEVT_MIDDLE_DCLICK事件"/>
+      <event name="OnMiddleDown" class="wxMouseEvent" help="处理wxEVT_MIDDLE_DOWN事件"/>
+      <event name="OnMiddleUp" class="wxMouseEvent" help="处理wxEVT_MIDDLE_UP事件"/>
+      <event name="OnRightDClick" class="wxMouseEvent" help="处理wxEVT_RIGHT_DCLICK事件"/>
+      <event name="OnRightDown" class="wxMouseEvent" help="处理wxEVT_RIGHT_DOWN事件"/>
+      <event name="OnRightUp" class="wxMouseEvent" help="处理wxEVT_RIGHT_UP事件"/>
+      <event name="OnAux1DClick" class="wxMouseEvent" help="处理wxEVT_AUX1_DCLICK事件"/>
+      <event name="OnAux1Down" class="wxMouseEvent" help="处理wxEVT_AUX1_DOWN事件"/>
+      <event name="OnAux1Up" class="wxMouseEvent" help="处理wxEVT_AUX1_UP事件"/>
+      <event name="OnAux2DClick" class="wxMouseEvent" help="处理wxEVT_AUX2_DCLICK事件"/>
+      <event name="OnAux2Down" class="wxMouseEvent" help="处理wxEVT_AUX2_DOWN事件"/>
+      <event name="OnAux2Up" class="wxMouseEvent" help="处理wxEVT_AUX2_UP事件"/>
+      <event name="OnMotion" class="wxMouseEvent" help="处理wxEVT_MOTION事件"/>
+      <event name="OnMouseWheel" class="wxMouseEvent" help="处理wxEVT_MOUSEWHEEL事件"/>
+      <event name="OnMouseEvents" class="wxMouseEvent" help="处理所有鼠标事件。"/>
     </category>
     <category name="wxFocusEvent" type="interface">
-      <event name="OnKillFocus" class="wxFocusEvent" help="Process a wxEVT_KILL_FOCUS event."/>
-      <event name="OnSetFocus" class="wxFocusEvent" help="Process a wxEVT_SET_FOCUS event."/>
+      <event name="OnKillFocus" class="wxFocusEvent" help="处理wxEVT_KILL_FOCUS事件"/>
+      <event name="OnSetFocus" class="wxFocusEvent" help="处理wxEVT_SET_FOCUS事件"/>
     </category>
     <category name="Other Events" type="interface">
-      <event name="OnDropFiles" class="wxDropFilesEvent" help="Process a wxEVT_DROP_FILES event."/>
-      <event name="OnEraseBackground" class="wxEraseEvent" help="Process a wxEVT_ERASE_BACKGROUND event."/>
-      <event name="OnPaint" class="wxPaintEvent" help="Process a wxEVT_PAINT event."/>
-      <event name="OnSize" class="wxSizeEvent" help="Process a wxEVT_SIZE event."/>
-      <event name="OnMove" class="wxMoveEvent" help="Process a wxEVT_MOVE event, which is generated when a window is moved. Not generated in wxGTK" />
-      <event name="OnUpdateUI" class="wxUpdateUIEvent" help="Process a wxEVT_UPDATE_UI event."/>
+      <event name="OnDropFiles" class="wxDropFilesEvent" help="处理wxEVT_DROP_FILES事件"/>
+      <event name="OnEraseBackground" class="wxEraseEvent" help="处理wxEVT_ERASE_BACKGROUND事件"/>
+      <event name="OnPaint" class="wxPaintEvent" help="处理wxEVT_PAINT事件"/>
+      <event name="OnSize" class="wxSizeEvent" help="处理wxEVT_SIZE事件"/>
+      <event name="OnMove" class="wxMoveEvent" help="处理移动窗口时生成的wxEVT_MOVE事件。未在wxGTK中生成" />
+      <event name="OnUpdateUI" class="wxUpdateUIEvent" help="处理wxEVT_UPDATE_UI事件"/>
     </category>
   </objectinfo>
 
   <objectinfo class="wxTreeCtrlBase" type="interface">
-    <event name="OnTreeBeginDrag" class="wxTreeEvent" help="Begin dragging with the left mouse button."/>
-    <event name="OnTreeBeginRDrag" class="wxTreeEvent" help="Begin dragging with the right mouse button."/>
-    <event name="OnTreeEndDrag" class="wxTreeEvent" help="End dragging with the left or right mouse button."/>
-    <event name="OnTreeBeginLabelEdit" class="wxTreeEvent" help="Begin editing a label. This can be prevented by calling Veto()."/>
-    <event name="OnTreeEndLabelEdit" class="wxTreeEvent" help="Finish editing a label. This can be prevented by calling Veto()."/>
-    <event name="OnTreeDeleteItem" class="wxTreeEvent" help="Delete an item."/>
-    <event name="OnTreeItemActivated" class="wxTreeEvent" help="The item has been activated, i.e. chosen by double clicking it with mouse or from keyboard."/>
-    <event name="OnTreeItemCollapsed" class="wxTreeEvent" help="The item has been collapsed."/>
-    <event name="OnTreeItemCollapsing" class="wxTreeEvent" help="The item is being collapsed. This can be prevented by calling Veto()."/>
-    <event name="OnTreeItemExpanded" class="wxTreeEvent" help="The item has been expanded."/>
-    <event name="OnTreeItemExpanding" class="wxTreeEvent" help="The item is being expanded. This can be prevented by calling Veto()."/>
-    <event name="OnTreeItemRightClick" class="wxTreeEvent" help="The user has clicked the item with the right mouse button"/>
-    <event name="OnTreeItemMiddleClick" class="wxTreeEvent" help="The user has clicked the item with the middle mouse button."/>
-    <event name="OnTreeSelChanged" class="wxTreeEvent" help="Selection has changed."/>
-    <event name="OnTreeSelChanging" class="wxTreeEvent" help="Selection is changing. This can be prevented by calling Veto()."/>
-    <event name="OnTreeKeyDown" class="wxTreeEvent" help="A key has been pressed."/>
-    <event name="OnTreeItemMenu" class="wxTreeEvent" help="The context menu for the selected item has been requested, either by a right click or by using the menu key."/>
+    <event name="OnTreeBeginDrag" class="wxTreeEvent" help="用鼠标左键开始拖动。"/>
+    <event name="OnTreeBeginRDrag" class="wxTreeEvent" help="用鼠标右键开始拖动。"/>
+    <event name="OnTreeEndDrag" class="wxTreeEvent" help="使用鼠标左键或右键结束拖动。"/>
+    <event name="OnTreeBeginLabelEdit" class="wxTreeEvent" help="开始编辑标签。这可以通过调用Veto()来避免。"/>
+    <event name="OnTreeEndLabelEdit" class="wxTreeEvent" help="完成标签编辑。这可以通过调用Veto()来避免。"/>
+    <event name="OnTreeDeleteItem" class="wxTreeEvent" help="删除项目。"/>
+    <event name="OnTreeItemActivated" class="wxTreeEvent" help="该项目已被激活，即通过鼠标或键盘双击选择。"/>
+    <event name="OnTreeItemCollapsed" class="wxTreeEvent" help="项目已被折叠。"/>
+    <event name="OnTreeItemCollapsing" class="wxTreeEvent" help="项目正在折叠。这可以通过调用Veto()来防止。"/>
+    <event name="OnTreeItemExpanded" class="wxTreeEvent" help="项目已展开。."/>
+    <event name="OnTreeItemExpanding" class="wxTreeEvent" help="项目正在展开。这可以通过调用Veto()来防止。"/>
+    <event name="OnTreeItemRightClick" class="wxTreeEvent" help="用户已经用鼠标右键单击了项目"/>
+    <event name="OnTreeItemMiddleClick" class="wxTreeEvent" help="用户已经用鼠标中键单击了项目。"/>
+    <event name="OnTreeSelChanged" class="wxTreeEvent" help="选择已更改。"/>
+    <event name="OnTreeSelChanging" class="wxTreeEvent" help="选择正在改变。这可以通过调用Veto()来防止。"/>
+    <event name="OnTreeKeyDown" class="wxTreeEvent" help="按下了一个键。"/>
+    <event name="OnTreeItemMenu" class="wxTreeEvent" help="已通过右键单击或使用菜单键请求所选项目的上下文菜单。"/>
   </objectinfo>
 
   <objectinfo class="wxAnyButton" type="interface">
     <property name="label" type="wxString_i18n">MyButton</property>
-    <property name="markup" type="bool" help="Simple markup can be used to apply different fonts or colours to different parts of the control label when supported. If markup is not supported by the control or platform, it is simply stripped and SetLabel() is used with the resulting string.&#x0A;Since 2.9.2.">0</property>
-    <property name="bitmap" type="bitmap" help="This is the bitmap shown in the default state, it must be always valid while all the other bitmaps are optional and don't have to be set."/>
-    <property name="disabled" type="bitmap" help="Bitmap shown when the button is disabled."/>
-    <property name="pressed" type="bitmap" help="Bitmap shown when the button is pushed (e.g. while the user keeps the mouse button pressed on it)."/>
-    <property name="focus" type="bitmap" help="Bitmap shown when the button has keyboard focus but is not pressed."/>
-    <property name="current" type="bitmap" help="Bitmap shown when the mouse is over the button (but it is not pressed). Notice that if hover bitmap is not specified but the current platform UI uses hover images for the buttons (such as Windows XP or GTK+), then the focus bitmap is used for hover state as well. This makes it possible to set focus bitmap only to get reasonably good behaviour on all platforms."/>
+    <property name="markup" type="bool" help="支持时，可以使用简单标记将不同的字体或颜色应用于控件标签的不同部分。如果控件或平台不支持标记，则只需将其剥离，并将SetLabel()与生成的字符串一起使用&#x0A;自2.9.2。">0</property>
+    <property name="bitmap" type="bitmap" help="这是默认状态下显示的位图，它必须始终有效，而所有其他位图都是可选的，不必设置。"/>
+    <property name="disabled" type="bitmap" help="禁用按钮时显示的位图。"/>
+    <property name="pressed" type="bitmap" help="按下按钮时显示的位图（例如，当用户按住鼠标按钮时）。"/>
+    <property name="focus" type="bitmap" help="当按钮具有键盘焦点但未按下时显示的位图。"/>
+    <property name="current" type="bitmap" help="当鼠标悬停在按钮上（但未按下）时显示的位图。请注意，如果未指定悬停位图，但当前平台UI使用悬停图像作为按钮（如Windows XP或GTK+），则焦点位图也用于悬停状态。这使得可以设置焦点位图只是为了在所有平台上获得合理的良好行为。"/>
     <property name="position" type="option">
       <option name=""/>
-      <option name="wxLEFT" help="Positions the bitmap at the left"/>
-      <option name="wxRIGHT" help="Positions the bitmap at the right"/>
-      <option name="wxTOP" help="Positions the bitmap at the top"/>
-      <option name="wxBOTTOM" help="Positions the bitmap at the bottom"/>
+      <option name="wxLEFT" help="将位图定位在左侧"/>
+      <option name="wxRIGHT" help="将位图定位在右侧"/>
+      <option name="wxTOP" help="将位图定位在顶部"/>
+      <option name="wxBOTTOM" help="将位图定位在底部"/>
     </property>
-    <property name="margins" type="wxSize" help="The margins between the bitmap and the text of the button. This is currently only implemented under MSW. If it is not specified, default margin is used around the bitmap."/>
+    <property name="margins" type="wxSize" help="位图和按钮文本之间的边距。这目前仅在MSW下实施。如果未指定，则在位图周围使用默认边距"/>
   </objectinfo>
 
   <objectinfo class="UserClasses" type="interface">
@@ -235,84 +235,84 @@
   </objectinfo>
 
   <objectinfo class="AUI" type="interface">
-    <property name="aui_name" type="wxString" help="Sets the internal name of the pane."/>
-    <property name="caption_visible" type="bool" help="Indicates that a pane caption should be visible.">1</property>
-    <property name="caption" type="wxString_i18n" help="Sets the caption of the pane."/>
-    <property name="close_button" type="bool" help="Indicates that a close button should be drawn for the pane.">1</property>
-    <property name="maximize_button" type="bool" help="Indicates that a maximize button should be drawn for the pane.">0</property>
-    <property name="minimize_button" type="bool" help="Indicates that a minimize button should be drawn for the pane.">0</property>
-    <property name="pin_button" type="bool" help="Indicates that a pin button should be drawn for the pane.">1</property>
-    <property name="pane_border" type="bool" help="Indicates that a border should be drawn for the pane.">1</property>
-    <property name="show" type="bool" help="Indicates that a pane should be shown.">1</property>
-    <property name="gripper" type="bool" help="Indicates that a gripper should be drawn for the pane.">0</property>
+    <property name="aui_name" type="wxString" help="设置窗格的内部名称。"/>
+    <property name="caption_visible" type="bool" help="指示窗格标题应可见。">1</property>
+    <property name="caption" type="wxString_i18n" help="设置窗格的标题。"/>
+    <property name="close_button" type="bool" help="指示应为窗格绘制关闭按钮。">1</property>
+    <property name="maximize_button" type="bool" help="指示应为窗格绘制最大化按钮。">0</property>
+    <property name="minimize_button" type="bool" help="指示应为窗格绘制最小化按钮">0</property>
+    <property name="pin_button" type="bool" help="指示应为窗格绘制一个固定按钮。">1</property>
+    <property name="pane_border" type="bool" help="指示应为窗格绘制边框。">1</property>
+    <property name="show" type="bool" help="指示应显示一个窗格。">1</property>
+    <property name="gripper" type="bool" help="指示应为窗格绘制一个gripper。">0</property>
 
-    <property name="center_pane" type="bool" help="Specifies that the pane should adopt the default center pane settings. Centre panes usually do not have caption bars. This function provides an easy way of preparing a pane to be displayed in the center dock position.">0</property>
-    <property name="default_pane" type="bool" help="Specifies that the pane should adopt the default pane settings.">0</property>
-    <property name="toolbar_pane" type="bool" help="Specifies that the pane should adopt the default toolbar pane settings.">0</property>
+    <property name="center_pane" type="bool" help="指定窗格应采用默认的中心窗格设置。中心窗格通常没有标题栏。此功能提供了一种简单的方法来准备要在中央停靠位置显示的窗格。">0</property>
+    <property name="default_pane" type="bool" help="指定窗格应采用默认窗格设置。">0</property>
+    <property name="toolbar_pane" type="bool" help="指定窗格应采用默认工具栏窗格设置。">0</property>
 
-    <property name="moveable" type="bool" help="Indicates whether a frame can be moved.">1</property>
+    <property name="moveable" type="bool" help="表示frame是否可以移动。">1</property>
     <property name="resize" type="option">
-      <option name="Resizable" help="Allows a pane to be resized if the parameter is true, and forces it to be a fixed size if the parameter is false."/>
-      <option name="Fixed" help="Forces a pane to be fixed size so that it cannot be resized."/>
+      <option name="Resizable" help="如果参数为真，则允许窗格调整大小，如果参数为假，则强制它为固定大小。"/>
+      <option name="Fixed" help="强制将窗格设置为固定大小，以使其无法调整大小"/>
       Resizable
     </property>
-    <property name="pane_size" type="wxSize" help="Sets the size of the floating pane."/>
-    <property name="best_size" type="wxSize" help="Sets the ideal size for the pane."/>
-    <property name="min_size" type="wxSize" help="Sets the minimum size of the pane."/>
-    <property name="max_size" type="wxSize" help="Sets the maximum size of the pane."/>
+    <property name="pane_size" type="wxSize" help="设置浮动窗格的大小。"/>
+    <property name="best_size" type="wxSize" help="设置窗格的理想大小。"/>
+    <property name="min_size" type="wxSize" help="设置窗格的最小大小。"/>
+    <property name="max_size" type="wxSize" help="设置窗格的最大大小。"/>
 
     <property name="dock" type="option">
-      <option name="Dock" help="Indicates that a pane should be docked."/>
-      <option name="Float" help="Indicates that a pane should be floated."/>
+      <option name="Dock" help="指示应停靠窗格。"/>
+      <option name="Float" help="指示应浮动窗格。"/>
       Dock
     </property>
-    <property name="dock_fixed" type="bool" help="Causes the containing dock to have no resize sash. This is useful for creating panes that span the entire width or height of a dock, but should not be resizable in the other direction.">0</property>
-    <property name="floatable" type="bool" help="Sets whether the user will be able to undock a pane and turn it into a floating window.">1</property>
-    <property name="BottomDockable" type="bool" help="Indicates whether a pane can be docked at the bottom of the frame.">1</property>
-    <property name="TopDockable" type="bool" help="Indicates whether a pane can be docked at the top of the frame.">1</property>
-    <property name="LeftDockable" type="bool" help="Indicates whether a pane can be docked on the left of the frame.">1</property>
-    <property name="RightDockable" type="bool" help="Indicates whether a pane can be docked on the right of the frame.">1</property>
+    <property name="dock_fixed" type="bool" help="导致包含的固定不具有调整大小的窗扇。这对于创建跨越停靠的整个宽度或高度，但不应在其他方向上调整大小的窗格非常有用。">0</property>
+    <property name="floatable" type="bool" help="设置用户是否能够取消固定窗格并将其变成浮动窗口。">1</property>
+    <property name="BottomDockable" type="bool" help="指示窗格是否可以停靠在框架的底部。">1</property>
+    <property name="TopDockable" type="bool" help="指示窗格是否可以停靠在框架的顶部。">1</property>
+    <property name="LeftDockable" type="bool" help="指示窗格是否可以停靠在框架的左侧。">1</property>
+    <property name="RightDockable" type="bool" help="指示窗格是否可以停靠在框架的右侧。">1</property>
 
-    <property name="docking" type="option" help="Determines the direction of the docked pane.">
-      <option name="Top"/>
-      <option name="Bottom"/>
-      <option name="Left"/>
-      <option name="Center"/>
-      <option name="Right"/>
+    <property name="docking" type="option" help="确定停靠窗格的方向。">
+      <option name="Top" help="顶部"/>
+      <option name="Bottom" help="底部"/>
+      <option name="Left" help="左侧"/>
+      <option name="Center" help="居中"/>
+      <option name="Right" help="右侧"/>
       Left
     </property>
-    <property name="pane_position" type="wxPoint" help="Sets the position of the floating pane."/>
-    <property name="aui_position" type="uint" help="Determines the position of the docked pane."/>
-    <property name="aui_row" type="uint" help="Determines the row of the docked pane."/>
-    <property name="aui_layer" type="uint" help="Determines the layer of the docked pane. The dock layer is similar to an onion, the inner-most layer being layer 0. Each shell moving in the outward direction has a higher layer number. This allows for more complex docking layout formation."/>
+    <property name="pane_position" type="wxPoint" help="设置浮动窗格的位置。"/>
+    <property name="aui_position" type="uint" help="确定停靠窗格的位置。"/>
+    <property name="aui_row" type="uint" help="确定停靠窗格的行。"/>
+    <property name="aui_layer" type="uint" help="确定停靠窗格的图层。码头层类似于洋葱，最内层是0层。每个向外移动的外壳都有一个更高的层数。这允许形成更复杂的对接布局。"/>
   </objectinfo>
 
   <objectinfo class="Validator" type="interface">
-    <property name="validator_type" type="option" hidden="1" help="For C++ Only.&#x0A;Type of a validator assigned to the window">
-      <option name="wxDefaultValidator" help="Default validator (does nothing)"/>
-      <option name="wxGenericValidator" help="Generic validator. Transfers data from/to window ."/>
-      <option name="wxTextValidator" help="Text validator. Transfer data from/to window and allows basic data filtering."/>
+    <property name="validator_type" type="option" hidden="1" help="仅适用于C++。&#x0A;分配给窗口的验证器的类型">
+      <option name="wxDefaultValidator" help="默认验证器(不做任何事情)"/>
+      <option name="wxGenericValidator" help="通用的验证器。从/往窗口传输数据。"/>
+      <option name="wxTextValidator" help="文本验证器。从/往窗口传输数据，并允许基本的数据过滤。"/>
       wxDefaultValidator
     </property>
-    <property name="validator_style" type="bitlist" help="For C++ Only.&#x0A;Data filtering style for wxTextValidator.">
-      <option name="wxFILTER_NONE" help="No filtering takes place."/>
-      <option name="wxFILTER_ASCII" help="Non-ASCII characters are filtered out."/>
-      <option name="wxFILTER_ALPHA" help="Non-alpha characters are filtered out."/>
-      <option name="wxFILTER_ALPHANUMERIC" help="Non-alphanumeric characters are filtered out."/>
-      <option name="wxFILTER_NUMERIC" help="Non-numeric characters are filtered out."/>
-      <option name="wxFILTER_INCLUDE_LIST" help="Use an include list. The validator checks if the user input is on the list, complaining if not. See wxTextValidator::SetIncludes."/>
-      <option name="wxFILTER_EXCLUDE_LIST" help="Use an exclude list. The validator checks if the user input is on the list, complaining if it is. See wxTextValidator::SetExcludes."/>
-      <option name="wxFILTER_INCLUDE_CHAR_LIST" help="Use an include list. The validator checks if each input character is in the list (one character per list element), complaining if not. See wxTextValidator::SetIncludes."/>
-      <option name="wxFILTER_EXCLUDE_CHAR_LIST" help="Use an include list. The validator checks if each input character is in the list (one character per list element), complaining if it is. See wxTextValidator::SetExcludes."/>
+    <property name="validator_style" type="bitlist" help="仅适用于C++。&#x0A;wxTextValidator的数据过滤样式。">
+      <option name="wxFILTER_NONE" help="不进行过滤。"/>
+      <option name="wxFILTER_ASCII" help="非ascii字符被过滤掉。"/>
+      <option name="wxFILTER_ALPHA" help="非字母字符被过滤掉。"/>
+      <option name="wxFILTER_ALPHANUMERIC" help="非字母数字字符被过滤掉。"/>
+      <option name="wxFILTER_NUMERIC" help="非数字字符被过滤掉。"/>
+      <option name="wxFILTER_INCLUDE_LIST" help="使用包含列表。验证器检查用户输入是否在列表中，如果不在则报错。请参阅wxTextValidator::SetIncludes。"/>
+      <option name="wxFILTER_EXCLUDE_LIST" help="使用排除列表。验证器检查用户输入是否在列表中，如果在则报错。请参阅wxTextValidator::SetExcludes."/>
+      <option name="wxFILTER_INCLUDE_CHAR_LIST" help="使用包含列表。验证器检查每个输入字符是否在列表中（每个列表元素一个字符），如果不在则报错。请参阅wxTextValidator::SetIncludes。"/>
+      <option name="wxFILTER_EXCLUDE_CHAR_LIST" help="使用包含列表。验证器检查每个输入字符是否在列表中（每个列表元素一个字符），如果在则报错。请参阅See wxTextValidator::SetExcludes."/>
       wxFILTER_NONE
     </property>
-    <property name="validator_variable" type="text" help="For C++ Only.&#x0A;Name of a member variable associated with the validator"/>
-    <property name="validator_data_type" type="option" hidden="1" help="For C++ Only.&#x0A;Data type of the member variable">
-      <option name="" help ="Undefined data type."/>
-      <option name="bool" help="Logical value. This should be used for wxCheckBox and wxRadioButton."/>
-      <option name="int" help="Signed integer value. This should be used for wxGauge, wxScrollBar, wxRadioBox, wxSpinButton, wxChoice."/>
-      <option name="wxString" help="String value. This should be used for wxButton, wxComboBox, wxStaticText, wxTextCtrl."/>
-      <option name="wxArrayInt" help="Array of integers. This should be used for wxListBox, wxCheckListBox."/>
+    <property name="validator_variable" type="text" help="仅适用于C++。&#x0A;与验证器关联的成员变量的名称"/>
+    <property name="validator_data_type" type="option" hidden="1" help="仅适用于C++。&#x0A;成员变量的数据类型">
+      <option name="" help ="未定义的数据类型。"/>
+      <option name="bool" help="逻辑值。这应该用于wxCheckBox和wxRadioButton。"/>
+      <option name="int" help="有符号整型值。这应该用于wxGauge, wxScrollBar, wxRadioBox, wxSpinButton, wxChoice。"/>
+      <option name="wxString" help="字符串值。这应该用于wxButton, wxComboBox, wxStaticText, wxTextCtrl。"/>
+      <option name="wxArrayInt" help="整数数组。这应该用于wxListBox, wxCheckListBox。"/>
     </property>
   </objectinfo>
 

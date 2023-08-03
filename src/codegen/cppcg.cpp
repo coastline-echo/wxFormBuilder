@@ -508,8 +508,8 @@ bool CppCodeGenerator::GenerateCode(PObjectBase project)
     m_source->Clear();
     wxString code = wxString::Format(
       wxT("///////////////////////////////////////////////////////////////////////////\n")
-        wxT("// C++ code generated with wxFormBuilder (version %s%s)\n") wxT("// http://www.wxformbuilder.org/\n")
-          wxT("//\n") wxT("// PLEASE DO *NOT* EDIT THIS FILE!\n")
+        wxT("// 用wxFormBuilder生成的c++代码 (version %s%s)\n") wxT("// http://www.wxformbuilder.org/\n")
+          wxT("//\n") wxT("// 请 *不要* 编辑这个文件!\n")
             wxT("///////////////////////////////////////////////////////////////////////////\n"),
       getVersion(), getPostfixRevision(getVersion()).c_str());
 
@@ -518,7 +518,7 @@ bool CppCodeGenerator::GenerateCode(PObjectBase project)
 
     PProperty propFile = project->GetProperty(wxT("file"));
     if (!propFile) {
-        wxLogError(wxT("Missing \"file\" property on Project Object"));
+        wxLogError(wxT("项目对象上缺少 \"file\" 属性"));
         return false;
     }
 

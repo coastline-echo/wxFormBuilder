@@ -666,7 +666,7 @@ void ObjectInspector::OnPropertyGridChanged(wxPropertyGridEvent& event)
                 if (prop->GetName() == wxT("aui_managed")) {
                     PObjectBase propobj = prop->GetObject();
                     if (propobj->GetChildCount()) {
-                        wxMessageBox(_("You have to remove all child widgets first."));
+                        wxMessageBox(_("必须首先删除所有子窗口小部件。"));
                         m_pg->SetPropertyValue(propPtr, !m_pg->GetPropertyValueAsBool(propPtr));
                     } else
                         ModifyProperty(prop, m_pg->GetPropertyValueAsBool(propPtr) ? wxT("1") : wxT("0"));

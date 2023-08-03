@@ -337,7 +337,7 @@ void PythonPanel::OnCodeGeneration(wxFBEvent& event)
 
             codegen.SetSourceWriter(python_cw);
             codegen.GenerateCode(project);
-            wxLogStatus(wxT("Code generated on \'%s\'."), path);
+            wxLogStatus(wxT("生成的代码在 \'%s\'."), path);
         } catch (wxFBException& ex) {
             wxLogError(ex.what());
         }

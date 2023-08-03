@@ -21,7 +21,7 @@ Written by
   José Antonio Hurtado - joseantonio.hurtado@gmail.com
   Juan Antonio Ortega  - jortegalalmolda@gmail.com
 -->
-<package name="Containers" lib="containers" icon="splitter_window.xpm" desc="wxWidgets container controls">
+<package name="容器类" lib="containers" icon="splitter_window.xpm" desc="wxWidgets container controls">
 
   <objectinfo class="wxPanel" icon="panel.xpm" type="container">
     <inherits class="Common Events"/>
@@ -41,11 +41,11 @@ Written by
     <property name="label" type="wxString_i18n">collapsible</property>
     <property name="collapsed" type="bool">0</property>
     <property name="style" type="bitlist">
-      <option name="wxCP_DEFAULT_STYLE" help="The default style. It includes wxTAB_TRAVERSAL and wxBORDER_NONE."/>
-      <option name="wxCP_NO_TLW_RESIZE" help="By default wxCollapsiblePane resizes the top level window containing it when its own size changes. This allows to easily implement dialogs containing an optionally shown part, for example, and so is the default behaviour but can be inconvenient in some specific cases – use this flag to disable this automatic parent resizing then."/>
+      <option name="wxCP_DEFAULT_STYLE" help="默认样式。它包括wxTAB_TRAVERSAL和wxBORDER_NONE。"/>
+      <option name="wxCP_NO_TLW_RESIZE" help="默认情况下，wxCollapsablePane在其自身大小更改时会调整包含它的顶层窗口的大小。例如，这允许轻松实现包含可选显示部分的对话框，默认行为也是如此，但在某些特定情况下可能会很不方便——然后使用此标志禁用此自动父级大小调整。"/>
       wxCP_DEFAULT_STYLE
     </property>
-    <event name="OnCollapsiblePaneChanged" class="wxCollapsiblePaneEvent" help="The user expanded or collapsed the collapsible pane."/>
+    <event name="OnCollapsiblePaneChanged" class="wxCollapsiblePaneEvent" help="用户展开或折叠可折叠窗格。"/>
   </objectinfo>
 
   <objectinfo class="wxSplitterWindow" icon="splitter_window.xpm" type="splitter" startgroup="1">
@@ -53,31 +53,31 @@ Written by
     <inherits class="AUI"/>
     <property name="name" type="text">m_splitter</property>
     <property name="style" type="bitlist">
-      <option name="wxSP_3D" help="Draws a 3D effect border and sash."/>
-      <option name="wxSP_3DSASH" help="Draws a 3D effect sash (part of default style)."/>
-      <option name="wxSP_3DBORDER" help="Synonym for wxSP_BORDER."/>
-      <option name="wxSP_BORDER" help="Draws a standard border."/>
-      <option name="wxSP_NOBORDER" help="No border (default)."/>
-      <option name="wxSP_NOSASH" help="Sets the sash to be invisible, even when the window is split. This prevents the user to resize the windows."/>
-      <option name="wxSP_THIN_SASH" help="Draws a thin sash."/>
-      <option name="wxSP_NO_XP_THEME" help="Under Windows XP, switches off the attempt to draw the splitter using Windows XP theming, so the borders and sash will take on the pre-XP look."/>
-      <option name="wxSP_PERMIT_UNSPLIT" help="Always allow to unsplit, even with the minimum pane size other than zero. Note: The designer prevents un-splitting."/>
-      <option name="wxSP_LIVE_UPDATE" help="Don't draw XOR line but resize the child windows immediately."/>
+      <option name="wxSP_3D" help="绘制3D效果的边框和窗扇。"/>
+      <option name="wxSP_3DSASH" help="绘制一个3D效果的窗扇(默认样式的一部分)。"/>
+      <option name="wxSP_3DBORDER" help="wxSP_BORDER的同义词。"/>
+      <option name="wxSP_BORDER" help="绘制标准边框。"/>
+      <option name="wxSP_NOBORDER" help="无边框(默认)。"/>
+      <option name="wxSP_NOSASH" help="将窗扇设置为不可见，即使在拆分窗口时也是如此。这样可以防止用户调整窗口的大小。"/>
+      <option name="wxSP_THIN_SASH" help="绘制细窗扇。"/>
+      <option name="wxSP_NO_XP_THEME" help="在Windows XP下，关闭使用Windows XP主题绘制拆分器的尝试，因此边框和窗扇将呈现XP之前的外观。"/>
+      <option name="wxSP_PERMIT_UNSPLIT" help="始终允许取消拆分，即使最小窗格大小不是零。注意：设计器阻止取消拆分。"/>
+      <option name="wxSP_LIVE_UPDATE" help="不要画XOR线，而是立即调整子窗口的大小。"/>
       wxSP_3D
     </property>
     <property name="splitmode" type="option">
-      <option name="wxSPLIT_VERTICAL" help="Specifies a vertical split window."/>
-      <option name="wxSPLIT_HORIZONTAL" help="Specifies a horizontal split window."/>
+      <option name="wxSPLIT_VERTICAL" help="指定垂直分割窗口。"/>
+      <option name="wxSPLIT_HORIZONTAL" help="指定水平拆分窗口。"/>
       wxSPLIT_VERTICAL
     </property>
-    <property name="sashpos" type="int" help="The initial sash position.">0</property>
-    <property name="sashsize" type="int" help="Overrides platform metrics if greater than -1">-1</property>
-    <property name="sashgravity" type="float" help= "Sets the sash gravity. Remarks: Gravity is real factor which controls position of sash while resizing wxSplitterWindow. Gravity tells wxSplitterWindow how much will left/top window grow while resizing.">0.0</property>
-    <property name="min_pane_size" type="uint" help="Minimum size for the panes. A minimum less than 1 is not allowed in the designer, because the designer prevents un-splitting.">0</property>
-    <event name="OnSplitterSashPosChanging" class="wxSplitterEvent" help="The sash position is in the process of being changed. May be used to modify the position of the tracking bar to properly reflect the position that would be set if the drag were to be completed at this point. Processes a wxEVT_COMMAND_SPLITTER_SASH_POS_CHANGING event."/>
-    <event name="OnSplitterSashPosChanged" class="wxSplitterEvent" help="The sash position was changed. May be used to modify the sash position before it is set, or to prevent the change from taking place. Processes a wxEVT_COMMAND_SPLITTER_SASH_POS_CHANGED event."/>
-    <event name="OnSplitterUnsplit" class="wxSplitterEvent" help="The splitter has been just unsplit. Processes a wxEVT_COMMAND_SPLITTER_UNSPLIT event."/>
-    <event name="OnSplitterDClick" class="wxSplitterEvent" help="The sash was double clicked. The default behaviour is to unsplit the window when this happens (unless the minimum pane size has been set to a value greater than zero). Processes a wxEVT_COMMAND_SPLITTER_DOUBLECLICKED event."/>
+    <property name="sashpos" type="int" help="初始窗扇位置。">0</property>
+    <property name="sashsize" type="int" help="如果大于-1，则覆盖平台指标">-1</property>
+    <property name="sashgravity" type="float" help= "设置窗扇的重力。备注：重力是在调整wxSplitterWindow尺寸时控制窗扇位置的实际因素。重力告诉wxSplitterWindow在调整大小时，左/顶部窗口会增长多少。">0.0</property>
+    <property name="min_pane_size" type="uint" help="窗格的最小大小。设计器中不允许最小值小于1，因为设计器会阻止取消拆分。">0</property>
+    <event name="OnSplitterSashPosChanging" class="wxSplitterEvent" help="窗格位置正在更改中。可用于修改跟踪条的位置，以正确反映在此时完成拖动时将设置的位置。处理wxEVT_COMMAND_SPLITTER_SASH_POS_CHANGING事件。"/>
+    <event name="OnSplitterSashPosChanged" class="wxSplitterEvent" help="窗格位置已更改。可用于在设置窗扇之前修改窗扇位置，或防止发生更改。处理wxEVT_COMMAND_SPLITTER_SASH_POS_CHANGED事件。"/>
+    <event name="OnSplitterUnsplit" class="wxSplitterEvent" help="拆分器刚刚被取消拆分。处理wxEVT_COMMAND_SPLITTER_UNSPLIT事件。"/>
+    <event name="OnSplitterDClick" class="wxSplitterEvent" help="窗格被双击了。默认行为是在发生这种情况时取消拆分窗口（除非最小窗格大小设置为大于零的值）。处理wxEVT_COMMAND_SPLITTER_DOUBLECLICKED事件。"/>
   </objectinfo>
 
   <objectinfo class="splitteritem" type="splitteritem"/>
@@ -88,32 +88,32 @@ Written by
     </inherits>
     <inherits class="AUI"/>
     <property name="name" type="text">m_scrolledWindow</property>
-    <property name="scroll_rate_x" type="uint" help="Set the horizontal scrolling increment.">5</property>
-    <property name="scroll_rate_y" type="uint" help="Set the vertical scrolling increment.">5</property>
+    <property name="scroll_rate_x" type="uint" help="设置水平滚动增量。">5</property>
+    <property name="scroll_rate_y" type="uint" help="设置垂直滚动增量。">5</property>
   </objectinfo>
 
   <objectinfo class="wxNotebook" icon="notebook.xpm" type="notebook" startgroup="1">
     <inherits class="wxWindow"/>
     <inherits class="AUI"/>
     <property name="name" type="text">m_notebook</property>
-    <property name="bitmapsize" type="wxSize" help="Size of page images"/>
+    <property name="bitmapsize" type="wxSize" help="页面图像大小"/>
     <property name="style" type="bitlist">
-      <option name="wxNB_TOP" help="Place tabs on the top side."/>
-      <option name="wxNB_LEFT" help="Place tabs on the left side."/>
-      <option name="wxNB_RIGHT" help="Place tabs on the right side."/>
-      <option name="wxNB_BOTTOM" help="Place tabs under instead of above the notebook pages."/>
-      <option name="wxNB_FIXEDWIDTH" help="All tabs will have same width. (Windows only)"/>
-      <option name="wxNB_MULTILINE" help="There can be several rows of tabs. (Windows only)"/>
-      <option name="wxNB_NOPAGETHEME" help="Display a solid colour on notebook pages, and not a gradient, which can reduce performance. (Windows only)"/>
+      <option name="wxNB_TOP" help="在顶部放置选项卡。"/>
+      <option name="wxNB_LEFT" help="在左侧放置选项卡。"/>
+      <option name="wxNB_RIGHT" help="在右侧放置选项卡。"/>
+      <option name="wxNB_BOTTOM" help="将选项卡放在笔记本页面的下方，而不是上方。"/>
+      <option name="wxNB_FIXEDWIDTH" help="所有选项卡都将具有相同的宽度。（仅限Windows）"/>
+      <option name="wxNB_MULTILINE" help="可以有几行选项卡。（仅限Windows）"/>
+      <option name="wxNB_NOPAGETHEME" help="在笔记本页面上显示纯色，而不是渐变色，这会降低性能。（仅限Windows）"/>
     </property>
-    <event name="OnNotebookPageChanged" class="wxNotebookEvent" help="The page selection was changed. Processes a wxEVT_COMMAND_NOTEBOOK_PAGE_CHANGED event."/>
-    <event name="OnNotebookPageChanging" class="wxNotebookEvent" help="The page selection is about to be changed. Processes a wxEVT_COMMAND_NOTEBOOK_PAGE_CHANGING event. This event can be vetoed."/>
+    <event name="OnNotebookPageChanged" class="wxNotebookEvent" help="页面选择被更改。处理wxEVT_COMMAND_NOTEBOOK PAGE_CHANGED事件。"/>
+    <event name="OnNotebookPageChanging" class="wxNotebookEvent" help="页面选择即将更改。处理wxEVT_COMMAND_NOTEBOOK_PAGE_CHANGING事件。此事件可以被否决。"/>
   </objectinfo>
 
   <objectinfo class="notebookpage" icon="notebook.xpm" type="notebookpage">
     <property name="label" type="wxString_i18n">a page</property>
-    <property name="bitmap" type="bitmap" help="Page Image"/>
-    <property name="select" type="bool" help="Select Page when Adding">0</property>
+    <property name="bitmap" type="bitmap" help="页面图像"/>
+    <property name="select" type="bool" help="添加时选择页面">0</property>
   </objectinfo>
 
   <objectinfo class="wxAuiNotebook" icon="auinotebook.xpm" type="auinotebook">
@@ -121,67 +121,67 @@ Written by
     <inherits class="AUI"/>
     <property name="name" type="text">m_auinotebook</property>
     <property name="style" type="bitlist">
-      <option name="wxAUI_NB_DEFAULT_STYLE" help="Defined as wxAUI_NB_TOP | wxAUI_NB_TAB_SPLIT | wxAUI_NB_TAB_MOVE | wxAUI_NB_SCROLL_BUTTONS | wxAUI_NB_CLOSE_ON_ACTIVE_TAB | wxAUI_NB_MIDDLE_CLICK_CLOSE."/>
-      <option name="wxAUI_NB_TAB_SPLIT" help="Allows the tab control to be split by dragging a tab."/>
-      <option name="wxAUI_NB_TAB_MOVE" help="Allows a tab to be moved horizontally by dragging."/>
-      <option name="wxAUI_NB_TAB_EXTERNAL_MOVE" help="Allows a tab to be moved to another tab control."/>
-      <option name="wxAUI_NB_TAB_FIXED_WIDTH" help="With this style, all tabs have the same width."/>
-      <option name="wxAUI_NB_SCROLL_BUTTONS" help="With this style, left and right scroll buttons are displayed."/>
-      <option name="wxAUI_NB_WINDOWLIST_BUTTON" help="With this style, a drop-down list of windows is available."/>
-      <option name="wxAUI_NB_CLOSE_BUTTON" help="With this style, a close button is available on the tab bar."/>
-      <option name="wxAUI_NB_CLOSE_ON_ACTIVE_TAB" help="With this style, the close button is visible on the active tab."/>
-      <option name="wxAUI_NB_CLOSE_ON_ALL_TABS" help="With this style, the close button is visible on all tabs."/>
-      <option name="wxAUI_NB_MIDDLE_CLICK_CLOSE" help="With this style, middle click on a tab closes the tab."/>
-      <option name="wxAUI_NB_TOP" help="With this style, tabs are drawn along the top of the notebook."/>
-      <option name="wxAUI_NB_BOTTOM" help="With this style, tabs are drawn along the bottom of the notebook."/>
+      <option name="wxAUI_NB_DEFAULT_STYLE" help="定义为 wxAUI_NB_TOP | wxAUI_NB_TAB_SPLIT | wxAUI_NB_TAB_MOVE | wxAUI_NB_SCROLL_BUTTONS | wxAUI_NB_CLOSE_ON_ACTIVE_TAB | wxAUI_NB_MIDDLE_CLICK_CLOSE."/>
+      <option name="wxAUI_NB_TAB_SPLIT" help="允许通过拖动选项卡来拆分选项卡控件。"/>
+      <option name="wxAUI_NB_TAB_MOVE" help="允许通过拖动水平移动选项卡。"/>
+      <option name="wxAUI_NB_TAB_EXTERNAL_MOVE" help="允许将一个选项卡移动到另一个选项卡控件。"/>
+      <option name="wxAUI_NB_TAB_FIXED_WIDTH" help="使用此样式，所有选项卡都具有相同的宽度。"/>
+      <option name="wxAUI_NB_SCROLL_BUTTONS" help="W使用此样式，将显示左右滚动按钮。"/>
+      <option name="wxAUI_NB_WINDOWLIST_BUTTON" help="使用此样式，窗口的下拉列表可用。"/>
+      <option name="wxAUI_NB_CLOSE_BUTTON" help="使用此样式，选项卡栏上有一个关闭按钮。"/>
+      <option name="wxAUI_NB_CLOSE_ON_ACTIVE_TAB" help="使用此样式，关闭按钮在活动选项卡上可见。"/>
+      <option name="wxAUI_NB_CLOSE_ON_ALL_TABS" help="使用此样式，关闭按钮在所有选项卡上都可见。"/>
+      <option name="wxAUI_NB_MIDDLE_CLICK_CLOSE" help="使用此样式，在选项卡上单击鼠标中键将关闭该选项卡。"/>
+      <option name="wxAUI_NB_TOP" help="使用此样式，选项卡是沿着笔记本的顶部绘制的。"/>
+      <option name="wxAUI_NB_BOTTOM" help="使用此样式，选项卡是沿着笔记本的底部绘制的。"/>
       wxAUI_NB_DEFAULT_STYLE
     </property>
-    <property name="tab_ctrl_height" type="int" help="Sets the tab height. By default, the tab control height is calculated by measuring the text height and bitmap sizes on the tab captions. Calling this method will override that calculation and set the tab control to the specified height parameter. A call to this method will override any call to SetUniformBitmapSize(). Specifying -1 as the height will return the control to its default auto-sizing behaviour.">-1</property>
-    <property name="uniform_bitmap_size" type="wxSize" help="SetUniformBitmapSize() ensures that all tabs will have the same height, even if some tabs don't have bitmaps. Passing wxDefaultSize to this function will instruct the control to use dynamic tab height, which is the default behaviour. Under the default behaviour, when a tab with a large bitmap is added, the tab control's height will automatically increase to accommodate the larger bitmap."/>
-    <event name="OnAuiNotebookPageClose" class="wxAuiNotebookEvent" help="A page is about to be closed. Processes a wxEVT_AUINOTEBOOK_PAGE_CLOSE event."/>
-    <event name="OnAuiNotebookPageClosed" class="wxAuiNotebookEvent" help="A page has been closed. Processes a wxEVT_AUINOTEBOOK_PAGE_CLOSED event."/>
-    <event name="OnAuiNotebookPageChanged" class="wxAuiNotebookEvent" help="The page selection was changed. Processes a wxEVT_AUINOTEBOOK_PAGE_CHANGED event."/>
-    <event name="OnAuiNotebookPageChanging" class="wxAuiNotebookEvent" help="The page selection is about to be changed. Processes a wxEVT_AUINOTEBOOK_PAGE_CHANGING event. This event can be vetoed."/>
-    <event name="OnAuiNotebookButton" class="wxAuiNotebookEvent" help="The window list button has been pressed. Processes a wxEVT_AUINOTEBOOK_BUTTON event."/>
-    <event name="OnAuiNotebookBeginDrag" class="wxAuiNotebookEvent" help="Dragging is about to begin. Processes a wxEVT_AUINOTEBOOK_BEGIN_DRAG event."/>
-    <event name="OnAuiNotebookEndDrag" class="wxAuiNotebookEvent" help="Dragging has ended. Processes a wxEVT_AUINOTEBOOK_END_DRAG event."/>
-    <event name="OnAuiNotebookDragMotion" class="wxAuiNotebookEvent" help="Emitted during a drag and drop operation. Processes a wxEVT_AUINOTEBOOK_DRAG_MOTION event."/>
-    <event name="OnAuiNotebookAllowDND" class="wxAuiNotebookEvent" help="Whether to allow a tab to be dropped. Processes a wxEVT_AUINOTEBOOK_ALLOW_DND event. This event must be specially allowed."/>
-    <event name="OnAuiNotebookDragDone" class="wxAuiNotebookEvent" help="Notify that the tab has been dragged. Processes a wxEVT_AUINOTEBOOK_DRAG_DONE event."/>
-    <event name="OnAuiNotebookTabMiddleDown" class="wxAuiNotebookEvent" help="The middle mouse button is pressed on a tab. Processes a wxEVT_AUINOTEBOOK_TAB_MIDDLE_DOWN event."/>
-    <event name="OnAuiNotebookTabMiddleUp" class="wxAuiNotebookEvent" help="The middle mouse button is released on a tab. Processes a wxEVT_AUINOTEBOOK_TAB_MIDDLE_UP event."/>
-    <event name="OnAuiNotebookTabRightDown" class="wxAuiNotebookEvent" help="The right mouse button is pressed on a tab. Processes a wxEVT_AUINOTEBOOK_TAB_RIGHT_DOWN event."/>
-    <event name="OnAuiNotebookTabRightUp" class="wxAuiNotebookEvent" help="The right mouse button is released on a tab. Processes a wxEVT_AUINOTEBOOK_TAB_RIGHT_UP event."/>
-    <event name="OnAuiNotebookBGDClick" class="wxAuiNotebookEvent" help="Double clicked on the tabs background area. Processes a wxEVT_AUINOTEBOOK_BG_DCLICK event."/>
+    <property name="tab_ctrl_height" type="int" help="设置选项卡高度。默认情况下，选项卡控件的高度是通过测量选项卡标题上的文本高度和位图大小来计算的。调用此方法将覆盖该计算，并将选项卡控件设置为指定的高度参数。对该方法的调用将覆盖对SetUniformBitmapSize()的任何调用。指定-1作为高度将使控件返回到其默认的自动调整大小行为。">-1</property>
+    <property name="uniform_bitmap_size" type="wxSize" help="SetUniformBitmapSize()确保所有选项卡都具有相同的高度，即使某些选项卡没有位图。将wxDefaultSize传递给此函数将指示控件使用动态选项卡高度，这是默认行为。在默认行为下，当添加具有大位图的选项卡时，选项卡控件的高度将自动增加以适应较大的位图。"/>
+    <event name="OnAuiNotebookPageClose" class="wxAuiNotebookEvent" help="一个页面即将关闭。处理wxEVT_AUINOTEBOOK_PAGE_CLOSE事件。"/>
+    <event name="OnAuiNotebookPageClosed" class="wxAuiNotebookEvent" help="页面已关闭。处理wxEVT_AUINOTEBOOK_PAGE_CLOSED事件。"/>
+    <event name="OnAuiNotebookPageChanged" class="wxAuiNotebookEvent" help="页面选择已更改。处理wxEVT_AUINOTEBOOK_PAGE_CHANGED事件。"/>
+    <event name="OnAuiNotebookPageChanging" class="wxAuiNotebookEvent" help="页面选择即将更改。处理wxEVT_AUINOTEBOOK_PAGE_CHANGING事件。此事件可以被否决。"/>
+    <event name="OnAuiNotebookButton" class="wxAuiNotebookEvent" help="已按下窗口列表按钮。处理wxEVT_AUINOTEBOOK_BUTTON事件。"/>
+    <event name="OnAuiNotebookBeginDrag" class="wxAuiNotebookEvent" help="拖动即将开始。处理wxEVT_AUINOTEBOOK_BEGIN_DRAG事件。"/>
+    <event name="OnAuiNotebookEndDrag" class="wxAuiNotebookEvent" help="拖动已结束。处理wxEVT_AUINOTEBOOK_END_DRAG事件。"/>
+    <event name="OnAuiNotebookDragMotion" class="wxAuiNotebookEvent" help="在拖放操作期间触发。处理wxEVT_AUINOTEBOOK_DRAG_MOTION事件。"/>
+    <event name="OnAuiNotebookAllowDND" class="wxAuiNotebookEvent" help="是否允许删除选项卡。处理wxEVT_AUINOTEBOOK_ALLOW_DND事件。此活动必须特别允许。"/>
+    <event name="OnAuiNotebookDragDone" class="wxAuiNotebookEvent" help="通知选项卡已被拖动。处理wxEVT_AUINOTEBOOK DRAG_DONE事件。"/>
+    <event name="OnAuiNotebookTabMiddleDown" class="wxAuiNotebookEvent" help="在选项卡上按下鼠标中键。处理wxEVT_AUINOTEBOOK_tab_middle_DOWN事件。"/>
+    <event name="OnAuiNotebookTabMiddleUp" class="wxAuiNotebookEvent" help="在选项卡上，释放鼠标中间按钮。处理wxEVT_AUINOTEBOOK_TAB_MIDDLE_UP事件。"/>
+    <event name="OnAuiNotebookTabRightDown" class="wxAuiNotebookEvent" help="按下选项卡上的鼠标右键。处理wxEVT_AUINOTEBOOK_TAB_RIGHT_DOWN事件。"/>
+    <event name="OnAuiNotebookTabRightUp" class="wxAuiNotebookEvent" help="在选项卡上释放鼠标右键。处理wxEVT_AUINOTEBOOK_tab_right_UP事件。"/>
+    <event name="OnAuiNotebookBGDClick" class="wxAuiNotebookEvent" help="双击选项卡背景区域。处理wxEVT_AUINOTEBOOK_BG_DCLICK事件。"/>
   </objectinfo>
 
   <objectinfo class="auinotebookpage" icon="auinotebook.xpm" type="auinotebookpage">
     <property name="label" type="wxString_i18n">a page</property>
-    <property name="bitmap" type="bitmap" help="Page Image"/>
-    <property name="select" type="bool" help="Select Page when Adding">0</property>
+    <property name="bitmap" type="bitmap" help="页面图像"/>
+    <property name="select" type="bool" help="添加时选择页面">0</property>
   </objectinfo>
 
   <objectinfo class="wxListbook" icon="listbook.xpm" type="listbook">
     <inherits class="wxWindow"/>
     <inherits class="AUI"/>
     <property name="name" type="text">m_listbook</property>
-    <property name="bitmapsize" type="wxSize" help="Size of page images"/>
+    <property name="bitmapsize" type="wxSize" help="页面图像大小"/>
     <property name="style" type="bitlist">
-      <option name="wxLB_DEFAULT" help="Choose the default location for the labels depending on the current platform (left everywhere except Mac where it is top)."/>
-      <option name="wxLB_TOP" help="Place labels above the page area."/>
-      <option name="wxLB_LEFT" help="Place labels on the left side."/>
-      <option name="wxLB_RIGHT" help="Place labels on the right side."/>
-      <option name="wxLB_BOTTOM" help="Place labels below the page area."/>
+      <option name="wxLB_DEFAULT" help="根据当前平台选择标签的默认位置（除了位于顶部的Mac外，其余位置都是左侧）。"/>
+      <option name="wxLB_TOP" help="在页面区域上方放置标签。"/>
+      <option name="wxLB_LEFT" help="在左侧放置标签。"/>
+      <option name="wxLB_RIGHT" help="标签放在右侧。"/>
+      <option name="wxLB_BOTTOM" help="在页面区域下方放置标签。"/>
       wxLB_DEFAULT
     </property>
-    <event name="OnListbookPageChanged" class="wxListbookEvent" help="The page selection was changed. Processes a wxEVT_COMMAND_LISTBOOK_PAGE_CHANGED event."/>
-    <event name="OnListbookPageChanging" class="wxListbookEvent" help="The page selection is about to be changed. Processes a wxEVT_COMMAND_LISTBOOK_PAGE_CHANGING event. This event can be vetoed."/>
+    <event name="OnListbookPageChanged" class="wxListbookEvent" help="页面选择被更改。处理wxEVT_COMMAND_LISTBOOK_PAGE_CHANGED事件。"/>
+    <event name="OnListbookPageChanging" class="wxListbookEvent" help="页面选择即将更改。处理wxEVT_COMMAND_LISTBOOK_PAGE_CHANGING事件。此事件可以被否决。"/>
   </objectinfo>
 
   <objectinfo class="listbookpage" icon="listbook.xpm" type="listbookpage">
     <property name="label" type="wxString_i18n">a page</property>
-    <property name="bitmap" type="bitmap" help="Page Image"/>
-    <property name="select" type="bool" help="Select Page when Adding">0</property>
+    <property name="bitmap" type="bitmap" help="页面图像"/>
+    <property name="select" type="bool" help="添加时选择页面">0</property>
   </objectinfo>
 
   <objectinfo class="wxChoicebook" icon="choicebook.xpm" type="choicebook">
@@ -189,33 +189,33 @@ Written by
     <inherits class="AUI"/>
     <property name="name" type="text">m_choicebook</property>
     <property name="style" type="bitlist">
-      <option name="wxCHB_DEFAULT" help="Choose the default location for the labels depending on the current platform (left everywhere except Mac where it is top)."/>
-      <option name="wxCHB_TOP" help="Place labels above the page area."/>
-      <option name="wxCHB_LEFT" help="Place labels on the left side."/>
-      <option name="wxCHB_RIGHT" help="Place labels on the right side."/>
-      <option name="wxCHB_BOTTOM" help="Place labels below the page area."/>
+      <option name="wxCHB_DEFAULT" help="根据当前平台选择标签的默认位置（除了位于顶部的Mac外，其余位置都是左侧）。"/>
+      <option name="wxCHB_TOP" help="在页面区域上方放置标签。"/>
+      <option name="wxCHB_LEFT" help="在左侧放置标签。"/>
+      <option name="wxCHB_RIGHT" help="标签放在右侧。"/>
+      <option name="wxCHB_BOTTOM" help="在页面区域下方放置标签。"/>
       wxCHB_DEFAULT
     </property>
-    <event name="OnChoicebookPageChanged" class="wxChoicebookEvent" help="The page selection was changed. Processes a wxEVT_CHOICEBOOK_PAGE_CHANGED event."/>
-    <event name="OnChoicebookPageChanging" class="wxChoicebookEvent" help="The page selection is about to be changed. Processes a wxEVT_CHOICEBOOK_PAGE_CHANGING event. This event can be vetoed (using wxNotifyEvent::Veto())."/>
+    <event name="OnChoicebookPageChanged" class="wxChoicebookEvent" help="页面选择已更改。处理wxEVT_CHOICEBOOK_PAGE_CHANGED事件。"/>
+    <event name="OnChoicebookPageChanging" class="wxChoicebookEvent" help="页面选择即将更改。处理wxEVT_CHOICEBOOK_PAGE_CHANGING事件。此事件可以被否决（使用wxNotifyEvent::Veto()）。"/>
   </objectinfo>
 
   <objectinfo class="choicebookpage" icon="choicebook.xpm" type="choicebookpage">
     <property name="label" type="wxString_i18n">a page</property>
-    <property name="select" type="bool" help="Select Page when Adding">0</property>
+    <property name="select" type="bool" help="添加时选择页面">0</property>
   </objectinfo>
 
   <objectinfo class="wxSimplebook" icon="panel.xpm" type="simplebook">
     <inherits class="wxWindow"/>
     <inherits class="AUI"/>
     <property name="name" type="text">m_simplebook</property>
-    <event name="OnSimplebookPageChanged" class="wxBookCtrlEvent" help="The page selection was changed. Processes a wxEVT_BOOKCTRL_PAGE_CHANGED event."/>
-    <event name="OnSimplebookPageChanging" class="wxBookCtrlEvent" help="The page selection is about to be changed. Processes a wxEVT_BOOKCTRL_PAGE_CHANGING event. This event can be vetoed."/>
+    <event name="OnSimplebookPageChanged" class="wxBookCtrlEvent" help="页面选择已更改。处理wxEVT_BOOKCTRL_PAGE_CHANGED事件。"/>
+    <event name="OnSimplebookPageChanging" class="wxBookCtrlEvent" help="页面选择即将更改。处理wxEVT_BOOKCTRL_PAGE_CHANGING事件。此事件可以被否决。"/>
   </objectinfo>
 
   <objectinfo class="simplebookpage" icon="choicebook.xpm" type="simplebookpage">
     <property name="label" type="wxString_i18n">a page</property>
-    <property name="select" type="bool" help="Select Page when Adding">0</property>
+    <property name="select" type="bool" help="添加时选择页面">0</property>
   </objectinfo>
 
 </package>

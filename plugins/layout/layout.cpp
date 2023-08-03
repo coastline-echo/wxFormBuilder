@@ -89,14 +89,14 @@ public:
 
         if (NULL == sizer) {
             wxLogError(
-              wxT("The parent of a SizerItem is either missing or not a wxSizer - this should not be possible!"));
+              wxT("SizerItem的父元素要么缺少，要么没有 wxSizer - 这是不可能的！"));
             return;
         }
 
         // Get child window
         wxObject* child = GetManager()->GetChild(wxobject, 0);
         if (NULL == child) {
-            wxLogError(wxT("The SizerItem component has no child - this should not be possible!"));
+            wxLogError(wxT("SizerItem 组件没有子组件-这是不可能的！"));
             return;
         }
 
@@ -127,8 +127,7 @@ public:
               obj->GetPropertyAsInteger(_("border")));
         } else {
             wxLogError(
-              wxT("The SizerItem component's child is not a wxWindow or a wxSizer or a spacer - this should not be "
-                  "possible!"));
+              wxT("SizerItem 组件的子组件不是 wxWindow、 wxSizer 或间隔符——这应该是不可能的！"));
         }
     }
 
@@ -402,8 +401,7 @@ private:
               sizeritem->GetPropertyAsInteger(_("border")), NULL);
         } else {
             wxLogError(
-              wxT("The GBSizerItem component's child is not a wxWindow or a wxSizer or a Spacer - this should not be "
-                  "possible!"));
+              wxT("GBSizerItem 组件的子组件不是 wxWindow、 wxSizer 或间隔符——这应该是不可能的！"));
             return NULL;
         }
     }
@@ -430,7 +428,7 @@ public:
         // Get sizer
         wxGridBagSizer* sizer = wxDynamicCast(wxobject, wxGridBagSizer);
         if (NULL == sizer) {
-            wxLogError(wxT("This should be a wxGridBagSizer!"));
+            wxLogError(wxT("这应该是一个 wxGridBagSizer!"));
             return;
         }
 

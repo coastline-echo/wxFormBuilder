@@ -128,7 +128,7 @@ void wxFbPalette::Create()
     auto* config = wxConfigBase::Get();
     wxStringTokenizer pageOrder(
       config->Read(
-        wxT("/palette/pageOrder"), wxT("Common,Additional,Data,Containers,Menu/Toolbar,Layout,Forms,Ribbon")),
+        wxT("/palette/pageOrder"), wxT("通用类,附加类,数据类,容器类,菜单类/工具栏类,布局类,表单类,功能区类")),
       wxT(","));
     while (pageOrder.HasMoreTokens()) {
         const auto packageName = pageOrder.GetNextToken();

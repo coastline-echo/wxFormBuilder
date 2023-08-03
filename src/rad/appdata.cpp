@@ -1134,9 +1134,8 @@ void ApplicationData::SaveProject(const wxString& filename)
     if (!m_ipc->VerifySingleInstance(filename, false)) {
         if (
           wxYES == wxMessageBox(
-                     wxT("You cannot save over a file that is currently open in another instance.\nWould you like to "
-                         "switch to that instance?"),
-                     wxT("Open in Another Instance"), wxICON_QUESTION | wxYES_NO, wxTheApp->GetTopWindow())) {
+                     wxT("不能保存当前在另一个实例中打开的文件\n你想切换到那个实例吗?"),
+                     wxT("在另一个实例中打开"), wxICON_QUESTION | wxYES_NO, wxTheApp->GetTopWindow())) {
             m_ipc->VerifySingleInstance(filename, true);
         }
 
@@ -1174,7 +1173,7 @@ bool ApplicationData::LoadProject(const wxString& file, bool justGenerate)
 {
     wxFileName filename(file);
     if (!filename.FileExists()) {
-        wxLogError(_("File does not exist: %s"), file);
+        wxLogError(_("该文件不存在: %s"), file);
         return false;
     }
 
@@ -1184,7 +1183,7 @@ bool ApplicationData::LoadProject(const wxString& file, bool justGenerate)
 
     auto doc = XMLUtils::LoadXMLFile(filename.GetFullPath(), false);
     if (!doc) {
-        wxLogError(_("%s: Failed to open file"), filename.GetFullPath());
+        wxLogError(_("%s: 无法打开文件"), filename.GetFullPath());
         return false;
     }
     if (doc->Error()) {
@@ -1206,7 +1205,7 @@ bool ApplicationData::LoadProject(const wxString& file, bool justGenerate)
     if (std::strcmp(rootName, "wxFormBuilder_Project") == 0) {
         const auto* version = root->FirstChildElement("FileVersion");
         if (!version) {
-            wxLogError(_("%s: Invalid version node"), file);
+            wxLogError(_("%s: 无效的版本节点"), file);
             return false;
         }
         versionMajor = version->IntAttribute("major", versionMajor);
@@ -1237,13 +1236,13 @@ bool ApplicationData::LoadProject(const wxString& file, bool justGenerate)
     }
     if (versionState == VersionState::NEWER) {
         if (justGenerate) {
-            wxLogError("This project file version is newer than this version of wxFormBuilder.\n");
+            wxLogError("此项目文件版本比该版本的wxFormBuilder还新.\n");
         } else {
             wxMessageBox(
                 _(
-                    "This project file version is newer than this version of wxFormBuilder.\n"
-                    "The file cannot be opened.\n\n"
-                    "Please download an new wxFormBuilder version version from http://www.wxformbuilder.org"
+                    "此项目文件版本比该版本的wxFormBuilder还新.\n"
+                    "无法打开该文件.\n\n"
+                    "请从 http://www.wxFormBuilder.org 下载 wxFormBuilder 的新版本"
                 ),
                 _("New Project File Version"),
                 wxICON_ERROR
@@ -1253,13 +1252,13 @@ bool ApplicationData::LoadProject(const wxString& file, bool justGenerate)
     }
     if (versionState == VersionState::OLDER) {
         if (justGenerate) {
-            wxLogError("This project file version is outdated, update the file by using the GUI mode first.\n");
+            wxLogError("此项目文件版本已过时，请先使用GUI模式更新文件。\n");
         } else {
             wxMessageBox(
                 _(
-                    "This project file version is older than this version of wxFormBuilder,\n"
-                    "the file version will get updated during loading.\n\n"
-                    "WARNING: Saving the project file will prevent older versions of wxFormBuilder to open the file!"
+                    "该项目文件版本比 wxFormBuilder 的这个版本旧,\n"
+                    "文件版本将在加载过程中更新。\n\n"
+                    "警告：保存项目文件将阻止旧版本的wxFormBuilder打开该文件！"
                 ),
                 _("Old Project File Version")
             );
@@ -1268,14 +1267,14 @@ bool ApplicationData::LoadProject(const wxString& file, bool justGenerate)
         if (ConvertProject(doc.get(), file, versionMajor, versionMinor)) {
             root = doc->FirstChildElement();
         } else {
-            wxLogError(_("%s: Failed to convert project"), file);
+            wxLogError(_("%s: 无法转换项目"), file);
             return false;
         }
     }
 
     const auto* project = root->FirstChildElement("object");
     if (!project) {
-        wxLogError(_("%s: Invalid project node"), file);
+        wxLogError(_("%s: 无效的项目节点"), file);
         return false;
     }
 
@@ -1299,7 +1298,7 @@ bool ApplicationData::ConvertProject(tinyxml2::XMLDocument* doc, const wxString&
 {
     auto* root = doc->FirstChildElement();
     if (!root) {
-        wxLogError(_("%s: Invalid root node"), path);
+        wxLogError(_("%s: 无效的根节点"), path);
         return false;
     }
     tinyxml2::XMLElement* project = nullptr;
@@ -1320,12 +1319,12 @@ bool ApplicationData::ConvertProject(tinyxml2::XMLDocument* doc, const wxString&
     } else {
         version = root->FirstChildElement("FileVersion");
         if (!version) {
-            wxLogError(_("%s: Invalid version node"), path);
+            wxLogError(_("%s: 无效的版本节点"), path);
             return false;
         }
         project = root->FirstChildElement("object");
         if (!project) {
-            wxLogError(_("%s: Invalid project node"), path);
+            wxLogError(_("%s: 无效的项目节点"), path);
             return false;
         }
     }
@@ -1353,12 +1352,12 @@ void ApplicationData::ConvertProjectProperties(tinyxml2::XMLElement* project, co
                 if (
                     wxMessageBox(
                         _(
-                            "The project property \"user_headers\" has been removed.\n"
-                            "The purpose of this property was to include precompiled headers or headers for subclasses.\n"
-                            "Now, this is done by using the project property \"precompiled_header\" and\n"
-                            "the property \"header\" of the property \"subclass\".\n\n"
-                            "This conversion cannot be done automatically, do you want to extract the current value of\n"
-                            "the property \"user_classes\" to file to be able to perform this conversion manually?"
+                            "项目属性 \"user_headers\" 已被删除。\n"
+                            "此属性的用途是包含预编译头文件或子类的头文件。\n"
+                            "现在，这是通过使用项目属性 \"precompiled_header\" 和\n"
+                            "属性\"subclass\"的属性 \"header\" 来完成的。\n\n"
+                            "这个转换不能自动完成，是否要将属性\"user_classes\"的当前值\n"
+                            "提取到文件中以手动执行此转换？"
                         ),
                         _("Property removed"),
                         wxICON_QUESTION | wxYES_NO | wxYES_DEFAULT,
@@ -1380,7 +1379,7 @@ void ApplicationData::ConvertProjectProperties(tinyxml2::XMLElement* project, co
                         if (wxFFile outputFile(outputPath, "w"); outputFile.IsOpened()) {
                             outputFile.Write(userHeadersValue);
                         } else {
-                            wxLogError(_("Failed to open %s for writing \"user_headers\":\n%s"), outputPath, userHeadersValue);
+                            wxLogError(_("无法打开 %s 写入 \"user_headers\":\n%s"), outputPath, userHeadersValue);
                         }
                     }
                 }
@@ -2454,10 +2453,10 @@ void ApplicationData::ShowXrcPreview()
     PObjectBase form = GetSelectedForm();
 
     if (form == NULL) {
-        wxMessageBox(wxT("Please select a form and try again."), wxT("XRC Preview"), wxICON_ERROR);
+        wxMessageBox(wxT("请选择一个窗体，然后重试。"), wxT("XRC Preview"), wxICON_ERROR);
         return;
     } else if (form->GetPropertyAsInteger(wxT("aui_managed")) != 0) {
-        wxMessageBox(wxT("XRC preview doesn't support AUI-managed frames."), wxT("XRC Preview"), wxICON_ERROR);
+        wxMessageBox(wxT("XRC预览不支持 AUI-managed 框架."), wxT("XRC Preview"), wxICON_ERROR);
         return;
     }
 
@@ -2625,8 +2624,8 @@ wxString ApplicationData::GetPathProperty(const wxString& pathName)
 
         if (pathEntry.empty()) {
             THROW_WXFBEX(
-              wxT("You must set the \"") + pathName +
-              wxT("\" property of the project to a valid path for output files"));
+              wxT("必须将项目的 \"") + pathName +
+              wxT("\" 属性设置为输出文件的有效路径"));
         }
 
         path = wxFileName::DirName(pathEntry);
@@ -2635,7 +2634,7 @@ wxString ApplicationData::GetPathProperty(const wxString& pathName)
             wxString projectPath = AppData()->GetProjectPath();
 
             if (projectPath.empty()) {
-                THROW_WXFBEX(wxT("You must save the project when using a relative path for output files"));
+                THROW_WXFBEX(wxT("输出文件使用相对路径时，必须保存项目"));
             }
 
             path =
@@ -2651,9 +2650,9 @@ wxString ApplicationData::GetPathProperty(const wxString& pathName)
 
     if (!path.DirExists()) {
         THROW_WXFBEX(
-          wxT("Invalid Path: ") << path.GetPath()
-                                << wxT("\nYou must set the \"") + pathName +
-                                     wxT("\" property of the project to a valid path for output files"));
+          wxT("无效路径: ") << path.GetPath()
+                                << wxT("\nY必须将项目的 \"") + pathName +
+                                     wxT("\" 属性设置为输出文件的有效路径"));
     }
 
     return path.GetPath(wxPATH_GET_VOLUME | wxPATH_GET_SEPARATOR);

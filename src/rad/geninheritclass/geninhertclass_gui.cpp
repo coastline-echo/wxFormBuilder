@@ -19,7 +19,7 @@ GenInheritedClassDlgBase::GenInheritedClassDlgBase( wxWindow* parent, wxWindowID
 	wxStaticBoxSizer* instructionsSbSizer;
 	instructionsSbSizer = new wxStaticBoxSizer( new wxStaticBox( this, wxID_ANY, wxT("Instructions") ), wxVERTICAL );
 
-	m_instructionsStaticText = new wxStaticText( instructionsSbSizer->GetStaticBox(), wxID_ANY, wxT("1. Check the forms you would like to create the inherited class for.\n2. You can edit individual class details by clicking on their names in the list\nand then:\n\t2a. Edit the 'Class Name:' as required.\n\t2b. Edit the 'File Names: (.h/.cpp)' as required.\n3. Click 'OK'."), wxDefaultPosition, wxDefaultSize, wxST_NO_AUTORESIZE );
+	m_instructionsStaticText = new wxStaticText( instructionsSbSizer->GetStaticBox(), wxID_ANY, wxT("1. 检查要为其创建继承类的窗体。\n2. 可以通过单击列表中的名称来编辑单个类详细信息\n然后:\n\t2a. 根据需要编辑 '类名称:' 。\n\t2b. 根据需要编辑 '文件名: (.h/.cpp)' 。\n3. 点击 'OK'."), wxDefaultPosition, wxDefaultSize, wxST_NO_AUTORESIZE );
 	m_instructionsStaticText->Wrap( -1 );
 	instructionsSbSizer->Add( m_instructionsStaticText, 0, wxALL|wxEXPAND, 5 );
 
@@ -33,16 +33,16 @@ GenInheritedClassDlgBase::GenInheritedClassDlgBase( wxWindow* parent, wxWindowID
 	mainSizer->Add( m_formsCheckList, 0, wxALL|wxEXPAND, 5 );
 
 	wxStaticBoxSizer* classDescriptionSbSizer;
-	classDescriptionSbSizer = new wxStaticBoxSizer( new wxStaticBox( this, wxID_ANY, wxT("Class Details") ), wxVERTICAL );
+	classDescriptionSbSizer = new wxStaticBoxSizer( new wxStaticBox( this, wxID_ANY, wxT("类详情") ), wxVERTICAL );
 
-	m_classNameStaticText = new wxStaticText( classDescriptionSbSizer->GetStaticBox(), wxID_ANY, wxT("Class Name:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_classNameStaticText = new wxStaticText( classDescriptionSbSizer->GetStaticBox(), wxID_ANY, wxT("类名："), wxDefaultPosition, wxDefaultSize, 0 );
 	m_classNameStaticText->Wrap( -1 );
 	classDescriptionSbSizer->Add( m_classNameStaticText, 0, wxLEFT|wxRIGHT|wxTOP, 5 );
 
 	m_classNameTextCtrl = new wxTextCtrl( classDescriptionSbSizer->GetStaticBox(), ID_CLASS_NAME_TEXT_CTRL, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	classDescriptionSbSizer->Add( m_classNameTextCtrl, 0, wxBOTTOM|wxRIGHT|wxLEFT|wxEXPAND, 5 );
 
-	m_fileNameStaticText = new wxStaticText( classDescriptionSbSizer->GetStaticBox(), wxID_ANY, wxT("File Names: (.cpp/.h)"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_fileNameStaticText = new wxStaticText( classDescriptionSbSizer->GetStaticBox(), wxID_ANY, wxT("文件名: (.cpp/.h)"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_fileNameStaticText->Wrap( -1 );
 	classDescriptionSbSizer->Add( m_fileNameStaticText, 0, wxLEFT|wxRIGHT|wxTOP, 5 );
 

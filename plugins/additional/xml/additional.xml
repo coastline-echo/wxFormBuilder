@@ -21,21 +21,21 @@ Written by
   José Antonio Hurtado - joseantonio.hurtado@gmail.com
   Juan Antonio Ortega  - jortegalalmolda@gmail.com
 -->
-<package name="Additional" lib="additional" icon="tree_ctrl.xpm" desc="wxWidgets additional controls">
+<package name="附加类" lib="additional" icon="tree_ctrl.xpm" desc="wxWidgets additional controls">
 
   <objectinfo class="wxHtmlWindow" icon="htmlwin.xpm" type="widget">
     <inherits class="wxWindow"/>
     <inherits class="AUI"/>
     <property name="name" type="text">m_htmlWin</property>
     <property name="style" type="bitlist">
-      <option name="wxHW_SCROLLBAR_NEVER" help="Never display scrollbars, not even when the page is larger than the window."/>
-      <option name="wxHW_SCROLLBAR_AUTO" help="Display scrollbars only if page's size exceeds window's size."/>
-      <option name="wxHW_NO_SELECTION" help="Don't allow the user to select text."/>
-      wxHW_SCROLLBAR_AUTO
+      <option name="wxHW_SCROLLBAR_NEVER" help="永远不要显示滚动条，即使页面比窗口大也不行。"/>
+      <option name="wxHW_SCROLLBAR_AUTO" help="只有当页面大小超过窗口大小时才显示滚动条。"/>
+      <option name="wxHW_NO_SELECTION" help="不允许用户选择文本。"/>
+      wxHW_SCROLLBAR_AUTO 
     </property>
-    <event name="OnHtmlCellClicked" class="wxHtmlCellEvent" help="A wxHtmlCell was clicked."/>
-    <event name="OnHtmlCellHover" class="wxHtmlCellEvent" help="The mouse passed over a wxHtmlCell."/>
-    <event name="OnHtmlLinkClicked" class="wxHtmlLinkEvent" help="A wxHtmlCell which contains an hyperlink was clicked."/>
+    <event name="OnHtmlCellClicked" class="wxHtmlCellEvent" help="单击了wxHtmlCell"/>
+    <event name="OnHtmlCellHover" class="wxHtmlCellEvent" help="鼠标经过wxHtmlCell。"/>
+    <event name="OnHtmlLinkClicked" class="wxHtmlLinkEvent" help="单击包含超链接的wxHtmlCell。"/>
   </objectinfo>
 
   <objectinfo class="wxRichTextCtrl" icon="richtextctrl.xpm" type="expanded_widget">
@@ -46,41 +46,41 @@ Written by
     <inherits class="Validator"/>
     <property name="name" type="text">m_richText</property>
     <property name="style" type="bitlist">
-      <option name="wxTE_PROCESS_ENTER" help="The control will generate the event wxEVT_COMMAND_TEXT_ENTER (otherwise pressing Enter key is either processed internally by the control or used for navigation between dialog controls)."/>
-      <option name="wxTE_PROCESS_TAB" help="The control will receive wxEVT_CHAR events for TAB pressed - normally, TAB is used for passing to the next control in a dialog instead. For the control created with this style, you can still use Ctrl-Enter to pass to the next control from the keyboard."/>
-      <option name="wxTE_READONLY" help="The text will not be user-editable."/>
-      <option name="wxTE_AUTO_URL" help="Highlight the URLs and generate the wxTextUrl events when mouse events occur over them."/>
+      <option name="wxTE_PROCESS_ENTER" help="控件将生成事件wxEVT_COMMAND_TEXT_ENTER（否则按ENTER键将由控件内部处理或用于对话框控件之间的导航）。"/>
+      <option name="wxTE_PROCESS_TAB" help="控件将接收按下TAB的wxEVT_CHAR事件——通常情况下，TAB用于传递到对话框中的下一个控件。对于使用此样式创建的控件，您仍然可以使用Ctrl-Enter从键盘传递到下一个控件。"/>
+      <option name="wxTE_READONLY" help="文本将不可由用户编辑。"/>
+      <option name="wxTE_AUTO_URL" help="当鼠标事件发生在URL上时，高亮显示URL并生成wxTextUrl事件。"/>
     </property>
     <property name="value" type="wxString_i18n"/>
-    <event name="OnText" class="wxCommandEvent" help="Respond to a wxEVT_COMMAND_TEXT_UPDATED event, generated when the text changes. Notice that this event will always be sent when the text controls contents changes - whether this is due to user input or comes from the program itself (for example, if SetValue() is called)"/>
-    <event name="OnTextEnter" class="wxCommandEvent" help="Respond to a wxEVT_COMMAND_TEXT_ENTER event, generated when enter is pressed in a text control (which must have wxTE_PROCESS_ENTER style for this event to be generated)."/>
-    <event name="OnTextURL" class="wxTextUrlEvent" help="A mouse event occurred over an URL in the text control (wxMSW and wxGTK2 only)"/>
-    <event name="OnTextMaxLen" class="wxCommandEvent" help="User tried to enter more text into the control than the limit set by SetMaxLength."/>
-    <event name="OnRichTextCharacter" class="wxCommandEvent" help="Process a wxEVT_COMMAND_RICHTEXT_CHARACTER event, generated when the user presses a character key. Valid event functions: GetFlags, GetPosition, GetCharacter."/>
-    <event name="OnRichTextDelete" class="wxCommandEvent" help="Process a wxEVT_COMMAND_RICHTEXT_DELETE event, generated when the user presses the backspace or delete key. Valid event functions: GetFlags, GetPosition."/>
-    <event name="OnRichTextReturn" class="wxCommandEvent" help="Process a wxEVT_COMMAND_RICHTEXT_RETURN event, generated when the user presses the return key. Valid event functions: GetFlags, GetPosition."/>
-    <event name="OnRichTextStyleChanged" class="wxCommandEvent" help="Process a wxEVT_COMMAND_RICHTEXT_STYLE_CHANGED event, generated when styling has been applied to the control. Valid event functions: GetPosition, GetRange."/>
-    <event name="OnRichTextStyleSheetChanged" class="wxCommandEvent" help="Process a wxEVT_COMMAND_RICHTEXT_STYLESHEET_CHANGING event, generated when the control's stylesheet has changed, for example the user added, edited or deleted a style. Valid event functions: GetRange, GetPosition."/>
-    <event name="OnRichTextStyleSheetReplacing" class="wxCommandEvent" help="Process a wxEVT_COMMAND_RICHTEXT_STYLESHEET_REPLACING event, generated when the control's stylesheet is about to be replaced, for example when a file is loaded into the control. Valid event functions: Veto, GetOldStyleSheet, GetNewStyleSheet."/>
-    <event name="OnRichTextStyleSheetReplaced" class="wxCommandEvent" help="Process a wxEVT_COMMAND_RICHTEXT_STYLESHEET_REPLACED event, generated when the control's stylesheet has been replaced, for example when a file is loaded into the control. Valid event functions: GetOldStyleSheet, GetNewStyleSheet."/>
-    <event name="OnRichTextContentInserted" class="wxCommandEvent" help="Process a wxEVT_COMMAND_RICHTEXT_CONTENT_INSERTED event, generated when content has been inserted into the control. Valid event functions: GetPosition, GetRange."/>
-    <event name="OnRichTextContentDeleted" class="wxCommandEvent" help="Process a wxEVT_COMMAND_RICHTEXT_CONTENT_DELETED event, generated when content has been deleted from the control. Valid event functions: GetPosition, GetRange."/>
+    <event name="OnText" class="wxCommandEvent" help="响应文本更改时生成的wxEVT_COMMAND_TEXT_UPDATED事件。请注意，当文本控件的内容发生更改时，无论是由于用户输入还是来自程序本身（例如，如果调用SetValue()），都会发送此事件"/>
+    <event name="OnTextEnter" class="wxCommandEvent" help="响应文本控件中按下回车键时生成的wxEVT_COMMAND_TEXT_ENTER事件（要生成此事件，必须具有wxTE_PROCESS_ENTER样式）。"/>
+    <event name="OnTextURL" class="wxTextUrlEvent" help="在文本控件中的URL上发生鼠标事件(仅限wxMSW和wxGTK2)"/>
+    <event name="OnTextMaxLen" class="wxCommandEvent" help="用户试图在控件中输入超过SetMaxLength设置的限制的文本。"/>
+    <event name="OnRichTextCharacter" class="wxCommandEvent" help="处理用户按下字符键时生成的wxEVT_COMMAND_RICHTEXT_CHARACTER事件。有效的事件函数：GetFlags、GetPosition、GetCharacter。"/>
+    <event name="OnRichTextDelete" class="wxCommandEvent" help="处理用户按下退格键或删除键时生成的wxEVT_COMMAND_RICHTEXT_DELETE事件。有效的事件函数：GetFlags、GetPosition。"/>
+    <event name="OnRichTextReturn" class="wxCommandEvent" help="处理用户按下返回键时生成的wxEVT_COMMAND_RICHTEXT_RETURN事件。有效的事件函数：GetFlags、GetPosition。"/>
+    <event name="OnRichTextStyleChanged" class="wxCommandEvent" help="处理wxEVT_COMMAND_RICHTEXT_STYLE_CHANGED事件，该事件是在将样式应用于控件时生成的。有效的事件函数：GetPosition、GetRange。"/>
+    <event name="OnRichTextStyleSheetChanged" class="wxCommandEvent" help="处理wxEVT_COMMAND_RICHTEXT_STYLESHEET_CHANGING事件，该事件是在控件的样式表发生更改时生成的，例如用户添加、编辑或删除了样式。有效的事件函数：GetRange、GetPosition。"/>
+    <event name="OnRichTextStyleSheetReplacing" class="wxCommandEvent" help="处理wxEVT_COMMAND_RICHTEXT_STYLESHEET_RELACING事件，该事件是在控件的样式表即将被替换时生成的，例如在将文件加载到控件中时。有效的事件函数：Veto、GetOldStyleSheet、GetNewStyleSheet。"/>
+    <event name="OnRichTextStyleSheetReplaced" class="wxCommandEvent" help="处理wxEVT_COMMAND_RICHTEXT_STYLESHEET_RELACED事件，该事件是在控件的样式表被替换时生成的，例如在将文件加载到控件中时。有效的事件函数：GetOldStyleSheet、GetNewStyleSheet。"/>
+    <event name="OnRichTextContentInserted" class="wxCommandEvent" help="处理wxEVT_COMMAND_RICHTEXT_CONTENT_INSERTED事件，该事件是在将内容插入控件时生成的。有效的事件函数：GetPosition、GetRange。"/>
+    <event name="OnRichTextContentDeleted" class="wxCommandEvent" help="处理从控件中删除内容时生成的wxEVT_COMMAND_RICHTEXT_CONTENT_DELETED事件。有效的事件函数：GetPosition、GetRange。"/>
   </objectinfo>
 
   <objectinfo class="wxStyledTextCtrl" icon="scintilla.xpm" type="expanded_widget">
     <inherits class="wxWindow"/>
     <inherits class="AUI"/>
     <property name="name" type="text" >m_scintilla</property>
-    <property name="folding" type="bool" help="Enable folding.">1</property>
-    <property name="line_numbers" type="bool" help="Show line numbers.">1</property>
-    <property name="indentation_guides" type="bool" help="Show indentation guides.">1</property>
-    <property name="tab_indents" type="bool" help="The tab key always indents, use tabs or spaces, instead of always inserting a tab character.">1</property>
-    <property name="backspace_unindents" type="bool" help="The backspace key unindents, instead of just deleting one space.">1</property>
-    <property name="view_eol" type="bool" help="Show end of line characters.">0</property>
-    <property name="view_whitespace" type="bool" help="Show whitespace characters.">0</property>
-    <property name="use_tabs" type="bool" help="Use tabs for indenting, instead of spaces.">1</property>
-    <property name="tab_width" type="text" help="The number of spaces per tab character.">4</property>
-    <property name="read_only" type="bool" help="Set ReadOnly Mode. Disable editing.">0</property>
+    <property name="folding" type="bool" help="启用折叠。">1</property>
+    <property name="line_numbers" type="bool" help="显示行号。">1</property>
+    <property name="indentation_guides" type="bool" help="显示缩进指南。">1</property>
+    <property name="tab_indents" type="bool" help="制表键总是缩进，使用制表符或空格，而不是总是插入制表符。">1</property>
+    <property name="backspace_unindents" type="bool" help="退格键取消缩进，而不是仅仅删除一个空格。">1</property>
+    <property name="view_eol" type="bool" help="显示行尾字符。">0</property>
+    <property name="view_whitespace" type="bool" help="显示空白字符。">0</property>
+    <property name="use_tabs" type="bool" help="使用制表符来缩进，而不是空格。">1</property>
+    <property name="tab_width" type="text" help="每个制表符的空格数。">4</property>
+    <property name="read_only" type="bool" help="设置为只读模式。禁用编辑。">0</property>
   </objectinfo>
 
   <objectinfo class="wxToggleButton" startgroup="1" icon="toggle_button.xpm" type="widget">
@@ -90,7 +90,7 @@ Written by
     <inherits class="Validator"/>
     <property name="name" type="text">m_toggleBtn</property>
     <property name="value" type="bool">0</property>
-    <event name="OnToggleButton" class="wxCommandEvent" help="Handles a wxEVT_TOGGLEBUTTON event."/>
+    <event name="OnToggleButton" class="wxCommandEvent" help="处理wxEVT_TOGGLEBUTTON事件。"/>
   </objectinfo>
 
   <objectinfo class="wxBitmapToggleButton" icon="bitmap_toggle_button.xpm" type="widget">
@@ -105,21 +105,21 @@ Written by
     <inherits class="Validator"/>
     <property name="name" type="text">m_searchCtrl</property>
     <property name="style" type="bitlist">
-      <option name="wxTE_PROCESS_ENTER" help="The control will generate the event wxEVT_COMMAND_TEXT_ENTER (otherwise pressing Enter key is either processed internally by the control or used for navigation between dialog controls)."/>
-      <option name="wxTE_PROCESS_TAB" help="The control will receive wxEVT_CHAR events for TAB pressed - normally, TAB is used for passing to the next control in a dialog instead. For the control created with this style, you can still use Ctrl-Enter to pass to the next control from the keyboard."/>
-      <option name="wxTE_NOHIDESEL" help="By default, the Windows text control doesn't show the selection when it doesn't have focus - use this style to force it to always show it. It doesn't do anything under other platforms."/>
-      <option name="wxTE_LEFT" help="The text in the control will be left-justified (default)."/>
-      <option name="wxTE_CENTER" help="The text in the control will be centered (currently wxMSW and wxGTK2 only). "/>
-      <option name="wxTE_RIGHT" help="The text in the control will be right-justified (currently wxMSW and wxGTK2 only)."/>
-      <option name="wxTE_CAPITALIZE" help="On PocketPC and Smartphone, causes the first letter to be capitalized."/>
+      <option name="wxTE_PROCESS_ENTER" help="控件将生成事件wxEVT_COMMAND_TEXT_ENTER（否则按ENTER键将由控件内部处理或用于对话框控件之间的导航）。"/>
+      <option name="wxTE_PROCESS_TAB" help="控件将接收按下TAB的wxEVT_CHAR事件——通常情况下，TAB用于传递到对话框中的下一个控件。对于使用此样式创建的控件，您仍然可以使用Ctrl-Enter从键盘传递到下一个控件。"/>
+      <option name="wxTE_NOHIDESEL" help="默认情况下，当Windows文本控件没有焦点时，它不会显示所选内容 - 使用此样式可以强制它始终显示。在其他平台下，它不会执行任何操作。"/>
+      <option name="wxTE_LEFT" help="控件中的文本将左对齐(默认)。"/>
+      <option name="wxTE_CENTER" help="控件中的文本将居中(目前仅限wxMSW和wxGTK2)。 "/>
+      <option name="wxTE_RIGHT" help="控件中的文本将右对齐(目前仅限wxMSW和wxGTK2)。"/>
+      <option name="wxTE_CAPITALIZE" help="在PocketPC和智能手机上，会导致第一个字母大写。"/>
     </property>
     <property name="value" type="wxString_i18n"/>
-    <property name="search_button" type="bool" help="Shows or hides the search button.">1</property>
-    <property name="cancel_button" type="bool" help="Shows or hides the cancel button.">0</property>
-    <event name="OnText" class="wxCommandEvent" help="Respond to a wxEVT_COMMAND_TEXT_UPDATED event, generated when the text changes. Notice that this event will always be sent when the text controls contents changes - whether this is due to user input or comes from the program itself (for example, if SetValue() is called)"/>
-    <event name="OnTextEnter" class="wxCommandEvent" help="Respond to a wxEVT_COMMAND_TEXT_ENTER event, generated when enter is pressed in a text control (which must have wxTE_PROCESS_ENTER style for this event to be generated)."/>
-    <event name="OnSearchButton" class="wxCommandEvent" help="Respond to a wxEVT_SEARCHCTRL_SEARCH_BTN event, generated when the search button is clicked. Note that this does not initiate a search on its own, you need to perform the appropriate action in your event handler. You may use event.GetString() to retrieve the string to search for in the event handler code."/>
-    <event name="OnCancelButton" class="wxCommandEvent" help="Respond to a wxEVT_SEARCHCTRL_CANCEL_BTN event, generated when the cancel button is clicked."/>
+    <property name="search_button" type="bool" help="显示或隐藏搜索按钮。">1</property>
+    <property name="cancel_button" type="bool" help="显示或隐藏取消按钮。">0</property>
+    <event name="OnText" class="wxCommandEvent" help="响应文本更改时生成的wxEVT_COMMAND_TEXT_UPDATED事件。请注意，当文本控件的内容发生更改时，无论是由于用户输入还是来自程序本身（例如，如果调用SetValue()），都会发送此事件"/>
+    <event name="OnTextEnter" class="wxCommandEvent" help="响应文本控件中按下回车键时生成的wxEVT_COMMAND_TEXT_ENTER事件（要生成此事件，必须具有wxTE_PROCESS_ENTER样式）"/>
+    <event name="OnSearchButton" class="wxCommandEvent" help="响应单击搜索按钮时生成的wxEVT_SEARCHTRL_SEARCH_BTN事件。请注意，这不会单独启动搜索，您需要在事件处理程序中执行适当的操作。您可以使用event.GetString()来检索要在事件处理程序代码中搜索的字符串。"/>
+    <event name="OnCancelButton" class="wxCommandEvent" help="响应单击取消按钮时生成的wxEVT_SEARCHTRL_CANCEL_BTN事件。"/>
   </objectinfo>
 
   <objectinfo class="wxColourPickerCtrl" startgroup="1" icon="colourPickerIcon.xpm" type="widget">
@@ -128,13 +128,13 @@ Written by
     <inherits class="Validator"/>
     <property name="name" type="text">m_colourPicker</property>
     <property name="style" type="bitlist">
-      <option name="wxCLRP_DEFAULT_STYLE" help="The default style: 0."/>
-      <option name="wxCLRP_USE_TEXTCTRL" help="Creates a text control to the left of the picker button which is completely managed by the wxColourPickerCtrl and which can be used by the user to specify a colour. The text control is automatically synchronized with button's value. Use functions defined in wxPickerBase to modify the text control."/>
-      <option name="wxCLRP_SHOW_LABEL" help="Shows the colour in HTML form (AABBCC) as colour button label (instead of no label at all)."/>
+      <option name="wxCLRP_DEFAULT_STYLE" help="默认样式:0。"/>
+      <option name="wxCLRP_USE_TEXTCTRL" help="在选择器按钮左侧创建一个文本控件，该控件完全由wxColourPickerCtrl管理，用户可以使用该控件指定颜色。文本控件会自动与按钮的值同步。使用wxPickerBase中定义的函数来修改文本控件。"/>
+      <option name="wxCLRP_SHOW_LABEL" help="将HTML表单（AABBCC）中的颜色显示为颜色按钮标签（而不是完全没有标签）。"/>
       wxCLRP_DEFAULT_STYLE
     </property>
     <property name="colour" type="wxColour"/>
-    <event name="OnColourChanged" class="wxColourPickerEvent" help="The user changed the colour selected in the control either using the button or using text control (see wxCLRP_USE_TEXTCTRL; note that in this case the event is fired only if the user's input is valid, i.e. recognizable)."/>
+    <event name="OnColourChanged" class="wxColourPickerEvent" help="用户使用按钮或文本控件更改控件中选择的颜色（请参阅wxCLRP_USE_TEXTCTRL；注意，在这种情况下，只有当用户的输入有效时，即可识别时，才会触发事件）。"/>
   </objectinfo>
 
   <objectinfo class="wxFontPickerCtrl" icon="fontPicker.xpm" type="widget">
@@ -143,15 +143,15 @@ Written by
     <inherits class="Validator"/>
     <property name="name" type="text">m_fontPicker</property>
     <property name="style" type="bitlist">
-      <option name="wxFNTP_DEFAULT_STYLE" help="The default style: wxFNTP_FONTDESC_AS_LABEL | wxFNTP_USEFONT_FOR_LABEL."/>
-      <option name="wxFNTP_USE_TEXTCTRL" help="Creates a text control to the left of the picker button which is completely managed by the wxFontPickerCtrl and which can be used by the user to specify a font (see SetSelectedFont). The text control is automatically synchronized with button's value. Use functions defined in wxPickerBase to modify the text control."/>
-      <option name="wxFNTP_FONTDESC_AS_LABEL" help="Keeps the label of the button updated with the fontface name and the font size. E.g. choosing &quot;Times New Roman bold, italic with size 10&quot; from the fontdialog, will update the label (overwriting any previous label) with the &quot;Times New Roman, 10&quot; text."/>
-      <option name="wxFNTP_USEFONT_FOR_LABEL" help="Uses the currently selected font to draw the label of the button."/>
+      <option name="wxFNTP_DEFAULT_STYLE" help="默认样式：wxFNTP_FONTDESC_AS_LABEL | wxFNTP_USEFONT_FOR_LABEL."/>
+      <option name="wxFNTP_USE_TEXTCTRL" help="在选择器按钮左侧创建一个文本控件，该控件完全由wxFontPickerCtrl管理，用户可以使用该控件来指定字体（请参阅SetSelectedFont）。文本控件会自动与按钮的值同步。使用wxPickerBase中定义的函数来修改文本控件。"/>
+      <option name="wxFNTP_FONTDESC_AS_LABEL" help="使用字体名称和字体大小保持按钮标签的更新。例如，选择 &quot;新罗马粗体，斜体，大小为10&quot; 从字体对话框将用“覆盖”更新标签（覆盖任何先前的标签） &quot;新罗马字体, 大小为10&quot; 。"/>
+      <option name="wxFNTP_USEFONT_FOR_LABEL" help="使用当前选定的字体绘制按钮的标签。"/>
       wxFNTP_DEFAULT_STYLE
     </property>
     <property name="value" type="wxFont"/>
-    <property name="max_point_size" type="uint" help="Sets the maximum point size value allowed for the user-chosen font. The default value is 100. Note that big fonts can require a lot of memory and CPU time both for creation and for rendering; thus, specially because the user has the option to specify the fontsize through a text control (see wxFNTP_USE_TEXTCTRL), it's a good idea to put a limit to the maximum font size when huge fonts do not make much sense.">100</property>
-    <event name="OnFontChanged" class="wxFontPickerEvent" help="The user changed the font selected in the control either using the button or using text control (see wxFNTP_USE_TEXTCTRL; note that in this case the event is fired only if the user's input is valid, i.e. recognizable)."/>
+    <property name="max_point_size" type="uint" help="设置用户选择的字体所允许的最大点大小值。默认值为100。请注意，大字体可能需要大量的内存和CPU时间来创建和渲染；因此，特别是因为用户可以选择通过文本控件指定字体大小（请参见wxFNTP_USE_TEXTCTRL），所以当巨大的字体没有多大意义时，最好限制最大字体大小。">100</property>
+    <event name="OnFontChanged" class="wxFontPickerEvent" help="用户使用按钮或文本控件更改了控件中选择的字体（请参阅wxFNTP_USE_TEXTCTRL；注意，在这种情况下，只有当用户的输入有效时，即可识别时，才会触发事件）。"/>
   </objectinfo>
 
   <objectinfo class="wxFilePickerCtrl" icon="filePicker.xpm" type="widget">
@@ -160,20 +160,20 @@ Written by
     <inherits class="Validator"/>
     <property name="name" type="text">m_filePicker</property>
     <property name="style" type="bitlist">
-      <option name="wxFLP_DEFAULT_STYLE" help="The default style: includes wxFLP_OPEN | wxFLP_FILE_MUST_EXIST and, under wxMSW only, wxFLP_USE_TEXTCTRL."/>
-      <option name="wxFLP_USE_TEXTCTRL" help="Creates a text control to the left of the picker button which is completely managed by the wxFilePickerCtrl and which can be used by the user to specify a path (see SetPath). The text control is automatically synchronized with button's value. Use functions defined in wxPickerBase to modify the text control."/>
-      <option name="wxFLP_OPEN" help="Creates a picker which allows the user to select a file to open."/>
-      <option name="wxFLP_SAVE" help="Creates a picker which allows the user to select a file to save."/>
-      <option name="wxFLP_OVERWRITE_PROMPT" help="Can be combined with wxFLP_SAVE only: ask confirmation to the user before selecting a file."/>
-      <option name="wxFLP_FILE_MUST_EXIST" help="Can be combined with wxFLP_OPEN only: the selected file must be an existing file."/>
-      <option name="wxFLP_CHANGE_DIR" help="Change current working directory on each user file selection change."/>
-      <option name="wxFLP_SMALL" help="Use smaller version of the control with a small &quot;...&quot; button instead of the normal &quot;Browse&quot; one. This flag is new since wxWidgets 2.9.3."/>
+      <option name="wxFLP_DEFAULT_STYLE" help="默认样式：包括wxFLP_OPEN | wxFLF_FILE_MUST_EXIST，以及仅在wxMSW下的wxFLP_USE_TEXTCTRL。"/>
+      <option name="wxFLP_USE_TEXTCTRL" help="在选择器按钮左侧创建一个文本控件，该控件完全由wxFilePickerCtrl管理，用户可以使用该控件来指定路径（请参见SetPath）。文本控件会自动与按钮的值同步。使用wxPickerBase中定义的函数来修改文本控件。"/>
+      <option name="wxFLP_OPEN" help="创建一个选择器，允许用户选择要打开的文件。"/>
+      <option name="wxFLP_SAVE" help="创建一个选择器，允许用户选择要保存的文件。"/>
+      <option name="wxFLP_OVERWRITE_PROMPT" help="只能与wxFLP_SAVE组合使用：在选择文件之前向用户询问确认。"/>
+      <option name="wxFLP_FILE_MUST_EXIST" help="只能与wxFLP_OPEN组合使用：所选文件必须是现有文件。"/>
+      <option name="wxFLP_CHANGE_DIR" help="在每次用户文件选择更改时更改当前工作目录。"/>
+      <option name="wxFLP_SMALL" help="使用带有small &quot;...&quot; 的控件的较小版本按钮而不是普通的按钮 &quot;浏览&quot; 这个标志是自wxWidgets 2.9.3以来的新标志"/>
       wxFLP_DEFAULT_STYLE
     </property>
     <property name="value" type="wxString"/>
     <property name="message" type="wxString_i18n">Select a file</property>
     <property name="wildcard" type="wxString_i18n">*.*</property>
-    <event name="OnFileChanged" class="wxFileDirPickerEvent" help="The user changed the file selected in the control either using the button or using text control (see wxFLP_USE_TEXTCTRL; note that in this case the event is fired only if the user's input is valid, e.g. an existing file path if wxFLP_FILE_MUST_EXIST was given)."/>
+    <event name="OnFileChanged" class="wxFileDirPickerEvent" help="用户使用按钮或使用文本控件更改了控件中选择的文件（请参阅wxFLP_USE_TEXTCTRL；注意，在这种情况下，只有当用户的输入有效时，才会触发事件，例如，如果给定wxFLP_file_MUST_EXIST，则为现有文件路径）。"/>
   </objectinfo>
 
   <objectinfo class="wxDirPickerCtrl" icon="dirPicker.xpm" type="widget">
@@ -182,16 +182,16 @@ Written by
     <inherits class="Validator"/>
     <property name="name" type="text">m_dirPicker</property>
     <property name="style" type="bitlist">
-      <option name="wxDIRP_DEFAULT_STYLE" help="The default style: includes wxDIRP_DIR_MUST_EXIST and, under wxMSW only, wxDIRP_USE_TEXTCTRL."/>
-      <option name="wxDIRP_USE_TEXTCTRL" help="Creates a text control to the left of the picker button which is completely managed by the wxDirPickerCtrl and which can be used by the user to specify a path (see SetPath). The text control is automatically synchronized with button's value. Use functions defined in wxPickerBase to modify the text control."/>
-      <option name="wxDIRP_DIR_MUST_EXIST" help="Creates a picker which allows to select only existing directories. wxGTK control always adds this flag internally as it does not support its absence."/>
-      <option name="wxDIRP_CHANGE_DIR" help="Change current working directory on each user directory selection change."/>
-      <option name="wxDIRP_SMALL" help="Use smaller version of the control with a small &quot;...&quot; button instead of the normal &quot;Browse&quot; one. This flag is new since wxWidgets 2.9.3."/>
+      <option name="wxDIRP_DEFAULT_STYLE" help="默认样式：包括wxDIRP_DIR_MUST_EXIST，并且仅在wxMSW下包括wxDIRP_USE_TEXTCTRL。"/>
+      <option name="wxDIRP_USE_TEXTCTRL" help="在选择器按钮左侧创建一个文本控件，该控件完全由wxDirPickerCtrl管理，用户可以使用该控件来指定路径（请参见SetPath）。文本控件会自动与按钮的值同步。使用wxPickerBase中定义的函数来修改文本控件。"/>
+      <option name="wxDIRP_DIR_MUST_EXIST" help="创建一个选择器，该选择器只允许选择现有目录。wxGTK控件总是在内部添加此标志，因为它不支持它的缺失。"/>
+      <option name="wxDIRP_CHANGE_DIR" help="在每次用户目录选择更改时更改当前工作目录。"/>
+      <option name="wxDIRP_SMALL" help="使用带有small &quot;...&quot; 的控件的较小版本按钮而不是普通的按钮 &quot;浏览&quot; 这个标志是自wxWidgets 2.9.3以来的新标志"/>
       wxDIRP_DEFAULT_STYLE
     </property>
     <property name="value" type="wxString"/>
     <property name="message" type="wxString_i18n">Select a folder</property>
-    <event name="OnDirChanged" class="wxFileDirPickerEvent" help="The user changed the directory selected in the control either using the button or using text control (see wxDIRP_USE_TEXTCTRL; note that in this case the event is fired only if the user's input is valid, e.g. an existing directory path)."/>
+    <event name="OnDirChanged" class="wxFileDirPickerEvent" help="用户使用按钮或文本控件更改了控件中选择的目录（请参阅wxDIRP_USE_TEXTCTRL；注意，在这种情况下，只有当用户的输入有效时，例如，现有目录路径），才会触发事件。"/>
   </objectinfo>
 
   <objectinfo class="wxDatePickerCtrl" icon="datepicker.xpm" type="widget">
@@ -200,14 +200,14 @@ Written by
     <inherits class="Validator"/>
     <property name="name" type="text">m_datePicker</property>
     <property name="style" type="bitlist">
-      <option name="wxDP_SPIN" help="Creates a control without a month calendar drop down but with spin-control-like arrows to change individual date components. This style is not supported by the generic version."/>
-      <option name="wxDP_DROPDOWN" help="Creates a control with a month calendar drop-down part from which the user can select a date. This style is not supported in OSX/Cocoa native version."/>
-      <option name="wxDP_SHOWCENTURY" help="Forces display of the century in the default date format. Without this style the century could be displayed, or not, depending on the default date representation in the system. This style is not supported in OSX/Cocoa native version currently."/>
-      <option name="wxDP_ALLOWNONE" help="With this style, the control allows the user to not enter any valid date at all. Without it - the default - the control always has some valid date. This style is not supported in OSX/Cocoa native version."/>
-      <option name="wxDP_DEFAULT" help="Creates a control with the style that is best supported for the current platform (currently wxDP_SPIN under Windows and OSX/Cocoa and wxDP_DROPDOWN elsewhere)."/>
+      <option name="wxDP_SPIN" help="创建一个控件，该控件没有月历下拉菜单，但使用箭头之类的旋转控件来更改各个日期组件。通用版本不支持此样式。"/>
+      <option name="wxDP_DROPDOWN" help="创建一个带有月历下拉部分的控件，用户可以从中选择日期。OSX/Cocoa本机版本不支持此样式。"/>
+      <option name="wxDP_SHOWCENTURY" help="强制以默认日期格式显示世纪。如果没有这种样式，世纪可以显示，也可以不显示，这取决于系统中的默认日期表示。OSX/Cocoa本机版本当前不支持此样式。"/>
+      <option name="wxDP_ALLOWNONE" help="使用此样式，控件允许用户根本不输入任何有效日期。如果没有它（默认值），控件总是有一些有效日期。OSX/Cocoa本机版本不支持此样式。"/>
+      <option name="wxDP_DEFAULT" help="使用当前平台最支持的样式创建控件（当前在Windows和OSX/Cocoa下为wxDP_SPIN，在其他地方为wxDD_DROPDOWN）。"/>
       wxDP_DEFAULT
     </property>
-    <event name="OnDateChanged" class="wxDateEvent" help="This event fires when the user changes the current selection in the control."/>
+    <event name="OnDateChanged" class="wxDateEvent" help="当用户更改控件中的当前选择时触发此事件。"/>
   </objectinfo>
 
   <objectinfo class="wxTimePickerCtrl" icon="timepicker.xpm" type="widget">
@@ -216,10 +216,10 @@ Written by
     <inherits class="Validator"/>
     <property name="name" type="text">m_timePicker</property>
     <property name="style" type="bitlist">
-      <option name="wxTP_DEFAULT" help="Creates a control with the style that is best supported for the current platform (currently wxDP_SPIN under Windows and wxDP_DROPDOWN elsewhere)."/>
+      <option name="wxTP_DEFAULT" help="使用当前平台最支持的样式创建控件（当前在Windows下为wxDP_SPIN，在其他地方为wxDP_DROPDOWN）。"/>
       wxTP_DEFAULT
     </property>
-    <event name="OnTimeChanged" class="wxDateEvent" help="This event fires when the user changes the current selection in the control."/>
+    <event name="OnTimeChanged" class="wxDateEvent" help="当用户更改控件中的当前选择时触发此事件。"/>
   </objectinfo>
 
   <objectinfo class="wxCalendarCtrl" startgroup="1" icon="calendar.xpm" type="widget">
@@ -228,24 +228,24 @@ Written by
     <inherits class="Validator"/>
     <property name="name" type="text">m_calendar</property>
     <property name="style" type="bitlist">
-      <option name="wxCAL_SUNDAY_FIRST" help="Show Sunday as the first day in the week (not in wxGTK)"/>
-      <option name="wxCAL_MONDAY_FIRST" help="Show Monday as the first day in the week (not in wxGTK)"/>
-      <option name="wxCAL_SHOW_HOLIDAYS" help="Highlight holidays in the calendar (only generic)"/>
-      <option name="wxCAL_NO_YEAR_CHANGE" help="Disable the year changing (deprecated, only generic)"/>
-      <option name="wxCAL_NO_MONTH_CHANGE" help="Disable the month (and, implicitly, the year) changing"/>
-      <option name="wxCAL_SHOW_SURROUNDING_WEEKS" help="Show the neighbouring weeks in the previous and next months (only generic, always on for the native controls)"/>
-      <option name="wxCAL_SEQUENTIAL_MONTH_SELECTION" help="Use alternative, more compact, style for the month and year selection controls (only generic)"/>
-      <option name="wxCAL_SHOW_WEEK_NUMBERS" help="Show week numbers on the left side of the calendar (not in generic)"/>
+      <option name="wxCAL_SUNDAY_FIRST" help="将星期日显示为一周的第一天(在wxGTK中不显示)"/>
+      <option name="wxCAL_MONDAY_FIRST" help="将星期一显示为一周的第一天(在wxGTK中不显示)"/>
+      <option name="wxCAL_SHOW_HOLIDAYS" help="突出显示日历中的节假日(仅适用于一般节假日)"/>
+      <option name="wxCAL_NO_YEAR_CHANGE" help="禁用年份更改(已弃用，仅为通用)"/>
+      <option name="wxCAL_NO_MONTH_CHANGE" help="禁用月份（以及隐含的年份）更改"/>
+      <option name="wxCAL_SHOW_SURROUNDING_WEEKS" help="显示上个月和下个月的相邻周（仅通用，对于本机控件始终打开）"/>
+      <option name="wxCAL_SEQUENTIAL_MONTH_SELECTION" help="对月份和年份选择控件使用替代的、更紧凑的样式（仅通用）"/>
+      <option name="wxCAL_SHOW_WEEK_NUMBERS" help="在日历左侧显示周数(非通用)"/>
       wxCAL_SHOW_HOLIDAYS
     </property>
-    <event name="OnCalendar" class="wxCalendarEvent" help="A day was double clicked in the calendar."/>
-    <event name="OnCalendarSelChanged" class="wxCalendarEvent" help="The selected date changed."/>
-    <event name="OnCalendarPageChanged" class="wxCalendarEvent" help="The selected month (and/or year) changed."/>
-    <event name="OnCalendarDay" class="wxCalendarEvent" help="The selected day changed."/>
-    <event name="OnCalendarMonth" class="wxCalendarEvent" help="The selected month changed."/>
-    <event name="OnCalendarYear" class="wxCalendarEvent" help="The selected year changed."/>
-    <event name="OnCalendarWeekDayClicked" class="wxCalendarEvent" help="User clicked on the week day header (only generic)."/>
-    <event name="OnCalendarWeekClicked" class="wxCalendarEvent" help="User clicked on the week of the year number (only generic)."/>
+    <event name="OnCalendar" class="wxCalendarEvent" help="双击日历中的一天。"/>
+    <event name="OnCalendarSelChanged" class="wxCalendarEvent" help="所选日期已更改。"/>
+    <event name="OnCalendarPageChanged" class="wxCalendarEvent" help="所选月份（和/或年份）已更改。"/>
+    <event name="OnCalendarDay" class="wxCalendarEvent" help="所选日期已更改。"/>
+    <event name="OnCalendarMonth" class="wxCalendarEvent" help="所选月份已更改。"/>
+    <event name="OnCalendarYear" class="wxCalendarEvent" help="所选年份已更改。"/>
+    <event name="OnCalendarWeekDayClicked" class="wxCalendarEvent" help="用户单击了星期一标题（仅通用）。"/>
+    <event name="OnCalendarWeekClicked" class="wxCalendarEvent" help="用户单击年份的第几周(仅为通用)。"/>
   </objectinfo>
 
   <objectinfo class="wxScrollBar" icon="scrollbar.xpm" type="widget">
@@ -253,35 +253,35 @@ Written by
     <inherits class="AUI"/>
     <inherits class="Validator"/>
     <property name="name" type="text">m_scrollBar</property>
-    <property name="value" help="The position of the scrollbar in scroll units." type="uint">0</property>
-    <property name="range" help="The maximum position of the scrollbar." type="uint">100</property>
-    <property name="thumbsize" help="The size of the thumb, or visible portion of the scrollbar, in scroll units." type="uint">1</property>
-    <property name="pagesize" help="This is the number of scroll units that will be scrolled when the user pages up or down." type="uint">1</property>
+    <property name="value" help="滚动条在滚动单元中的位置。" type="uint">0</property>
+    <property name="range" help="滚动条的最大位置。" type="uint">100</property>
+    <property name="thumbsize" help="在滚动单元中，翻阅的大小或滚动条的可见部分。" type="uint">1</property>
+    <property name="pagesize" help="这是当用户向上或向下翻页时将滚动的滚动单元数。" type="uint">1</property>
     <property name="style" type="option">
-      <option name="wxSB_HORIZONTAL" help="Specifies a horizontal scrollbar."/>
-      <option name="wxSB_VERTICAL" help="Specifies a vertical scrollbar."/>
+      <option name="wxSB_HORIZONTAL" help="指定水平滚动条。"/>
+      <option name="wxSB_VERTICAL" help="指定垂直滚动条。"/>
       wxSB_HORIZONTAL
     </property>
-    <event name="OnScroll" class="wxScrollEvent" help="Process all scroll events."/>
-    <event name="OnScrollTop" class="wxScrollEvent" help="Process wxEVT_SCROLL_TOP scroll-to-top events (minimum position)."/>
-    <event name="OnScrollBottom" class="wxScrollEvent" help="Process wxEVT_SCROLL_BOTTOM scroll-to-bottom events (maximum position)."/>
-    <event name="OnScrollLineUp" class="wxScrollEvent" help="Process wxEVT_SCROLL_LINEUP line up events."/>
-    <event name="OnScrollLineDown" class="wxScrollEvent" help="Process wxEVT_SCROLL_LINEDOWN line down events."/>
-    <event name="OnScrollPageUp" class="wxScrollEvent" help="Process wxEVT_SCROLL_PAGEUP page up events."/>
-    <event name="OnScrollPageDown" class="wxScrollEvent" help="Process wxEVT_SCROLL_PAGEDOWN page down events."/>
-    <event name="OnScrollThumbTrack" class="wxScrollEvent" help="Process wxEVT_SCROLL_THUMBTRACK thumbtrack events (frequent events sent as the user drags the thumbtrack)."/>
-    <event name="OnScrollThumbRelease" class="wxScrollEvent" help="Process wxEVT_SCROLL_THUMBRELEASE thumb release events."/>
-    <event name="OnScrollChanged" class="wxScrollEvent" help="Process wxEVT_SCROLL_CHANGED end of scrolling events (MSW only)."/>
-    <event name="OnCommandScroll" class="wxScrollEvent" help="Process all scroll events. Variant taking a window identifier."/>
-    <event name="OnCommandScrollTop" class="wxScrollEvent" help="Process wxEVT_SCROLL_TOP scroll-to-top events (minimum position). Variant taking a window identifier."/>
-    <event name="OnCommandScrollBottom" class="wxScrollEvent" help="Process wxEVT_SCROLL_BOTTOM scroll-to-bottom events (maximum position). Variant taking a window identifier."/>
-    <event name="OnCommandScrollLineUp" class="wxScrollEvent" help="Process wxEVT_SCROLL_LINEUP line up events. Variant taking a window identifier."/>
-    <event name="OnCommandScrollLineDown" class="wxScrollEvent" help="Process wxEVT_SCROLL_LINEDOWN line down events. Variant taking a window identifier."/>
-    <event name="OnCommandScrollPageUp" class="wxScrollEvent" help="Process wxEVT_SCROLL_PAGEUP page up events. Variant taking a window identifier."/>
-    <event name="OnCommandScrollPageDown" class="wxScrollEvent" help="Process wxEVT_SCROLL_PAGEDOWN page down events. Variant taking a window identifier."/>
-    <event name="OnCommandScrollThumbTrack" class="wxScrollEvent" help="Process wxEVT_SCROLL_THUMBTRACK thumbtrack events (frequent events sent as the user drags the thumbtrack). Variant taking a window identifier."/>
-    <event name="OnCommandScrollThumbRelease" class="wxScrollEvent" help="Process wxEVT_SCROLL_THUMBRELEASE thumb release events. Variant taking a window identifier."/>
-    <event name="OnCommandScrollChanged" class="wxScrollEvent" help="Process wxEVT_SCROLL_CHANGED end of scrolling events (MSW only). Variant taking a window identifier."/>
+    <event name="OnScroll" class="wxScrollEvent" help="处理所有滚动事件。"/>
+    <event name="OnScrollTop" class="wxScrollEvent" help="处理wxEVT_SCROLL_TOP滚动到顶部事件（最小位置）。"/>
+    <event name="OnScrollBottom" class="wxScrollEvent" help="处理wxEVT_SCROLL_BOTTOM滚动到底部事件（最大位置）。"/>
+    <event name="OnScrollLineUp" class="wxScrollEvent" help="处理wxEVT_SCROLL_LINEUP排队事件。"/>
+    <event name="OnScrollLineDown" class="wxScrollEvent" help="处理wxEVT_SCROLL_LINEDOWN行下事件。"/>
+    <event name="OnScrollPageUp" class="wxScrollEvent" help="处理wxEVT_SCROLL_PAGEUP翻页事件。"/>
+    <event name="OnScrollPageDown" class="wxScrollEvent" help="处理wxEVT_SCROLL_PAGEDOWN页面下移事件。"/>
+    <event name="OnScrollThumbTrack" class="wxScrollEvent" help="处理wxEVT_SCROLL_THUMBTRACK拇指轨迹事件（用户拖动拇指轨迹时发送的频繁事件）。"/>
+    <event name="OnScrollThumbRelease" class="wxScrollEvent" help="处理wxEVT_SCROLL_THUMBRELEASE拇指释放事件。"/>
+    <event name="OnScrollChanged" class="wxScrollEvent" help="处理wxEVT_SCROLL_CHANGED滚动结束事件（仅限MSW）。"/>
+    <event name="OnCommandScroll" class="wxScrollEvent" help="处理所有滚动事件。 采用窗口标识符的变量。"/>
+    <event name="OnCommandScrollTop" class="wxScrollEvent" help="处理wxEVT_SCROLL_TOP滚动到顶部事件（最小位置）。 采用窗口标识符的变量。"/>
+    <event name="OnCommandScrollBottom" class="wxScrollEvent" help="处理wxEVT_SCROLL_BOTTOM滚动到底部事件（最大位置）。 采用窗口标识符的变量。"/>
+    <event name="OnCommandScrollLineUp" class="wxScrollEvent" help="处理wxEVT_SCROLL_LINEUP排队事件。 采用窗口标识符的变量。"/>
+    <event name="OnCommandScrollLineDown" class="wxScrollEvent" help="处理wxEVT_SCROLL_LINEDOWN行下事件。 采用窗口标识符的变量。"/>
+    <event name="OnCommandScrollPageUp" class="wxScrollEvent" help="处理wxEVT_SCROLL_PAGEUP翻页事件。 采用窗口标识符的变量。"/>
+    <event name="OnCommandScrollPageDown" class="wxScrollEvent" help="处理wxEVT_SCROLL_PAGEDOWN页面下移事件。 采用窗口标识符的变量。"/>
+    <event name="OnCommandScrollThumbTrack" class="wxScrollEvent" help="处理wxEVT_SCROLL_THUMBTRACK拇指轨迹事件（用户拖动拇指轨迹时发送的频繁事件）。 采用窗口标识符的变量。"/>
+    <event name="OnCommandScrollThumbRelease" class="wxScrollEvent" help="处理wxEVT_SCROLL_THUMBRELEASE拇指释放事件。 采用窗口标识符的变量。"/>
+    <event name="OnCommandScrollChanged" class="wxScrollEvent" help="处理wxEVT_SCROLL_CHANGED滚动结束事件（仅限MSW）。 采用窗口标识符的变量。"/>
   </objectinfo>
 
   <objectinfo class="wxSpinCtrl" icon="spin_ctrl.xpm" type="widget">
@@ -289,21 +289,21 @@ Written by
     <inherits class="AUI"/>
     <property name="name" type="text">m_spinCtrl</property>
     <property name="value" type="wxString"></property>
-    <property name="min" type="int" help="Minimal value.">0</property>
-    <property name="max" type="int" help="Maximal value.">10</property>
-    <property name="initial" type="int" help="Initial value.">0</property>
+    <property name="min" type="int" help="最小值">0</property>
+    <property name="max" type="int" help="最大值">10</property>
+    <property name="initial" type="int" help="初始值">0</property>
     <property name="style" type="bitlist">
-      <option name="wxSP_ARROW_KEYS" help="The user can use arrow keys to change the value."/>
-      <option name="wxSP_WRAP" help="The value wraps at the minimum and maximum."/>
-      <option name="wxTE_PROCESS_ENTER" help="The control will generate the event wxEVT_COMMAND_TEXT_ENTER (otherwise pressing Enter key is either processed internally by the control or used for navigation between dialog controls)."/>
-      <option name="wxALIGN_LEFT" help="Same as wxTE_LEFT for wxTextCtrl: the text is left aligned."/>
-      <option name="wxALIGN_CENTER_HORIZONTAL" help="Same as wxTE_CENTER for wxTextCtrl: the text is centered."/>
-      <option name="wxALIGN_RIGHT" help="Same as wxTE_RIGHT for wxTextCtrl: the text is right aligned (this is the default)."/>
+      <option name="wxSP_ARROW_KEYS" help="用户可以使用箭头键来更改值。"/>
+      <option name="wxSP_WRAP" help="该值在最小值和最大值之间换行。"/>
+      <option name="wxTE_PROCESS_ENTER" help="控件将生成事件wxEVT_COMMAND_TEXT_ENTER（否则按ENTER键将由控件内部处理或用于对话框控件之间的导航）。"/>
+      <option name="wxALIGN_LEFT" help="与wxTextCtrl的wxTE_LEFT相同：文本左对齐。"/>
+      <option name="wxALIGN_CENTER_HORIZONTAL" help="与wxTextCtrl的wxTE_CENTER相同：文本居中。"/>
+      <option name="wxALIGN_RIGHT" help="与wxTextCtrl的wxTE_RIGHT相同：文本右对齐（这是默认设置）。"/>
       wxSP_ARROW_KEYS
     </property>
-    <event name="OnSpinCtrl" class="wxSpinEvent" help="Generated whenever the numeric value of the spinctrl is updated."/>
-    <event name="OnSpinCtrlText" class="wxCommandEvent" help="Generated whenever the user modifies the text in the edit part of the spin control directly."/>
-    <event name="OnTextEnter" class="wxCommandEvent" help="Respond to a wxEVT_COMMAND_TEXT_ENTER event, generated when enter is pressed in the edit part of the spin control (which must have wxTE_PROCESS_ENTER style for this event to be generated)."/>
+    <event name="OnSpinCtrl" class="wxSpinEvent" help="每当spinctrl的数值更新时生成。"/>
+    <event name="OnSpinCtrlText" class="wxCommandEvent" help="每当用户直接修改旋转控件的编辑部分中的文本时生成。"/>
+    <event name="OnTextEnter" class="wxCommandEvent" help="响应wxEVT_COMMAND_TEXT_ENTER事件，该事件是在旋转控件的编辑部分中按下回车键时生成的（要生成此事件，必须具有wxTE_PROCESS_ENTER样式）。"/>
   </objectinfo>
 
   <objectinfo class="wxSpinCtrlDouble" icon="spin_ctrl_double.xpm" type="widget">
@@ -311,23 +311,23 @@ Written by
     <inherits class="AUI"/>
     <property name="name" type="text">m_spinCtrlDouble</property>
     <property name="value" type="wxString"></property>
-    <property name="min" type="float" help="Minimal value.">0</property>
-    <property name="max" type="float" help="Maximal value.">100</property>
-    <property name="initial" type="float" help="Initial value.">0</property>
-    <property name="inc" type="float" help="Increment value.">1</property>
-    <property name="digits" type="uint" help="The number of digits in the display.">0</property>
+    <property name="min" type="float" help="最小值">0</property>
+    <property name="max" type="float" help="最大值">100</property>
+    <property name="initial" type="float" help="初始值">0</property>
+    <property name="inc" type="float" help="增量值。">1</property>
+    <property name="digits" type="uint" help="显示屏中的位数。">0</property>
     <property name="style" type="bitlist">
-      <option name="wxSP_ARROW_KEYS" help="The user can use arrow keys to change the value."/>
-      <option name="wxSP_WRAP" help="The value wraps at the minimum and maximum."/>
-      <option name="wxTE_PROCESS_ENTER" help="The control will generate the event wxEVT_COMMAND_TEXT_ENTER (otherwise pressing Enter key is either processed internally by the control or used for navigation between dialog controls)."/>
-      <option name="wxALIGN_LEFT" help="Same as wxTE_LEFT for wxTextCtrl: the text is left aligned."/>
-      <option name="wxALIGN_CENTER_HORIZONTAL" help="Same as wxTE_CENTER for wxTextCtrl: the text is centered."/>
-      <option name="wxALIGN_RIGHT" help="Same as wxTE_RIGHT for wxTextCtrl: the text is right aligned (this is the default)."/>
+      <option name="wxSP_ARROW_KEYS" help="用户可以使用箭头键来更改值。"/>
+      <option name="wxSP_WRAP" help="该值在最小值和最大值之间换行。"/>
+      <option name="wxTE_PROCESS_ENTER" help="控件将生成事件wxEVT_COMMAND_TEXT_ENTER（否则按ENTER键将由控件内部处理或用于对话框控件之间的导航）。"/>
+      <option name="wxALIGN_LEFT" help="与wxTextCtrl的wxTE_LEFT相同：文本左对齐。"/>
+      <option name="wxALIGN_CENTER_HORIZONTAL" help="与wxTextCtrl的wxTE_CENTER相同：文本居中。"/>
+      <option name="wxALIGN_RIGHT" help="与wxTextCtrl的wxTE_RIGHT相同：文本右对齐（这是默认设置）。"/>
       wxSP_ARROW_KEYS
     </property>
-    <event name="OnSpinCtrlDouble" class="wxSpinDoubleEvent" help="Generated whenever the numeric value of the control is updated."/>
-    <event name="OnSpinCtrlText" class="wxCommandEvent" help="Generated whenever the user modifies the text in the edit part of the spin control directly."/>
-    <event name="OnTextEnter" class="wxCommandEvent" help="Respond to a wxEVT_COMMAND_TEXT_ENTER event, generated when enter is pressed in the edit part of the spin control (which must have wxTE_PROCESS_ENTER style for this event to be generated)."/>
+    <event name="OnSpinCtrlDouble" class="wxSpinDoubleEvent" help="每当更新控件的数值时生成。"/>
+    <event name="OnSpinCtrlText" class="wxCommandEvent" help="每当用户直接修改旋转控件的编辑部分中的文本时生成。"/>
+    <event name="OnTextEnter" class="wxCommandEvent" help="响应wxEVT_COMMAND_TEXT_ENTER事件，该事件是在旋转控件的编辑部分中按下回车键时生成的（要生成此事件，必须具有wxTE_PROCESS_ENTER样式）。"/>
   </objectinfo>
 
   <objectinfo class="wxSpinButton" icon="spinbtn.xpm" type="widget">
@@ -335,34 +335,34 @@ Written by
     <inherits class="AUI"/>
     <property name="name" type="text">m_spinBtn</property>
     <property name="style" type="bitlist">
-      <option name="wxSP_HORIZONTAL" help="Specifies a horizontal spin button (note that this style is not supported in wxGTK)."/>
-      <option name="wxSP_VERTICAL" help="Specifies a vertical spin button."/>
-      <option name="wxSP_ARROW_KEYS" help="The user can use arrow keys to change the value."/>
-      <option name="wxSP_WRAP" help="The value wraps at the minimum and maximum."/>
+      <option name="wxSP_HORIZONTAL" help="指定水平旋转按钮（请注意，wxGTK中不支持此样式）。"/>
+      <option name="wxSP_VERTICAL" help="指定垂直旋转按钮。"/>
+      <option name="wxSP_ARROW_KEYS" help="用户可以使用箭头键来更改值。"/>
+      <option name="wxSP_WRAP" help="该值在最小值和最大值之间换行。"/>
     </property>
-    <event name="OnSpin" class="wxSpinEvent" help="Generated whenever an arrow is pressed."/>
-    <event name="OnSpinUp" class="wxSpinEvent" help="Generated when left/up arrow is pressed."/>
-    <event name="OnSpinDown" class="wxSpinEvent" help="Generated when right/down arrow is pressed."/>
+    <event name="OnSpin" class="wxSpinEvent" help="每当按下箭头时生成"/>
+    <event name="OnSpinUp" class="wxSpinEvent" help="按下向左/向上箭头时生成。"/>
+    <event name="OnSpinDown" class="wxSpinEvent" help="按下向右/向下箭头时生成。"/>
   </objectinfo>
 
   <objectinfo class="wxHyperlinkCtrl" icon="hyperlink_ctrl.xpm" type="widget">
     <inherits class="wxWindow"/>
     <inherits class="AUI"/>
     <property name="name" type="text">m_hyperlink</property>
-    <property name="label" type="wxString_i18n" help="Text of the hyperlink">wxFB Website</property>
-    <property name="url" type="wxString" help="Target of the hyperlink">http://www.wxformbuilder.org</property>
-    <property name="hover_color" type="wxColour" help="The colour used to print the label of the hyperlink when the mouse is over the control."/>
-    <property name="normal_color" type="wxColour" help="The colour used to print the label when the link has never been clicked before (i.e. the link has not been visited) and the mouse is not over the control."/>
-    <property name="visited_color" type="wxColour" help="The colour used to print the label when the mouse is not over the control and the link has already been clicked before (i.e. the link has been visited)."/>
+    <property name="label" type="wxString_i18n" help="超链接的文本">wxFB Website</property>
+    <property name="url" type="wxString" help="将文本向左对齐。">http://www.wxformbuilder.org</property>
+    <property name="hover_color" type="wxColour" help="wxHyperlinkCtrl:wxNO_BORDER|wxHL_CONTEXTMENU|wxHL_ALIGN_CENTRE的默认样式。"/>
+    <property name="normal_color" type="wxColour" help="当以前从未单击过链接（即未访问过链接）并且鼠标未处于控件上方时，用于打印标签的颜色。"/>
+    <property name="visited_color" type="wxColour" help="当鼠标未在控件上并且链接之前已被单击（即链接已被访问）时，用于打印标签的颜色。"/>
     <property name="style" type="bitlist">
-      <option name="wxHL_ALIGN_LEFT" help="Align the text to the left."/>
-      <option name="wxHL_ALIGN_RIGHT" help="Align the text to the right."/>
-      <option name="wxHL_ALIGN_CENTRE" help="Center the text (horizontally)."/>
-      <option name="wxHL_CONTEXTMENU" help="Pop up a context menu when the hyperlink is right-clicked. The context menu contains a &quot;Copy URL&quot; menu item which is automatically handled by the hyperlink and which just copies in the clipboard the URL (not the label) of the control."/>
-      <option name="wxHL_DEFAULT_STYLE" help="The default style for wxHyperlinkCtrl: wxNO_BORDER|wxHL_CONTEXTMENU|wxHL_ALIGN_CENTRE."/>
+      <option name="wxHL_ALIGN_LEFT" help="将文本向左对齐。"/>
+      <option name="wxHL_ALIGN_RIGHT" help="将文本向右对齐。"/>
+      <option name="wxHL_ALIGN_CENTRE" help="将文字居中(水平)。"/>
+      <option name="wxHL_CONTEXTMENU" help="右键单击超链接时会弹出上下文菜单。上下文菜单包含一个 &quot;复制URL&quot; 菜单项，该菜单项由超链接自动处理，并且仅在剪贴板中复制控件的URL（而不是标签）。"/>
+      <option name="wxHL_DEFAULT_STYLE" help="wxHyperlinkCtrl:wxNO_BORDER|wxHL_CONTEXTMENU|wxHL_ALIGN_CENTRE的默认样式。"/>
       wxHL_DEFAULT_STYLE
     </property>
-    <event name="OnHyperlink" class="wxHyperlinkEvent" help="The hyperlink was (left) clicked. If this event is not handled in user's code (or it's skipped; see wxEvent::Skip), then a call to wxLaunchDefaultBrowser is done with the hyperlink's URL."/>
+    <event name="OnHyperlink" class="wxHyperlinkEvent" help="单击了（左侧）超链接。如果此事件未在用户代码中处理（或已跳过,请参阅wxEvent::Skip），则会使用超链接的URL调用wxLaunchDefaultBrowser。"/>
   </objectinfo>
 
   <objectinfo class="wxGenericDirCtrl" icon="genericdir_ctrl.xpm" type="expanded_widget">
@@ -372,21 +372,21 @@ Written by
     </inherits>
     <inherits class="AUI"/>
     <property name="name" type="text">m_genericDirCtrl</property>
-    <property name="defaultfolder" type="wxString_i18n" help="Initial Directory."/>
-    <property name="filter" type="wxString_i18n" help="A filter string, using the same syntax as that for wxFileDialog. This may be empty if filters are not being used. Example: &quot;All files (*.*)|*.*|JPEG files (*.jpg)|*.jpg&quot;."/>
-    <property name="defaultfilter" type="uint" help="The zero-indexed default filter setting.">0</property>
-    <property name="show_hidden" type="bool" help="Show hidden files">0</property>
+    <property name="defaultfolder" type="wxString_i18n" help="初始目录"/>
+    <property name="filter" type="wxString_i18n" help="示例：&quot;所有文件 (*.*)|*.*|JPEG文件 (*.jpg)|*.jpg&quot;。"/>
+    <property name="defaultfilter" type="uint" help="索引为零的默认筛选器设置。">0</property>
+    <property name="show_hidden" type="bool" help="显示隐藏文件">0</property>
     <property name="style" type="bitlist">
-      <option name="wxDIRCTRL_DIR_ONLY" help="Only show directories, and not files."/>
-      <option name="wxDIRCTRL_3D_INTERNAL" help="Use 3D borders for internal controls."/>
-      <option name="wxDIRCTRL_SELECT_FIRST" help="When setting the default path, select the first file in the directory."/>
-      <option name="wxDIRCTRL_SHOW_FILTERS" help="Show the drop-down filter list."/>
-      <option name="wxDIRCTRL_EDIT_LABELS" help="Allow the folder and file labels to be editable."/>
-      <option name="wxDIRCTRL_MULTIPLE" help="Allows multiple files and folders to be selected simultaneously"/>
+      <option name="wxDIRCTRL_DIR_ONLY" help="只显示目录，不显示文件。"/>
+      <option name="wxDIRCTRL_3D_INTERNAL" help="内部控件使用3D边框。"/>
+      <option name="wxDIRCTRL_SELECT_FIRST" help="设置默认路径时，请选择该目录下的第一个文件。"/>
+      <option name="wxDIRCTRL_SHOW_FILTERS" help="显示下拉筛选器列表。"/>
+      <option name="wxDIRCTRL_EDIT_LABELS" help="允许文件夹和文件标签可编辑。"/>
+      <option name="wxDIRCTRL_MULTIPLE" help="允许同时选择多个文件和文件夹"/>
       wxDIRCTRL_3D_INTERNAL
     </property>
-    <event name="OnDirctrlSelectionChanged" class="wxCommandEvent" help="Selected directory has changed. Processes a wxEVT_DIRCTRL_SELECTIONCHANGED event type. Notice that this event is generated even for the changes done by the program itself and not only those done by the user. Available since wxWidgets 2.9.5."/>
-    <event name="OnDirctrlFileActivated" class="wxCommandEvent" help="The user activated a file by double-clicking or pressing Enter. Available since wxWidgets 2.9.5."/>
+    <event name="OnDirctrlSelectionChanged" class="wxCommandEvent" help="所选目录已更改。处理wxEVT_DIRCTRL_SELECTIONCHANGED事件类型。请注意，即使是程序本身所做的更改，也会生成此事件，而不仅仅是用户所做的那些更改。自wxWidgets 2.9.5起提供。"/>
+    <event name="OnDirctrlFileActivated" class="wxCommandEvent" help="用户通过双击或按Enter键激活了一个文件。自wxWidgets 2.9.5起提供。"/>
   </objectinfo>
 
   <objectinfo class="wxMediaCtrl" icon="media_ctrl.xpm" type="widget">
@@ -394,56 +394,56 @@ Written by
     <inherits class="wxWindow"/>
     <inherits class="AUI"/>
     <property name="name" type="text">m_mediaCtrl</property>
-    <property name="file" type="file" help="The path to media file."/>
-    <property name="play" type="bool" help="Play the media file."/>
-    <property name="playback_rate" type="float" help="Sets the playback rate, or speed of the media, to that referred by dRate. 1.0 represents normal speed, while 2.0 represents twice the normal speed of the media, for example. Not supported on the GStreamer (Unix) backend.">1</property>
-    <property name="volume" type="float" help="Sets the volume of the media from a 0.0 to 1.0 range to that referred by dVolume. 1.0 represents full volume, while 0.5 represents half (50 percent) volume, for example. Note that this may not be exact due to conversion and rounding errors, although setting the volume to full or none is always exact.">1</property>
+    <property name="file" type="file" help="媒体文件的路径。"/>
+    <property name="play" type="bool" help="播放媒体文件。"/>
+    <property name="playback_rate" type="float" help="将播放速率或媒体的速度设置为 dRate 引用的速率。例如，1.0表示正常速度，而2.0表示两倍于媒体的正常速度。GStreamer（Unix）后端不支持。">1</property>
+    <property name="volume" type="float" help="将媒体的音量从0.0到1.0的范围设置为dVolume引用的音量范围。例如，1.0表示全音量, 而0.5表示一半(50%)的音量, 请注意，由于转换和舍入错误，这可能并不准确，尽管将音量设置为满或无总是准确的。">1</property>
     <property name="player_controls" type="option">
-      <option name="STEP" help="wxMEDIACTRLPLAYERCONTROLS_STEP, Step controls like fastfoward, step one frame etc. "/>
-      <option name="VOLUME" help="wxMEDIACTRLPLAYERCONTROLS_VOLUME, Volume controls like the speaker icon, volume slider, etc. "/>
-      <option name="DEFAULT" help="wxMEDIACTRLPLAYERCONTROLS_DEFAULT, Default controls for the toolkit. Currently a typedef for wxMEDIACTRLPLAYERCONTROLS_STEP and wxMEDIACTRLPLAYERCONTROLS_VOLUME. "/>
-      <option name="NONE" help="wxMEDIACTRLPLAYERCONTROLS_NONE, No controls. return wxMediaCtrl to it's default state. "/>
+      <option name="STEP" help="wxMEDIACTRLPLAYERCONTROLS_STEP，步进控制，如快进、步进一帧等。 "/>
+      <option name="VOLUME" help="wxMEDIACTRLPLAYERCONTROLS_VOLUME，音量控制，如扬声器图标、音量滑块等。"/>
+      <option name="DEFAULT" help="wxMEDIACTRLPLAYERCONTROLS_DEFAULT，工具箱的默认控件。当前是wxMEDIACTRLPLAYEERCONTROLS_STEP和wxMEDIACTRLPLAYERCONTROLS_VOLUME的typedef。"/>
+      <option name="NONE" help="wxMEDIACTRLPLAYERCONTROLS_NONE，无控件。将wxMediaCtrl返回到其默认状态。"/>
     </property>
   </objectinfo>
 
   <objectinfo class="CustomControl" startgroup="1" icon="custom_control.xpm" type="widget">
     <inherits class="wxWindow"/>
     <inherits class="AUI"/>
-    <property name="name" type="text" help="The control is added to a sizer using this name.">m_customControl</property>
-    <property name="class" type="text" help="The control is generated to XRC with this class."/>
-    <property name="declaration" type="text" help="Code to generate for the declaration of this control."/>
-    <property name="construction" type="text" help="Code to generate for the construction of this control."/>
-    <property name="include" type="text" help="Code to generate for the include statements for this control."/>
-    <property name="settings" type="text" help="Code to generate for the settings of this control."/>
+    <property name="name" type="text" help="控件将使用此名称添加到sizer中。">m_customControl</property>
+    <property name="class" type="text" help="控件用这个类生成到XRC。"/>
+    <property name="declaration" type="text" help="要为此控件的声明生成的代码。"/>
+    <property name="construction" type="text" help="要为此控件的构造生成的代码。"/>
+    <property name="include" type="text" help="要为此控件的include语句生成的代码。"/>
+    <property name="settings" type="text" help="要为此控件的设置生成的代码。"/>
   </objectinfo>
 
   <objectinfo class="CustomCode" startgroup="1" icon="customcode.xpm" type="nonvisual">
-    <property name="name" type="text" help="Informal name, this is not used in the generated file and therefor doesn't need to be unique">MyCode</property>
+    <property name="name" type="text" help="非正式名称，它不用于生成的文件，因此不需要是唯一的">MyCode</property>
     <category name="C++">
-      <property name="include_cpp" type="text" help="Optional include directive for c++"></property>
-      <property name="code_cpp" type="text" help="This custom code fragment gets inserted as is at the current position into the generated c++ file"></property>
+      <property name="include_cpp" type="text" help="c++的可选include指令"></property>
+      <property name="code_cpp" type="text" help="这个自定义代码片段在当前位置按原样插入到生成的c++文件中"></property>
     </category>
     <category name="Python">
-      <property name="import_python" type="text" help="Optional import directive for python"></property>
-      <property name="code_python" type="text" help="This custom code fragment gets inserted as is at the current position into the generated python file"></property>
+      <property name="import_python" type="text" help="python的可选导入指令"></property>
+      <property name="code_python" type="text" help="这个自定义代码片段在当前位置按原样插入到生成的python文件中"></property>
     </category>
     <category name="PHP">
-      <property name="require_php" type="text" help="Optional require directive for php"></property>
-      <property name="code_php" type="text" help="This custom code fragment gets inserted as is at the current position into the generated php file"></property>
+      <property name="require_php" type="text" help="php的可选require指令"></property>
+      <property name="code_php" type="text" help="这个自定义代码片段在当前位置按原样插入到生成的php文件中"></property>
     </category>
     <category name="Lua">
-      <property name="require_lua" type="text" help="Optional require directive for lua"></property>
-      <property name="code_lua" type="text" help="This custom code fragment gets inserted as is at the current position into the generated lua file"></property>
+      <property name="require_lua" type="text" help="lua的可选require指令"></property>
+      <property name="code_lua" type="text" help="这个自定义代码片段在当前位置按原样插入到生成的lua文件中"></property>
     </category>
   </objectinfo>
 
   <objectinfo class="wxTimer" icon="timer.xpm" type="nonvisual">
-    <property name="name" type="text" help="wxTimer object name.">m_timer</property>
-    <property name="id" type="macro" help="Timer identifier.">wxID_ANY</property>
-    <property name="period" type="int" help="Timer period in milliseconds.">1000</property>
-    <property name="enabled" type="bool" help="Enable timer on startup.">0</property>
-    <property name="oneshot" type="bool" help="Produce timer event just once.">0</property>
-    <event name="OnTimer" class="wxTimerEvent" help="Process a wxEVT_TIMER event, when the timer ticks."/>
+    <property name="name" type="text" help="wxTimer对象名称。">m_timer</property>
+    <property name="id" type="macro" help="计时器标识符。">wxID_ANY</property>
+    <property name="period" type="int" help="定时器周期，单位为毫秒。">1000</property>
+    <property name="enabled" type="bool" help="启动时启用计时器。">0</property>
+    <property name="oneshot" type="bool" help="只产生一次计时器事件。">0</property>
+    <event name="OnTimer" class="wxTimerEvent" help="当计时器滴答作响时，处理wxEVT_TIMER事件。"/>
   </objectinfo>
 
 </package>

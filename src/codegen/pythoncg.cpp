@@ -238,7 +238,7 @@ wxString PythonTemplateParser::ValueToCode(PropertyType type, wxString value)
 
             if (path.StartsWith(wxT("file:"))) {
                 wxLogWarning(
-                  wxT("Python code generation does not support using URLs for bitmap properties:\n%s"), path);
+                  wxT("Python代码生成不支持将URLs用于位图属性:\n%s"), path);
                 result = wxT("wx.NullBitmap");
                 break;
             }
@@ -361,12 +361,12 @@ wxString PythonCodeGenerator::ConvertPythonString(wxString text)
 void PythonCodeGenerator::GenerateInheritedClass(PObjectBase userClasses, PObjectBase form)
 {
     if (!userClasses) {
-        wxLogError(wxT("There is no object to generate inherited class"));
+        wxLogError(wxT("没有要生成继承类的对象"));
         return;
     }
 
     if (wxT("UserClasses") != userClasses->GetClassName()) {
-        wxLogError(wxT("This not a UserClasses object"));
+        wxLogError(wxT("这不是UserClasses对象"));
         return;
     }
 
@@ -418,7 +418,7 @@ void PythonCodeGenerator::GenerateInheritedClass(PObjectBase userClasses, PObjec
 bool PythonCodeGenerator::GenerateCode(PObjectBase project)
 {
     if (!project) {
-        wxLogError(wxT("There is no project to generate code"));
+        wxLogError(wxT("没有要生成代码的项目"));
         return false;
     }
 
@@ -441,8 +441,8 @@ bool PythonCodeGenerator::GenerateCode(PObjectBase project)
 
     code = wxString::Format(
       wxT("###########################################################################\n")
-        wxT("## Python code generated with wxFormBuilder (version %s%s)\n") wxT("## http://www.wxformbuilder.org/\n")
-          wxT("##\n") wxT("## PLEASE DO *NOT* EDIT THIS FILE!\n")
+        wxT("## 使用wxFormBuilder生成的Python代码 (version %s%s)\n") wxT("## http://www.wxformbuilder.org/\n")
+          wxT("##\n") wxT("## 请 *不要* 编辑这个文件!\n")
             wxT("###########################################################################\n"),
       getVersion(), getPostfixRevision(getVersion()).c_str());
 
@@ -451,7 +451,7 @@ bool PythonCodeGenerator::GenerateCode(PObjectBase project)
 
     PProperty propFile = project->GetProperty(wxT("file"));
     if (!propFile) {
-        wxLogError(wxT("Missing \"file\" property on Project Object"));
+        wxLogError(wxT("项目对象上缺少 \"file\" 属性"));
         return false;
     }
 
@@ -526,23 +526,23 @@ void PythonCodeGenerator::GenEvents(PObjectBase class_obj, const EventVector& ev
     }
 
     if (disconnect) {
-        m_source->WriteLn(wxT("# Disconnect Events"));
+        m_source->WriteLn(wxT("# 断开连接事件"));
     } else {
         m_source->WriteLn();
-        m_source->WriteLn(wxT("# Connect Events"));
+        m_source->WriteLn(wxT("# 连接事件"));
     }
 
     PProperty propName = class_obj->GetProperty(wxT("name"));
     if (!propName) {
         wxLogError(
-          wxT("Missing \"name\" property on \"%s\" class. Review your XML object description"),
+          wxT("类缺少\"name\"属性。检查XML对象描述"),
           class_obj->GetClassName());
         return;
     }
 
     wxString class_name = propName->GetValue();
     if (class_name.empty()) {
-        wxLogError(wxT("Object name cannot be null"));
+        wxLogError(wxT("对象名称不能为空"));
         return;
     }
 
@@ -571,7 +571,7 @@ void PythonCodeGenerator::GenEvents(PObjectBase class_obj, const EventVector& ev
             PObjectBase obj = event->GetObject();
             if (!GenEventEntry(obj, obj->GetObjectInfo(), templateName, handlerName, disconnect)) {
                 wxLogError(
-                  wxT("Missing \"evt_%s\" template for \"%s\" class. Review your XML object description"), templateName,
+                  wxT("\"evt_%s\" 类缺少 \"%s\" 模板。检查XML对象描述。"), templateName,
                   class_name);
             }
         }
@@ -627,7 +627,7 @@ void PythonCodeGenerator::GenVirtualEventHandlers(const EventVector& events, con
         // execute properly.
         // So we create a default handler which will skip the event.
         m_source->WriteLn(wxEmptyString);
-        m_source->WriteLn(wxT("# Virtual event handlers, override them in your derived class"));
+        m_source->WriteLn(wxT("# 虚拟事件处理程序，在派生类中重写它们"));
 
         std::set<wxString> generatedHandlers;
         for (size_t i = 0; i < events.size(); i++) {
@@ -685,7 +685,7 @@ void PythonCodeGenerator::GenDefinedEventHandlers(PObjectInfo info, PObjectBase 
 void PythonCodeGenerator::GenImagePathWrapperFunction()
 {
     if (!m_imagePathWrapperFunctionName.empty()) {
-        m_source->WriteLn(wxT("# Virtual image path resolution method. Override this in your derived class."));
+        m_source->WriteLn(wxT("# 虚拟图像路径解析方法。在派生类中重写此方法。"));
         wxString decl = wxT("def ") + m_imagePathWrapperFunctionName + wxT("( self, bitmap_path ):");
         m_source->WriteLn(decl);
         m_source->Indent();
@@ -704,7 +704,7 @@ wxString PythonCodeGenerator::GetCode(PObjectBase obj, wxString name, bool silen
     if (!code_info) {
         if (!silent) {
             wxString msg(wxString::Format(
-              wxT("Missing \"%s\" template for \"%s\" class. Review your XML object description"), name,
+              wxT("\"%s\" 类缺少 \"%s\" 模板。检查XML对象描述。"), name,
               obj->GetClassName()));
             wxLogError(msg);
         }
@@ -795,14 +795,14 @@ void PythonCodeGenerator::GenClassDeclaration(
     PProperty propName = class_obj->GetProperty(wxT("name"));
     if (!propName) {
         wxLogError(
-          wxT("Missing \"name\" property on \"%s\" class. Review your XML object description"),
+          wxT("\"name\" 类缺少 \"%s\" 属性。检查XML对象描述"),
           class_obj->GetClassName());
         return;
     }
 
     wxString class_name = propName->GetValue();
     if (class_name.empty()) {
-        wxLogError(wxT("Object name can not be null"));
+        wxLogError(wxT("对象名称不能为空"));
         return;
     }
 
@@ -1134,7 +1134,7 @@ void PythonCodeGenerator::GenConstruction(PObjectBase obj, bool is_widget, Array
                     break;
                 }
                 default:
-                    wxLogError(wxT("Missing subwindows for wxSplitterWindow widget."));
+                    wxLogError(wxT("缺少wxSplitterWindow小部件的子窗口。"));
                     break;
             }
         } else if (
@@ -1162,7 +1162,7 @@ void PythonCodeGenerator::GenConstruction(PObjectBase obj, bool is_widget, Array
         } else if (childInfo->GetClassName() == wxT("spacer")) {
             temp_name = wxT("spacer_add");
         } else {
-            LogDebug(wxT("SizerItem child is not a Spacer and is not a subclass of wxWindow or of sizer."));
+            LogDebug(wxT("SizerItem子类不是间隔符，也不是wxWindow或sizer的子类。"));
             return;
         }
 
@@ -1288,7 +1288,7 @@ void PythonCodeGenerator::GenDefines(PObjectBase project)
 
     unsigned int id = m_firstID;
     if (id < 1000) {
-        wxLogWarning(wxT("First ID is Less than 1000"));
+        wxLogWarning(wxT("第一个ID小于1000"));
     }
     for (it = macros.begin(); it != macros.end(); it++) {
         // Don't redefine wx IDs

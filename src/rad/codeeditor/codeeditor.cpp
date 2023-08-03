@@ -125,7 +125,7 @@ void CodeEditor::OnFind(wxFindDialogEvent& event)
     }
     if (wxSTC_INVALID_POSITION == result) {
         wxMessageBox(
-          wxString::Format(_("\"%s\" not found!"), event.GetFindString()), _("Not Found!"), wxICON_ERROR,
+          wxString::Format(_("\"%s\" 未找到!"), event.GetFindString()), _("Not Found!"), wxICON_ERROR,
           (wxWindow*)event.GetClientData());
     } else {
         m_code->EnsureCaretVisible();
